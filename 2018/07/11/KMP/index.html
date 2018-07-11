@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="KMP(Knuth–Morris–Pratt algorithm)演算法String Searching運用位移來處理字串搜尋問題中譯「字串搜尋」兩個字串 T 和 P找出 T 當中是否有一段字串正好是 P並且找出位置。  註：字串搜尋當中，我們通常將兩字串的象徵符號取做 T 和 P ， T 意指 text ， P 意指 pattern 。可以想作是從長篇文字 T 之中搜索小段文字 P 。  T:">
+  <meta name="description" content="KMP(Knuth–Morris–Pratt algorithm)演算法String Searching 運用位移來處理字串搜尋問題中譯”字串搜尋”:兩個字串 T 和 P  找出 T 當中是否有一段字串正好是 P 並且找出位置  註：字串搜尋當中，我們通常將兩字串的象徵符號取做 T 和 P ， T 意指 text ， P 意指 pattern 。可以想作是從長篇文字 T 之中搜索小段文字 P 。">
 <meta name="keywords" content="Java,Learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="KMP">
+<meta property="og:title" content="KMP演算法">
 <meta property="og:url" content="http://yoursite.com/2018/07/11/KMP/index.html">
 <meta property="og:site_name" content="LucyKuo">
-<meta property="og:description" content="KMP(Knuth–Morris–Pratt algorithm)演算法String Searching運用位移來處理字串搜尋問題中譯「字串搜尋」兩個字串 T 和 P找出 T 當中是否有一段字串正好是 P並且找出位置。  註：字串搜尋當中，我們通常將兩字串的象徵符號取做 T 和 P ， T 意指 text ， P 意指 pattern 。可以想作是從長篇文字 T 之中搜索小段文字 P 。  T:">
+<meta property="og:description" content="KMP(Knuth–Morris–Pratt algorithm)演算法String Searching 運用位移來處理字串搜尋問題中譯”字串搜尋”:兩個字串 T 和 P  找出 T 當中是否有一段字串正好是 P 並且找出位置  註：字串搜尋當中，我們通常將兩字串的象徵符號取做 T 和 P ， T 意指 text ， P 意指 pattern 。可以想作是從長篇文字 T 之中搜索小段文字 P 。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-11T07:42:35.533Z">
+<meta property="og:updated_time" content="2018-07-11T08:09:42.622Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KMP">
-<meta name="twitter:description" content="KMP(Knuth–Morris–Pratt algorithm)演算法String Searching運用位移來處理字串搜尋問題中譯「字串搜尋」兩個字串 T 和 P找出 T 當中是否有一段字串正好是 P並且找出位置。  註：字串搜尋當中，我們通常將兩字串的象徵符號取做 T 和 P ， T 意指 text ， P 意指 pattern 。可以想作是從長篇文字 T 之中搜索小段文字 P 。  T:">
+<meta name="twitter:title" content="KMP演算法">
+<meta name="twitter:description" content="KMP(Knuth–Morris–Pratt algorithm)演算法String Searching 運用位移來處理字串搜尋問題中譯”字串搜尋”:兩個字串 T 和 P  找出 T 當中是否有一段字串正好是 P 並且找出位置  註：字串搜尋當中，我們通常將兩字串的象徵符號取做 T 和 P ， T 意指 text ， P 意指 pattern 。可以想作是從長篇文字 T 之中搜索小段文字 P 。">
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>KMP | LucyKuo</title>
+  <title>KMP演算法 | LucyKuo</title>
   
 
 
@@ -322,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">KMP
+          <h1 class="post-title" itemprop="name headline">KMP演算法
               
             
           </h1>
@@ -347,7 +347,7 @@
                 
               
 
-              <time title="Created: 2018-07-11 14:36:52 / Modified: 15:42:35" itemprop="dateCreated datePublished" datetime="2018-07-11T14:36:52+08:00">2018-07-11</time>
+              <time title="Created: 2018-07-11 14:36:52 / Modified: 16:09:42" itemprop="dateCreated datePublished" datetime="2018-07-11T14:36:52+08:00">2018-07-11</time>
             
 
             
@@ -403,23 +403,23 @@
       
 
       
-        <h2 id="KMP-Knuth–Morris–Pratt-algorithm-演算法"><a href="#KMP-Knuth–Morris–Pratt-algorithm-演算法" class="headerlink" title="KMP(Knuth–Morris–Pratt algorithm)演算法"></a>KMP(Knuth–Morris–Pratt algorithm)演算法</h2><h3 id="String-Searching運用位移來處理字串搜尋問題"><a href="#String-Searching運用位移來處理字串搜尋問題" class="headerlink" title="String Searching運用位移來處理字串搜尋問題"></a>String Searching運用位移來處理字串搜尋問題</h3><p>中譯「字串搜尋」<br>兩個字串 T 和 P<br>找出 T 當中是否有一段字串正好是 P<br>並且找出位置。</p>
+        <h2 id="KMP-Knuth–Morris–Pratt-algorithm-演算法"><a href="#KMP-Knuth–Morris–Pratt-algorithm-演算法" class="headerlink" title="KMP(Knuth–Morris–Pratt algorithm)演算法"></a>KMP(Knuth–Morris–Pratt algorithm)演算法</h2><h3 id="String-Searching-運用位移來處理字串搜尋問題"><a href="#String-Searching-運用位移來處理字串搜尋問題" class="headerlink" title="String Searching 運用位移來處理字串搜尋問題"></a>String Searching 運用位移來處理字串搜尋問題</h3><p>中譯”字串搜尋”:<br>兩個字串 T 和 P  找出 T 當中是否有一段字串正好是 P 並且找出位置</p>
 <blockquote>
 <p>註：字串搜尋當中，我們通常將兩字串的象徵符號取做 T 和 P ， T 意指 text ， P 意指 pattern 。可以想作是從長篇文字 T 之中搜索小段文字 P 。</p>
 </blockquote>
-<p>T: ababcabc<br>P: abc</p>
-<pre><code>ababcabc    ababcabc
-  |||            |||
-  abc            abc
-</code></pre><p>T中有兩個地方出現P</p>
-<p>最直覺的演算法就是窮舉法：<br>挪動 P<br>對準 T 的各個位置<br>逐一比對字元<br>判斷是否相等<br>–&gt; 時間複雜度為 O(TP) 。</p>
-<p>T: ababcabc<br>P: abc</p>
+<pre><code>T:  ababcabc
+P: abc
+
+ababcabc    ababcabc
+|||            |||
+abc            abc
+</code></pre><p>T中有兩個地方出現P<br>最直覺的演算法就是窮舉法：<br>挪動 P  對準 T 的各個位置  逐一比對字元  判斷是否相等<br>–&gt; 時間複雜度為 O(TP) 。</p>
+<p>T:  ababcabc<br>P: abc</p>
 <pre><code>0.         1.         2.         3.         4.         5.
 ababcabc   ababcabc   ababcabc   ababcabc   ababcabc   ababcabc
 |||         |||         |||         |||         |||         |||
 abc         abc         abc         abc         abc         abc
 (X)         (X)         (O)         (X)         (X)         (O)
-
 
 void string_searching()
 {
@@ -444,79 +444,104 @@ if (find)
 cout &lt;&lt; &quot;T的第&quot; &lt;&lt; i &lt;&lt; &quot;個字元開始為P&quot;;
 }
 }
-</code></pre><h3 id="Morris-Pratt-Algorithm"><a href="#Morris-Pratt-Algorithm" class="headerlink" title="Morris-Pratt Algorithm"></a>Morris-Pratt Algorithm</h3><p>1.<br>T: aabzabzabcz<br>P: abzabc</p>
+</code></pre><h3 id="failure-function-窮舉法-prefix-function-border-function-–-gt"><a href="#failure-function-窮舉法-prefix-function-border-function-–-gt" class="headerlink" title="failure function 窮舉法 (prefix function/ border function )–&gt;"></a>failure function 窮舉法 (prefix function/ border function )–&gt;</h3><p>窮舉法的過程當中，當前比對成功的字串片段，是 P 的前綴。因為我們無法預測是 P 的哪幾個前綴，<br>所以我們可以預先計算 P 的每一個前綴的「次長的相同前綴後綴」，以備不時之需</p>
+<p>failure function 是一個字串函數：輸入字串的其中一個前綴，則輸出該前綴的「次長的相同前綴後綴」。</p>
+<pre><code>012345
+abzabc
+
+prefix | border |failure function| implementation
+-------|--------|----------------|----------------
+Ø      | Ø      | f(Ø)      = Ø  |
+a      | Ø      | f(a)      = Ø  | failure[0] = -1
+ab     | Ø      | f(ab)     = Ø  | failure[1] = -1
+abz    | Ø      | f(abz)    = Ø  | failure[2] = -1
+abza   | a      | f(abza)   = a  | failure[3] =  0
+abzab  | ab     | f(abzab)  = ab | failure[4] =  1
+abzabc | Ø      | f(abzabc) = Ø  | failure[5] = -1
+</code></pre><p>計算 failure function ，一般是利用 Dynamic Programming 。<br>分割問題的方式，是 P[0…i] 拿掉尾端字元 P[i] ，利用已知的「次長的相同前綴後綴」，得到 P[0…i] 的「次長的相同前綴後綴」。</p>
+<pre><code>// p[0...i] 的「次長的相同前綴後綴」是 p[0...failure[i]]。
+// failure[] 值為 -1 時，代表「次長的相同前綴後綴」為空字串。
+int failure[100];
+
+void failure(string&amp; p)
+{
+// iterative, bottom-up DP
+for (int i=1, j=failure[0]=-1; i&lt;p.size(); ++i)
+{
+// 先試 p[0...i-1] 的「次長的相同前綴後綴」，
+// 也就是 p[0...failure[i-1]] = p[0...j]。
+// 再試 p[0...j] 的「次長的相同前綴後綴」，
+// 也就是 p[0...failure[j]]。
+// 再試 p[0...failure[j]] 的「次長的相同前綴後綴」……
+// 直到試成功為止。
+while (j &gt;= 0 &amp;&amp; p[j+1] != p[i])
+j = failure[j];
+
+// p[i] 終於有用處了，終於可以加長！
+if (p[j+1] == p[i]) j++;
+
+// 得到了 failure[i] 的值！
+failure[i] = j;
+}
+}
+</code></pre><p>稱作 failure function ，是因為比對失敗時，就會使用它。<br>稱作 prefix function ，是因為此函數的定義域是 prefix 。稱作 border function ，是因為此函數的值域是 border 。</p>
+<h3 id="Morris-Pratt-Algorithm"><a href="#Morris-Pratt-Algorithm" class="headerlink" title="Morris-Pratt Algorithm"></a>Morris-Pratt Algorithm</h3><p>1.<br>T: aabzabzabcz<br>P:abzabc</p>
 <p>2.<br>窮舉法，從左往右逐步挪動P。</p>
 <pre><code>aabzabzabcz   aabzabzabcz   aabzabzabcz
 ||||||         ||||||         ||||||      ......
 abzabc         abzabc         abzabc
 (X)            (X)            (X)
-</code></pre><p>2.<br>仔細看窮舉法，是從左往右一一比對字元，一旦發現字元不同，就馬上往右挪動P。</p>
-<p>V              V            V              V<br>aabzabzabcz   aabzabzabcz  aabzabzabcz   aabzabzabcz<br>|             |X            |             ||<br>abzabc        abzabc        abzabc        abzabc</p>
-<p>V             V               V             V<br>aabzabzabcz  aabzabzabcz   aabzabzabcz   aabzabzabcz<br>|||          ||||          |||||         |||||X<br>abzabc       abzabc        abzabc        abzabc</p>
-<p>V             V              V              V<br>aabzabzabcz  aabzabzabcz   aabzabzabcz   aabzabzabcz<br>X             X              |             ||       ……<br>abzabc        abzabc         abzabc        abzabc</p>
-<p>3.<br>往右挪動P之前，當下比對成功的字串片段，abzab，其實可以好好利用！</p>
-<p>V<br>aabzabzabcz    -abzab—–<br>|||||X         |||||<br>abzabc         abzab-</p>
-<p>4.<br>觀察窮舉法的步驟順序，繼續往右挪動P，挪動一個位置、挪動兩個位置、……。</p>
-<p>-abzab—–   -abzab—–   -abzab—–<br>||||           |||            ||<br>abzab-         abzab-         abzab-</p>
-<p>-abzab—–   -abzab—–<br>|<br>abzab-         abzab-</p>
-<p>5.<br>換個角度觀察上述行為。<br>挪動一個位置：看看abzab的後四個字元，是不是前四個字元。<br>挪動兩個位置：看看abzab的後三個字元，是不是前三個字元。<br>　　　⋮　　　　　　　　　⋮　　　　　　　　　　⋮<br>　　　<br>　　　6.<br>　　　如果我們預先知道abzab的「次長的相同前綴後綴」是ab，<br>　　　就可以一口氣大幅挪動P，略過許多步驟：<br>　　　<br>　　　V                 V<br>　　　aabzabzabcz        aabzabzabcz<br>　　　|||||X      —&gt;      ||<br>　　　abzabc                abzabc<br>　　　<br>　　　7.<br>　　　從「V」處繼續向右一一比對字元。<br>　　　每當比對失敗、遇到相異字元，<br>　　　就故技重施，從當前比對成功的字串片段，取其「次長的相同前綴後綴」，大幅挪動P。<br>為了方便說明我先定義一些符號:<br>字串(string)<br>一個字串S = a_1 a_2 a_3 … a_n 是一個字母組成的sequence(序列)<br>其中定義S[1] = a_1,<br>S[2] = a_2,<br>…<br>S[i] = a_i.</p>
-<p>子字串(substring)<br>S[i:j]就表示 a_i a_i+1 … a_j-1 a_j //假設i&lt;=j<br>我們稱S[i:j]為S的子字串，當然特別有S = S[1:n]。</p>
-<p>EX: aaaab 就是 aaaaaabbb 的一個子字串</p>
-<p>前綴(prefix)<br>一個字串是長這樣子的話S = |————–|<br>那                    S’= |——|         S’就是S的一個prefix</p>
-<p>嚴格來說如果一個字串是S = S[1:n]<br>那                    S’= S[1:i] 當i&lt;=n時，S;就是S的一個prefix</p>
-<p>EX: a,ab,abc,abcd,abcde,abcdef 都是 abcdef 的前綴。</p>
-<p>F函數<br>從字串S中的i位置往前延伸，最多可以往前幾位(&lt; i)<br>使得往前的這個位數是S的前綴。</p>
-<p>嗯看起來非常繞口的一句話= =…<br>從數學上來看就是最大的滿足S[i‐F(i)+1:i] = S[1:F(i)]的數 且 F(i)&lt;i<br>不過如果不存在F(i) 就假設他 = 0吧～</p>
-<p>想必還是不懂所以就舉個例子吧：</p>
-<p>1 2 3 4 5 6 7 8 9 (index)<br>S = a b a b a a b a b<br>0 0 1 2 3 1 2 3 4 (F函數)</p>
-<p>如果還是不懂 就我們一個一個來看@_@</p>
-<p>F(1) = 0 因為 a babaabab<br>ababaabab</p>
-<p>F(2) = 0 因為 ab abaabab<br>ababaabab</p>
-<p>F(3) = 1 因為 aba baabab<br>a babaabab</p>
-<p>F(4) = 2 因為 abab aabab<br>ab abaabab</p>
-<p>F(5) = 3 因為 ababa abab<br>aba baabab<br>注意!雖然有       a babaabab 這樣子也可以match 但是不是最長前綴</p>
-<p>F(6) = 1 因為 ababaa bab<br>a babaabab</p>
-<p>F(7) = 2 因為 ababaab ab<br>ab abaabab</p>
-<p>F(8) = 3 因為 ababaaba b<br>aba baabab<br>a babaabab 也是但是不是最長</p>
-<p>F(9) = 4 因為 ababaabab<br>abab aabab<br>ab abaabab 也是但是不是最長</p>
-<p>看了一堆例子之後想必對F函數有點感覺了吧= =+<br>而這個F函數其實就是ＫＭＰ的精隨!!</p>
-<p>假設上面例子：如果 上面叫實體字串 下面叫虛擬字串<br>那當我們在配對實體字串的時候 同時也在配對虛擬字串!!</p>
-<p>意思就是我們在配對S[1:i]的時候 同時也配對了S[1:F(i)]<br>遞迴的來說 我們也同時配對了S[1:F(F(i))]也配對了S[1:F(F(…F(i)…))]<br>（假設後面那項都&gt;0的話）</p>
-<p>就像F(9)在配對S[1:9]時 同時也配對S[1:F(9)] = S[1:4]<br>同時也配對S[1:F(F(9))] = S[1:F(4)] = S[1:2] ！！</p>
-<p>有沒有清楚明白XD!? 好我假設有:p</p>
-<p>那你可能會想 這個F函數有什麼鳥用呢= =?</p>
-<p>就像老師上課說的因為當你把S跟T配對(T是pattern)時，<br>如果在某個時刻已經配對到”S中的i”跟”T中的j”也就是S[i-j+1:i] = T[1:j]<br>下一個要比對的就是S[i+1]跟T[j+1]是否相等？</p>
-<p>如果相等的話很好i++, j++。<br>如果不相等呢？<br>因為我們已經有T[1:j]的資訊了，所以不用再重新跑一次！</p>
-<p>因為我們知道S[i-j+1:i] = T[1:j]<br>S[i-F(j)+1:i] = T[1:F(j)]<br>S[i-F(F(j))+1:i] = T[1:F(F(j))]<br>S[i-F(F(..j..))+1:i] = T[1:F(F(..j..))]</p>
-<p>所以我們可以直接把j變成F(j)</p>
-<p>也就是比較S[i+1] T[F(j)+1]是不是相等？</p>
-<p>如果相等的話很好i++, j=F(j)+1。（如果先做了j=F(j)那就只要j++就好了）<br>如果不相等呢？<br>這樣的情況跟上面最一開始的情況一樣了!!</p>
-<p>總之就是一直做下去直到存在某個S[i+1] = T[F(F(..F(j)..))+1]</p>
-<p>覺得符號很多頭昏眼花? 沒關係，讓我們來舉個例子。</p>
-<p>0        1         2<br>1234567890123456789012<br>假設S = shikisfatabababahahaha<br>T = abababab<br>00123456 (T的F函式的值)</p>
-<p>假設現在match情況是這樣 shikisfatababab ahahaha   S[10:15] =<br>ababab ab        T[1:6]<br>其中i=15, j=6。</p>
-<p>則繼續往下比對之後會變成shikisfatabababa hahaha   S[10:16] =<br>abababa b        T[1:7]<br>其中i=16, j=7。<br>（因為S[16]==T[7]所以只要i++,j++就好了）</p>
-<p>然後繼續往下比對        shikisfatabababa hahaha   S[10:16]<br>abababa b        T[1:7]<br>但是因為S[17]!=T[8] 即’h’!=’b’所以會變成<br>shikisfatabababa hahaha   S[12:16]<br>ababa bab      T[1:F(7)] = T[1:5]<br>但是因為S[17]!=T[6] 所以變成<br>shikisfatabababa hahaha   S[14:16]<br>aba babab    T[1:F(5)] = T[1:3]<br>但是因為S[17]!=T[4] 所以變成<br>shikisfatabababa hahaha   S[16:16]<br>a bababab  T[1:F(3)] = T[1:1]<br>但是因為S[17]!=T[2] 所以變成<br>shikisfatabababa hahaha   S[17:16]<br>abababab T[1:F(1)] = T[1:0]</p>
-<p>有沒有點fu要怎麼用F來做比對了呢XDD?</p>
-<p>那現在問題轉一下變成了 要如何求出F呢@@!?</p>
-<p>我們可以利用一種類似遞推的方式</p>
-<p>明顯的F(1) = 0<br>假設我們已經知道F(2) F(3) … F(i-1) 那要怎麼求出F(i)呢?</p>
-<p>其實仔細想一下的話 就會發現求出F的過程就ST匹配方式一樣哇!!</p>
-<p>只是會變成T跟T自己做匹配而已:p</p>
-<p>假設T = ababaabab</p>
-<p>那麼一開始的話是<br>T = a babaabab        i = 1<br>ababaabab       j = 0<br>因為T[i+1]!=T[j+1] 且 j=0 所以F(2) = 0</p>
-<p>T = ab abaabab        i = 2<br>ababaabab      j = 0<br>因為T[i+1]==T[j+1] 所以F(3) = j+1 = 1</p>
-<p>T = aba baabab        i = 3<br>a babaabab      j = 1<br>因為T[i+1]==T[j+1] 所以F(4) = j+1 = 2</p>
-<p>T = abab aabab        i = 4<br>ab abaabab      j = 2<br>因為T[i+1]==T[j+1] 所以F(5) = j+1 = 3</p>
-<p>T = ababa abab        i = 5<br>aba baabab      j = 3     不合，故j=F(j)<br>T = ababa abab        i = 5<br>a babaabab    j = 1     不合，故j=F(j)<br>T = ababa abab        i = 5<br>ababaabab   j = 0<br>因為T[i+1]==T[j+1] 所以F(6) = j+1 = 1</p>
-<p>T = ababaa bab<br>a babaabab<br>因為T[i+1]==T[j+1] 所以F(7) = j+1 = 2</p>
-<p>T = ababaab ab<br>ab abaabab<br>因為T[i+1]==T[j+1] 所以F(8) = j+1 = 3</p>
-<p>T = ababaaba b<br>aba baabab<br>因為T[i+1]==T[j+1] 所以F(9) = j+1 = 4</p>
-<p>T = ababaabab<br>abab aabab<br>結束&gt;w&lt; ~~~~</p>
-<p>因此就得到F函數的值了&gt;w&lt; 呀乎(^o^)/</p>
-<p>會求F函數的值也就同時會String Matching了!!!</p>
-<p>不知道大家懂了沒=口=a</p>
-<p>總之概念大概就這樣囉～～實踐方面就要自己動腦了XD”</p>
+</code></pre><p>2.<br>仔細看窮舉法  是從左往右一一比對字元  一旦發現字元不同  就馬上往右挪動P</p>
+<pre><code>V              V            V              V
+aabzabzabcz   aabzabzabcz  aabzabzabcz   aabzabzabcz
+|             |X            |             ||
+abzabc        abzabc        abzabc        abzabc
+
+V             V               V             V
+aabzabzabcz  aabzabzabcz   aabzabzabcz   aabzabzabcz
+ |||          ||||          |||||         |||||X
+ abzabc       abzabc        abzabc        abzabc
+
+V             V              V              V
+aabzabzabcz  aabzabzabcz   aabzabzabcz   aabzabzabcz
+  X             X              |             ||       ......
+  abzabc        abzabc         abzabc        abzabc
+</code></pre><p>3.<br>往右挪動P之前  當下比對成功的字串片段  abzab  其實可以好好利用</p>
+<pre><code>V
+aabzabzabcz    -abzab-----
+ |||||X         |||||
+ abzabc         abzab-
+</code></pre><p>4.<br>觀察窮舉法的步驟順序  繼續往右挪動P  挪動一個位置、挪動兩個位置、……</p>
+<pre><code>-abzab-----   -abzab-----   -abzab-----
+  ||||           |||            ||
+  abzab-         abzab-         abzab-
+
+-abzab-----   -abzab-----
+     |
+     abzab-         abzab-
+</code></pre><p>5.<br>換個角度觀察上述行為<br>挪動一個位置：看看abzab的後四個字元  是不是前四個字元<br>挪動兩個位置：看看abzab的後三個字元  是不是前三個字元</p>
+<p>6.<br>如果我們預先知道abzab的「次長的相同前綴後綴」是ab 就可以一口氣大幅挪動P  略過許多步驟：</p>
+<pre><code>V                 V
+aabzabzabcz        aabzabzabcz
+ |||||X      ---&gt;      ||
+ abzabc                abzabc
+</code></pre><p>7.<br>從「V」處繼續向右一一比對字元  每當比對失敗、遇到相異字元 就故技重施<br>從當前比對成功的字串片段  取其「次長的相同前綴後綴」大幅挪動P</p>
+<h3 id="Knuth-Morris-Pratt-Algorithm"><a href="#Knuth-Morris-Pratt-Algorithm" class="headerlink" title="Knuth-Morris-Pratt Algorithm"></a>Knuth-Morris-Pratt Algorithm</h3><pre><code>          v
+T: aaaabcacab
+P:    abcabcacab
+          ^
+</code></pre><p>Morris-Pratt Algorithm 當中，當比對到上圖之處， c != b ，所以需要向右挪動 P 。<br>找到 abca 的「次長的相同前綴後綴」，也就是 a 。然後向右挪動 P ，最後左端凸出一段 a ，如下圖所示。</p>
+<pre><code>          v
+T: aaaabcacab
+P:       abcabcacab
+          ^
+</code></pre><p>接下來就繼續比對字元。在這裡 c != b ，所以又要挪動 P 了。</p>
+<p>Knuth 則是多想了一步：連續挪動 P ，能不能預先偵測呢？<br>Knuth 發現，找到 abca 的「次長的相同前綴後綴」 a 之後，看看 a 的下一個字元（是 b ），是否仍是 abca 的下一個字元（也是 b ）。<br>如果兩個字元一樣的話，那就表示 P 鐵定會連續挪動兩次，兩次比較都是 c != b 。</p>
+<p>既然鐵定會挪動兩次，那乾脆直接移到定位不就好了？<br>於是 Knuth 在計算 failure function 的時候，就額外加了一個判斷：<br>找到 abca 的相同前綴後綴 f(abca) = a 之後，如果 f(abca) 的下一個字元恰巧仍是 abca 的下一個字元，<br>那麼就令 f(abca) = f(a) ，也就是再多找一次 a 的相同前綴後綴。<br>如此一來， P 只要移一次就行了。</p>
+<p>由於是用遞迴定義 failure function ，所以連續挪動三次、四次、五次的情況，<br>經過遞迴計算，最後都會變成一次移到定位。</p>
+<blockquote>
+<p>引用 <a href="http://www.csie.ntnu.edu.tw/~u91029/StringSearching.html#3" target="_blank" rel="noopener">http://www.csie.ntnu.edu.tw/~u91029/StringSearching.html#3</a></p>
+</blockquote>
 
       
     </div>
@@ -702,7 +727,7 @@ abzabc         abzabc         abzabc
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#KMP-Knuth–Morris–Pratt-algorithm-演算法"><span class="nav-number">1.</span> <span class="nav-text">KMP(Knuth–Morris–Pratt algorithm)演算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-Searching運用位移來處理字串搜尋問題"><span class="nav-number">1.1.</span> <span class="nav-text">String Searching運用位移來處理字串搜尋問題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Morris-Pratt-Algorithm"><span class="nav-number">1.2.</span> <span class="nav-text">Morris-Pratt Algorithm</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#KMP-Knuth–Morris–Pratt-algorithm-演算法"><span class="nav-number">1.</span> <span class="nav-text">KMP(Knuth–Morris–Pratt algorithm)演算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-Searching-運用位移來處理字串搜尋問題"><span class="nav-number">1.1.</span> <span class="nav-text">String Searching 運用位移來處理字串搜尋問題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#failure-function-窮舉法-prefix-function-border-function-–-gt"><span class="nav-number">1.2.</span> <span class="nav-text">failure function 窮舉法 (prefix function/ border function )–&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Morris-Pratt-Algorithm"><span class="nav-number">1.3.</span> <span class="nav-text">Morris-Pratt Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Knuth-Morris-Pratt-Algorithm"><span class="nav-number">1.4.</span> <span class="nav-text">Knuth-Morris-Pratt Algorithm</span></a></li></ol></li></ol></div>
             
 
           </div>
