@@ -64,10 +64,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.3.0">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
@@ -405,147 +405,25 @@
       
         
           
-            <h2 id="KMP-Knuth–Morris–Pratt-algorithm-演算法"><a href="#KMP-Knuth–Morris–Pratt-algorithm-演算法" class="headerlink" title="KMP(Knuth–Morris–Pratt algorithm)演算法"></a>KMP(Knuth–Morris–Pratt algorithm)演算法</h2><h3 id="String-Searching-運用位移來處理字串搜尋問題"><a href="#String-Searching-運用位移來處理字串搜尋問題" class="headerlink" title="String Searching 運用位移來處理字串搜尋問題"></a>String Searching 運用位移來處理字串搜尋問題</h3><p>中譯”字串搜尋”:<br>兩個字串 T 和 P  找出 T 當中是否有一段字串正好是 P 並且找出位置</p>
-<blockquote>
-<p>註：字串搜尋當中，我們通常將兩字串的象徵符號取做 T 和 P ， T 意指 text ， P 意指 pattern 。可以想作是從長篇文字 T 之中搜索小段文字 P 。</p>
-</blockquote>
-<pre><code>T:  ababcabc
+          KMP(Knuth–Morris–Pratt algorithm)演算法String Searching 運用位移來處理字串搜尋問題中譯”字串搜尋”:兩個字串 T 和 P  找出 T 當中是否有一段字串正好是 P 並且找出位置
+
+註：字串搜尋當中，我們通常將兩字串的象徵符號取做 T 和 P ， T 意指 text ， P 意指 pattern 。可以想作是從長篇文字 T 之中搜索小段文字 P 。
+
+T:  ababcabc
 P: abc
 
 ababcabc    ababcabc
 |||            |||
 abc            abc
-</code></pre><p>T中有兩個地方出現P<br>最直覺的演算法就是窮舉法：<br>挪動 P  對準 T 的各個位置  逐一比對字元  判斷是否相等<br>–&gt; 時間複雜度為 O(TP) 。</p>
-<p>T:  ababcabc<br>P: abc</p>
-<pre><code>0.         1.         2.         3.         4.         5.
-ababcabc   ababcabc   ababcabc   ababcabc   ababcabc   ababcabc
-|||         |||         |||         |||         |||         |||
-abc         abc         abc         abc         abc         abc
-(X)         (X)         (O)         (X)         (X)         (O)
-
-void string_searching()
-{
-string t = &quot;ababcabc&quot;, p = &quot;abc&quot;;
-
-// 採用窮舉法，讓P對準T的各個位置
-for (int i=0; i&lt;t.size(); ++i)
-{
-// P不會超出T右端
-if (i + p.size() &gt; t.size()) break;
-
-// 逐一比對每個字元、判斷一不一樣
-bool find = true;
-for (int j=0; j&lt;p.size(); ++j)
-if (t[i+j] != p[j])
-{
-find = false;
-break;
-}
-
-if (find)
-cout &lt;&lt; &quot;T的第&quot; &lt;&lt; i &lt;&lt; &quot;個字元開始為P&quot;;
-}
-}
-</code></pre><h3 id="failure-function-窮舉法-prefix-function-border-function-–-gt"><a href="#failure-function-窮舉法-prefix-function-border-function-–-gt" class="headerlink" title="failure function 窮舉法 (prefix function/ border function )–&gt;"></a>failure function 窮舉法 (prefix function/ border function )–&gt;</h3><p>窮舉法的過程當中，當前比對成功的字串片段，是 P 的前綴。因為我們無法預測是 P 的哪幾個前綴，<br>所以我們可以預先計算 P 的每一個前綴的「次長的相同前綴後綴」，以備不時之需</p>
-<p>failure function 是一個字串函數：輸入字串的其中一個前綴，則輸出該前綴的「次長的相同前綴後綴」。</p>
-<pre><code>012345
-abzabc
-
-prefix | border |failure function| implementation
--------|--------|----------------|----------------
-Ø      | Ø      | f(Ø)      = Ø  |
-a      | Ø      | f(a)      = Ø  | failure[0] = -1
-ab     | Ø      | f(ab)     = Ø  | failure[1] = -1
-abz    | Ø      | f(abz)    = Ø  | failure[2] = -1
-abza   | a      | f(abza)   = a  | failure[3] =  0
-abzab  | ab     | f(abzab)  = ab | failure[4] =  1
-abzabc | Ø      | f(abzabc) = Ø  | failure[5] = -1
-</code></pre><p>計算 failure function ，一般是利用 Dynamic Programming 。<br>分割問題的方式，是 P[0…i] 拿掉尾端字元 P[i] ，利用已知的「次長的相同前綴後綴」，得到 P[0…i] 的「次長的相同前綴後綴」。</p>
-<pre><code>// p[0...i] 的「次長的相同前綴後綴」是 p[0...failure[i]]。
-// failure[] 值為 -1 時，代表「次長的相同前綴後綴」為空字串。
-int failure[100];
-
-void failure(string&amp; p)
-{
-// iterative, bottom-up DP
-for (int i=1, j=failure[0]=-1; i&lt;p.size(); ++i)
-{
-// 先試 p[0...i-1] 的「次長的相同前綴後綴」，
-// 也就是 p[0...failure[i-1]] = p[0...j]。
-// 再試 p[0...j] 的「次長的相同前綴後綴」，
-// 也就是 p[0...failure[j]]。
-// 再試 p[0...failure[j]] 的「次長的相同前綴後綴」……
-// 直到試成功為止。
-while (j &gt;= 0 &amp;&amp; p[j+1] != p[i])
-j = failure[j];
-
-// p[i] 終於有用處了，終於可以加長！
-if (p[j+1] == p[i]) j++;
-
-// 得到了 failure[i] 的值！
-failure[i] = j;
-}
-}
-</code></pre><p>稱作 failure function ，是因為比對失敗時，就會使用它。<br>稱作 prefix function ，是因為此函數的定義域是 prefix 。稱作 border function ，是因為此函數的值域是 border 。</p>
-<h3 id="Morris-Pratt-Algorithm"><a href="#Morris-Pratt-Algorithm" class="headerlink" title="Morris-Pratt Algorithm"></a>Morris-Pratt Algorithm</h3><p>1.<br>T: aabzabzabcz<br>P:abzabc</p>
-<p>2.<br>窮舉法，從左往右逐步挪動P。</p>
-<pre><code>aabzabzabcz   aabzabzabcz   aabzabzabcz
-||||||         ||||||         ||||||      ......
-abzabc         abzabc         abzabc
-(X)            (X)            (X)
-</code></pre><p>2.<br>仔細看窮舉法  是從左往右一一比對字元  一旦發現字元不同  就馬上往右挪動P</p>
-<pre><code>V              V            V              V
-aabzabzabcz   aabzabzabcz  aabzabzabcz   aabzabzabcz
-|             |X            |             ||
-abzabc        abzabc        abzabc        abzabc
-
-V             V               V             V
-aabzabzabcz  aabzabzabcz   aabzabzabcz   aabzabzabcz
- |||          ||||          |||||         |||||X
- abzabc       abzabc        abzabc        abzabc
-
-V             V              V              V
-aabzabzabcz  aabzabzabcz   aabzabzabcz   aabzabzabcz
-  X             X              |             ||       ......
-  abzabc        abzabc         abzabc        abzabc
-</code></pre><p>3.<br>往右挪動P之前  當下比對成功的字串片段  abzab  其實可以好好利用</p>
-<pre><code>V
-aabzabzabcz    -abzab-----
- |||||X         |||||
- abzabc         abzab-
-</code></pre><p>4.<br>觀察窮舉法的步驟順序  繼續往右挪動P  挪動一個位置、挪動兩個位置、……</p>
-<pre><code>-abzab-----   -abzab-----   -abzab-----
-  ||||           |||            ||
-  abzab-         abzab-         abzab-
-
--abzab-----   -abzab-----
-     |
-     abzab-         abzab-
-</code></pre><p>5.<br>換個角度觀察上述行為<br>挪動一個位置：看看abzab的後四個字元  是不是前四個字元<br>挪動兩個位置：看看abzab的後三個字元  是不是前三個字元</p>
-<p>6.<br>如果我們預先知道abzab的「次長的相同前綴後綴」是ab 就可以一口氣大幅挪動P  略過許多步驟：</p>
-<pre><code>V                 V
-aabzabzabcz        aabzabzabcz
- |||||X      ---&gt;      ||
- abzabc                abzabc
-</code></pre><p>7.<br>從「V」處繼續向右一一比對字元  每當比對失敗、遇到相異字元 就故技重施<br>從當前比對成功的字串片段  取其「次長的相同前綴後綴」大幅挪動P</p>
-<h3 id="Knuth-Morris-Pratt-Algorithm"><a href="#Knuth-Morris-Pratt-Algorithm" class="headerlink" title="Knuth-Morris-Pratt Algorithm"></a>Knuth-Morris-Pratt Algorithm</h3><pre><code>          v
-T: aaaabcacab
-P:    abcabcacab
-          ^
-</code></pre><p>Morris-Pratt Algorithm 當中，當比對到上圖之處， c != b ，所以需要向右挪動 P 。<br>找到 abca 的「次長的相同前綴後綴」，也就是 a 。然後向右挪動 P ，最後左端凸出一段 a ，如下圖所示。</p>
-<pre><code>          v
-T: aaaabcacab
-P:       abcabcacab
-          ^
-</code></pre><p>接下來就繼續比對字元。在這裡 c != b ，所以又要挪動 P 了。</p>
-<p>Knuth 則是多想了一步：連續挪動 P ，能不能預先偵測呢？<br>Knuth 發現，找到 abca 的「次長的相同前綴後綴」 a 之後，看看 a 的下一個字元（是 b ），是否仍是 abca 的下一個字元（也是 b ）。<br>如果兩個字元一樣的話，那就表示 P 鐵定會連續挪動兩次，兩次比較都是 c != b 。</p>
-<p>既然鐵定會挪動兩次，那乾脆直接移到定位不就好了？<br>於是 Knuth 在計算 failure function 的時候，就額外加了一個判斷：<br>找到 abca 的相同前綴後綴 f(abca) = a 之後，如果 f(abca) 的下一個字元恰巧仍是 abca 的下一個字元，<br>那麼就令 f(abca) = f(a) ，也就是再多找一次 a 的相同前綴後綴。<br>如此一來， P 只要移一次就行了。</p>
-<p>由於是用遞迴定義 failure function ，所以連續挪動三次、四次、五次的情況，<br>經過遞迴計算，最後都會變成一次移到定位。</p>
-<blockquote>
-<p>引用 <a href="http://www.csie.ntnu.edu.tw/~u91029/StringSearching.html#3" target="_blank" rel="noopener">http://www.csie.ntnu.edu.tw/~u91029/StringSearching.html#3</a></p>
-</blockquote>
-
-          
+T中有兩個地方出現P最直覺的演算法就是窮舉法：挪動 P  對準 T 的各個位置  逐一比對字元  判斷是否相等–&gt; 時間複雜度為 O
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/11/KMP/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -683,9 +561,16 @@ P:       abcabcacab
       
         
           
-            <h2 id="歡迎光臨"><a href="#歡迎光臨" class="headerlink" title="歡迎光臨"></a>歡迎光臨</h2><h3 id="這是露西第一篇部落格"><a href="#這是露西第一篇部落格" class="headerlink" title="這是露西第一篇部落格"></a>這是露西第一篇部落格</h3><p> 露西將在這裡記錄他學習Java的歷程<br> 請多多指教 </p>
+          歡迎光臨這是露西第一篇部落格 露西將在這裡記錄他學習Java的歷程 請多多指教 
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/11/Hi-Lucy/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -819,17 +704,21 @@ P:       abcabcacab
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post1$ hexo new "My New Post"
+More info: Writing
+Run server1$ hexo server
+More info: Server
+Generate static files1$ hexo generate
+M
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/11/hello-world/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
