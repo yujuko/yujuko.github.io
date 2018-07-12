@@ -108,24 +108,25 @@
 
 
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="正則表達式, 符號對照及範例正則表達式: 定義一個搜索模式的字符串。 正則表達式可以用於搜索、编輯和操作文本.用有限的符號,表達無限的序列    this is text  精確匹配字符串 “this is text” this\s + is\s + text匹配單詞”this” 後跟一個或多個字符後跟詞 “is” 後跟一個或多個字符後跟詞 “text” ^\d+(\.\d+)?^ 定義模式必須匹">
+<meta name="keywords" content="Java,Learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/07/11/hello-world/index.html">
+<meta property="og:title" content="JAVA基礎 - 正則表達式">
+<meta property="og:url" content="http://yoursite.com/2018/07/12/regex/index.html">
 <meta property="og:site_name" content="LUCY&#39;s TechGarden">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="正則表達式, 符號對照及範例正則表達式: 定義一個搜索模式的字符串。 正則表達式可以用於搜索、编輯和操作文本.用有限的符號,表達無限的序列    this is text  精確匹配字符串 “this is text” this\s + is\s + text匹配單詞”this” 後跟一個或多個字符後跟詞 “is” 後跟一個或多個字符後跟詞 “text” ^\d+(\.\d+)?^ 定義模式必須匹">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-11T04:36:19.113Z">
+<meta property="og:updated_time" content="2018-07-12T05:46:26.980Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="JAVA基礎 - 正則表達式">
+<meta name="twitter:description" content="正則表達式, 符號對照及範例正則表達式: 定義一個搜索模式的字符串。 正則表達式可以用於搜索、编輯和操作文本.用有限的符號,表達無限的序列    this is text  精確匹配字符串 “this is text” this\s + is\s + text匹配單詞”this” 後跟一個或多個字符後跟詞 “is” 後跟一個或多個字符後跟詞 “text” ^\d+(\.\d+)?^ 定義模式必須匹">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/11/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/12/regex/"/>
 
 
 
@@ -135,7 +136,7 @@
   };
 </script>
 
-  <title>Hello World | LUCY's TechGarden</title>
+  <title>JAVA基礎 - 正則表達式 | LUCY's TechGarden</title>
   
 
 
@@ -304,7 +305,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/12/regex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lucy Kuo">
@@ -321,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World
+          <h1 class="post-title" itemprop="name headline">JAVA基礎 - 正則表達式
               
             
           </h1>
@@ -346,12 +347,34 @@
                 
               
 
-              <time title="Created: 2018-07-11 12:36:19" itemprop="dateCreated datePublished" datetime="2018-07-11T12:36:19+08:00">2018-07-11</time>
+              <time title="Created: 2018-07-12 12:51:24 / Modified: 13:46:26" itemprop="dateCreated datePublished" datetime="2018-07-12T12:51:24+08:00">2018-07-12</time>
             
 
+            
+              
+
+              
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java學習筆記/" itemprop="url" rel="index"><span itemprop="name">Java學習筆記</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -380,15 +403,82 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="正則表達式-符號對照及範例"><a href="#正則表達式-符號對照及範例" class="headerlink" title="正則表達式, 符號對照及範例"></a>正則表達式, 符號對照及範例</h2><h3 id="正則表達式-定義一個搜索模式的字符串。"><a href="#正則表達式-定義一個搜索模式的字符串。" class="headerlink" title="正則表達式: 定義一個搜索模式的字符串。"></a>正則表達式: 定義一個搜索模式的字符串。</h3><blockquote>
+<p>正則表達式可以用於搜索、编輯和操作文本.<br>用有限的符號,表達無限的序列</p>
+</blockquote>
+<p>  <code>this is text</code><br>  精確匹配字符串 “this is text”</p>
+<p><code>this\s + is\s + text</code><br>匹配單詞”this” 後跟一個或多個字符<br>後跟詞 “is” 後跟一個或多個字符<br>後跟詞 “text”</p>
+<p><code>^\d+(\.\d+)?</code><br><code>^</code> 定義模式必須匹配字符串的開始<br><code>d</code>+ 匹配一個或多個數字<br><code>?</code> 表明小括號内的語句可有可無<br><code>\.</code> 匹配 “.”<br><code>()</code>小括号表示分组<br>例如：”5”、”1.5”  “2.21”</p>
+<h3 id="正規表達式規則"><a href="#正規表達式規則" class="headerlink" title="正規表達式規則"></a>正規表達式規則</h3><h4 id="常用匹配符號"><a href="#常用匹配符號" class="headerlink" title="常用匹配符號"></a>常用匹配符號</h4><p><code>.</code>   匹配所有單個字符，除了換行字符</p>
+<p> <code>^regex</code>   匹配字符串开头</p>
+<p><code>regex$</code>   匹配字符串结尾</p>
+<p><code>[abc]</code>    複選定義，匹配字母 a 或 b 或 c</p>
+<p><code>[abc][vz]</code>   複選定義，匹配字母 a 或 b 或 c，後面接著 v 或 z</p>
+<p><code>[^abc]</code>   當插入符 ^ 在中括號中以第一個字符開始顯示，則表示否定模式。此模式匹配所有字符，除了 a 或 b 或 c</p>
+<p><code>[a-d1-7]</code>   範圍匹配，字母 a 到 d 和數字从從1 到 7 之間，但不匹配 d1</p>
+<p><code>XZ</code>  匹配 X 後直接接著 Z</p>
+<p><code>X|Z</code>  匹配 X 或 Z</p>
+<h4 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h4><blockquote>
+<p>元字符是一個預先定義的字符。</p>
+</blockquote>
+<p> <code>\d</code> 匹配一個數字，是 [0-9] 的簡寫</p>
+<p><code>\D</code> 匹配一個非數字，是 [^0-9] 的簡寫</p>
+<p><code>\s</code> 匹配一個空格，是 [ \t\n\x0b\r\f] 的簡寫</p>
+<p><code>\S</code> 匹配一個非空格</p>
+<p><code>\w</code> 匹配一個單字字符（大小寫字母、數字、下划線），是 [a-zA-Z_0-9] 的簡寫</p>
+<p><code>\W</code> 匹配一個非單字字符（除了大小寫字母、數字、下划線之外的字符），等同于 [^\w]</p>
+<h4 id="限定字符"><a href="#限定字符" class="headerlink" title="限定字符"></a>限定字符</h4><blockquote>
+<p>限定符定限了一個元素可以發生的頻率。</p>
+</blockquote>
+<p><code>*</code><br>匹配 &gt;=0 個，是 {0,} 的簡寫<br>X<em> 表示匹配零個或多個字母 X<br>.</em> 表示匹配任何字符串</p>
+<p><code>+</code><br>匹配 &gt;=1 個，是 {1,} 的簡寫<br>X+ 表示匹配一個或多個字母 X</p>
+<p><code>?</code><br>匹配 1 個或 0 個，是 {0,1} 的簡寫<br>X? 表示匹配 0 個或 1 個字母 X</p>
+<p><code>{X}</code><br>只匹配 X 個字符<br>\d{3} 表示匹配 3 個數字<br>.{10} 表示匹配任何長度是 10 的字符串</p>
+<p><code>{X,Y}</code><br>匹配 &gt;=X 且 &lt;=Y 個<br>\d{1,4} 表示匹配至少 1 個最多 4 個數字</p>
+<p><code>*?</code><br>如果 ? 是限定符 * 或 + 或 ? 或 {} 後面的第一個字符，<br>那麽表示非貪婪模式（盡可能少的匹配字符），而不是默認的貪婪模式</p>
+<h4 id="Leetcode-實例"><a href="#Leetcode-實例" class="headerlink" title="Leetcode 實例"></a>Leetcode 實例</h4><p><em>125. Valid Palindrome<br>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.<br>Note: For the purpose of this problem, we define empty string as valid palindrome.</em></p>
+<p><code>Example 1:
+Input: &quot;A man, a plan, a canal: Panama&quot;
+Output: true</code></p>
+<p><code>Example 2:
+Input: &quot;race a car&quot;
+Output: false</code></p>
+<ul>
+<li><p>MySolution:</p>
+<pre><code>public class Solution {
+    public boolean isPalindrome(String s) {
+    String str = new String ();
+    str = s.toLowerCase().replaceAll(&quot;[^(a-zA-Z0-9)]&quot;, &quot;&quot;).replaceAll(&quot;\\pP&quot;,&quot;&quot;);
+        //&quot;\\pP&quot;用來去除所有符號,不包括空格
+
+    StringBuffer strb = new StringBuffer(str);
+        //需用StringBuffer的reverse方法
+
+    String strv  = new String(strb.reverse());
+        //需用String的CompareTo方法
+
+    if(str.compareTo(strv)!= 0){
+    return false;
+    }
+    else{
+    return true;
+    }
+    }
+}
+</code></pre></li>
+<li><p>BetterSolution:</p>
+<pre><code>public class Solution {
+    public boolean isPalindrome(String s) {
+    String actual = s.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;).toLowerCase();
+    String rev = new StringBuffer(actual).reverse().toString();
+    return actual.equals(rev);
+    }
+}
+</code></pre></li>
+</ul>
+<blockquote>
+<p>引用：<a href="https://juejin.im/post/5acb0c526fb9a028ba1fc602" target="_blank" rel="noopener">https://juejin.im/post/5acb0c526fb9a028ba1fc602</a></p>
+</blockquote>
 
       
     </div>
@@ -407,6 +497,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/Learning/" rel="tag"># Learning</a>
+          
+        </div>
+      
 
       
       
@@ -416,15 +514,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/07/12/stack/" rel="next" title="Java類別 - Stack">
+                <i class="fa fa-chevron-left"></i> Java類別 - Stack
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/11/Hi-Lucy/" rel="prev" title="Hi Lucy">
-                Hi Lucy <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -566,7 +664,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正則表達式-符號對照及範例"><span class="nav-number">1.</span> <span class="nav-text">正則表達式, 符號對照及範例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正則表達式-定義一個搜索模式的字符串。"><span class="nav-number">1.1.</span> <span class="nav-text">正則表達式: 定義一個搜索模式的字符串。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正規表達式規則"><span class="nav-number">1.2.</span> <span class="nav-text">正規表達式規則</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用匹配符號"><span class="nav-number">1.2.1.</span> <span class="nav-text">常用匹配符號</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元字符"><span class="nav-number">1.2.2.</span> <span class="nav-text">元字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#限定字符"><span class="nav-number">1.2.3.</span> <span class="nav-text">限定字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Leetcode-實例"><span class="nav-number">1.2.4.</span> <span class="nav-text">Leetcode 實例</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
