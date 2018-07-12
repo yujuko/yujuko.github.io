@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="LUCY&#39;s TechGarden">
 <meta property="og:description" content="Java  Stack  類別Stack 是Vector的一個子類別 -實現了後進先出(Last-In-First-Out, LIFO)的排程建構方法：public Stack( ) 創建一个空Stack 而在此資料結構中至少會實作兩個操作：  push( )：將資料放入堆疊頂端 pop：取出堆疊頂端之資料  也有一些額外的操作以方便使用：  peek( )：看堆疊頂端的資料而不取出 註：也有to">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-12T02:55:16.418Z">
+<meta property="og:updated_time" content="2018-07-12T02:57:21.287Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java類別 - Stack">
 <meta name="twitter:description" content="Java  Stack  類別Stack 是Vector的一個子類別 -實現了後進先出(Last-In-First-Out, LIFO)的排程建構方法：public Stack( ) 創建一个空Stack 而在此資料結構中至少會實作兩個操作：  push( )：將資料放入堆疊頂端 pop：取出堆疊頂端之資料  也有一些額外的操作以方便使用：  peek( )：看堆疊頂端的資料而不取出 註：也有to">
@@ -347,7 +347,7 @@
                 
               
 
-              <time title="Created: 2018-07-12 10:15:05 / Modified: 10:55:16" itemprop="dateCreated datePublished" datetime="2018-07-12T10:15:05+08:00">2018-07-12</time>
+              <time title="Created: 2018-07-12 10:15:05 / Modified: 10:57:21" itemprop="dateCreated datePublished" datetime="2018-07-12T10:15:05+08:00">2018-07-12</time>
             
 
             
@@ -422,11 +422,10 @@
 <p>以下舉例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import java.util.*;</span><br><span class="line">public class StackDemo &#123;</span><br><span class="line"></span><br><span class="line">static void showpush(Stack&lt;Integer&gt; st, int a) &#123;</span><br><span class="line">    st.push(new Integer(a));</span><br><span class="line">    System.out.println(&quot;push(&quot; + a + &quot;)&quot;);</span><br><span class="line">    System.out.println(&quot;stack: &quot; + st);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static void showpop(Stack&lt;Integer&gt; st) &#123;</span><br><span class="line">    System.out.print(&quot;pop -&gt; &quot;);</span><br><span class="line">    Integer a = (Integer) st.pop();</span><br><span class="line">    System.out.println(a);</span><br><span class="line">    System.out.println(&quot;stack: &quot; + st);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void main(String args[]) &#123;</span><br><span class="line">    Stack&lt;Integer&gt; st = new Stack&lt;Integer&gt;();</span><br><span class="line">    System.out.println(&quot;stack: &quot; + st);</span><br><span class="line"></span><br><span class="line">    showpush(st, 42);</span><br><span class="line">    showpush(st, 66);</span><br><span class="line">    showpush(st, 99);</span><br><span class="line">    showpop(st);</span><br><span class="line">    showpop(st);</span><br><span class="line">    showpop(st);</span><br><span class="line"></span><br><span class="line">try &#123;</span><br><span class="line">    showpop(st);</span><br><span class="line">&#125; catch (EmptyStackException e) &#123;</span><br><span class="line">    System.out.println(&quot;empty stack&quot;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>以下為執行結果：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">stack: [ ]</span><br><span class="line">push(42)</span><br><span class="line"></span><br><span class="line">stack: [42]</span><br><span class="line">push(66)</span><br><span class="line"></span><br><span class="line">stack: [42, 66]</span><br><span class="line">push(99)</span><br><span class="line"></span><br><span class="line">stack: [42, 66, 99]</span><br><span class="line">pop -&gt; 99</span><br><span class="line"></span><br><span class="line">stack: [42, 66]</span><br><span class="line">pop -&gt; 66</span><br><span class="line"></span><br><span class="line">stack: [42]</span><br><span class="line">pop -&gt; 42</span><br><span class="line"></span><br><span class="line">stack: [ ]</span><br><span class="line">pop -&gt; empty stack</span><br></pre></td></tr></table></figure>
-<p>Leetcode 實例：</p>
-<ol start="20">
-<li>Valid Parentheses<br>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’,<br>determine if the input string is valid.</li>
-</ol>
+<h4 id="Leetcode-實例："><a href="#Leetcode-實例：" class="headerlink" title="Leetcode 實例："></a>Leetcode 實例：</h4><h5 id="20-Valid-Parentheses"><a href="#20-Valid-Parentheses" class="headerlink" title="20. Valid Parentheses"></a>20. Valid Parentheses</h5><p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’,<br>determine if the input string is valid.</p>
+<blockquote>
 <p>An input string is valid if:<br>Open brackets must be closed by the same type of brackets.<br>Open brackets must be closed in the correct order.<br>Note that an empty string is also considered valid.</p>
+</blockquote>
 <ul>
 <li><p>Example 1:<br>Input: “()”<br>Output: true</p>
 </li>
@@ -625,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-Stack-類別"><span class="nav-number">1.</span> <span class="nav-text">Java  Stack  類別</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack-是Vector的一個子類別-實現了後進先出-Last-In-First-Out-LIFO-的排程"><span class="nav-number">1.1.</span> <span class="nav-text">Stack 是Vector的一個子類別 -實現了後進先出(Last-In-First-Out, LIFO)的排程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-Stack-類別"><span class="nav-number">1.</span> <span class="nav-text">Java  Stack  類別</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack-是Vector的一個子類別-實現了後進先出-Last-In-First-Out-LIFO-的排程"><span class="nav-number">1.1.</span> <span class="nav-text">Stack 是Vector的一個子類別 -實現了後進先出(Last-In-First-Out, LIFO)的排程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Leetcode-實例："><span class="nav-number">1.1.1.</span> <span class="nav-text">Leetcode 實例：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#20-Valid-Parentheses"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">20. Valid Parentheses</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
