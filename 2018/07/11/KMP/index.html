@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="LUCY&#39;s TechGarden">
 <meta property="og:description" content="KMP(Knuth–Morris–Pratt algorithm)演算法String Searching 運用位移來處理字串搜尋問題中譯”字串搜尋”:兩個字串 T 和 P  找出 T 當中是否有一段字串正好是 P 並且找出位置  註：字串搜尋當中，我們通常將兩字串的象徵符號取做 T 和 P ， T 意指 text ， P 意指 pattern 。可以想作是從長篇文字 T 之中搜索小段文字 P 。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-12T08:58:19.621Z">
+<meta property="og:updated_time" content="2018-07-13T02:59:31.116Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="演算法 - KMP">
 <meta name="twitter:description" content="KMP(Knuth–Morris–Pratt algorithm)演算法String Searching 運用位移來處理字串搜尋問題中譯”字串搜尋”:兩個字串 T 和 P  找出 T 當中是否有一段字串正好是 P 並且找出位置  註：字串搜尋當中，我們通常將兩字串的象徵符號取做 T 和 P ， T 意指 text ， P 意指 pattern 。可以想作是從長篇文字 T 之中搜索小段文字 P 。">
@@ -364,7 +364,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-12 16:58:19" itemprop="dateModified" datetime="2018-07-12T16:58:19+08:00">2018-07-12</time>
+                <time title="Modified: 2018-07-13 10:59:31" itemprop="dateModified" datetime="2018-07-13T10:59:31+08:00">2018-07-13</time>
               
             
           </span>
@@ -432,31 +432,8 @@ ababcabc   ababcabc   ababcabc   ababcabc   ababcabc   ababcabc
 |||         |||         |||         |||         |||         |||
 abc         abc         abc         abc         abc         abc
 (X)         (X)         (O)         (X)         (X)         (O)
-
-void string_searching()
-{
-string t = &quot;ababcabc&quot;, p = &quot;abc&quot;;
-
-// 採用窮舉法，讓P對準T的各個位置
-for (int i=0; i&lt;t.size(); ++i)
-{
-// P不會超出T右端
-if (i + p.size() &gt; t.size()) break;
-
-// 逐一比對每個字元、判斷一不一樣
-bool find = true;
-for (int j=0; j&lt;p.size(); ++j)
-if (t[i+j] != p[j])
-{
-find = false;
-break;
-}
-
-if (find)
-cout &lt;&lt; &quot;T的第&quot; &lt;&lt; i &lt;&lt; &quot;個字元開始為P&quot;;
-}
-}
-</code></pre><h3 id="failure-function-窮舉法-prefix-function-border-function-–-gt"><a href="#failure-function-窮舉法-prefix-function-border-function-–-gt" class="headerlink" title="failure function 窮舉法 (prefix function/ border function )–&gt;"></a>failure function 窮舉法 (prefix function/ border function )–&gt;</h3><p>窮舉法的過程當中，當前比對成功的字串片段，是 P 的前綴。因為我們無法預測是 P 的哪幾個前綴，<br>所以我們可以預先計算 P 的每一個前綴的「次長的相同前綴後綴」，以備不時之需</p>
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">string_searching</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">string t = <span class="string">"ababcabc"</span>, p = <span class="string">"abc"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 採用窮舉法，讓P對準T的各個位置</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;t.size(); ++i)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// P不會超出T右端</span></span><br><span class="line"><span class="keyword">if</span> (i + p.size() &gt; t.size()) <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 逐一比對每個字元、判斷一不一樣</span></span><br><span class="line">bool find = <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;p.size(); ++j)</span><br><span class="line"><span class="keyword">if</span> (t[i+j] != p[j])</span><br><span class="line">&#123;</span><br><span class="line">find = <span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (find)</span><br><span class="line">cout &lt;&lt; <span class="string">"T的第"</span> &lt;&lt; i &lt;&lt; <span class="string">"個字元開始為P"</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="failure-function-窮舉法-prefix-function-border-function-–-gt"><a href="#failure-function-窮舉法-prefix-function-border-function-–-gt" class="headerlink" title="failure function 窮舉法 (prefix function/ border function )–&gt;"></a>failure function 窮舉法 (prefix function/ border function )–&gt;</h3><p>窮舉法的過程當中，當前比對成功的字串片段，是 P 的前綴。因為我們無法預測是 P 的哪幾個前綴，<br>所以我們可以預先計算 P 的每一個前綴的「次長的相同前綴後綴」，以備不時之需</p>
 <p>failure function 是一個字串函數：輸入字串的其中一個前綴，則輸出該前綴的「次長的相同前綴後綴」。</p>
 <pre><code>012345
 abzabc
@@ -471,32 +448,8 @@ abza   | a      | f(abza)   = a  | failure[3] =  0
 abzab  | ab     | f(abzab)  = ab | failure[4] =  1
 abzabc | Ø      | f(abzabc) = Ø  | failure[5] = -1
 </code></pre><p>計算 failure function ，一般是利用 Dynamic Programming 。<br>分割問題的方式，是 P[0…i] 拿掉尾端字元 P[i] ，利用已知的「次長的相同前綴後綴」，得到 P[0…i] 的「次長的相同前綴後綴」。</p>
-<pre><code>// p[0...i] 的「次長的相同前綴後綴」是 p[0...failure[i]]。
-// failure[] 值為 -1 時，代表「次長的相同前綴後綴」為空字串。
-int failure[100];
-
-void failure(string&amp; p)
-{
-// iterative, bottom-up DP
-for (int i=1, j=failure[0]=-1; i&lt;p.size(); ++i)
-{
-// 先試 p[0...i-1] 的「次長的相同前綴後綴」，
-// 也就是 p[0...failure[i-1]] = p[0...j]。
-// 再試 p[0...j] 的「次長的相同前綴後綴」，
-// 也就是 p[0...failure[j]]。
-// 再試 p[0...failure[j]] 的「次長的相同前綴後綴」……
-// 直到試成功為止。
-while (j &gt;= 0 &amp;&amp; p[j+1] != p[i])
-j = failure[j];
-
-// p[i] 終於有用處了，終於可以加長！
-if (p[j+1] == p[i]) j++;
-
-// 得到了 failure[i] 的值！
-failure[i] = j;
-}
-}
-</code></pre><p>稱作 failure function ，是因為比對失敗時，就會使用它。<br>稱作 prefix function ，是因為此函數的定義域是 prefix 。稱作 border function ，是因為此函數的值域是 border 。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// p[0...i] 的「次長的相同前綴後綴」是 p[0...failure[i]]。</span></span><br><span class="line"><span class="comment">// failure[] 值為 -1 時，代表「次長的相同前綴後綴」為空字串。</span></span><br><span class="line"><span class="keyword">int</span> failure[<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">failure</span><span class="params">(string&amp; p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">// iterative, bottom-up DP</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>, j=failure[<span class="number">0</span>]=-<span class="number">1</span>; i&lt;p.size(); ++i)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="comment">// 先試 p[0...i-1] 的「次長的相同前綴後綴」，</span></span><br><span class="line">    <span class="comment">// 也就是 p[0...failure[i-1]] = p[0...j]。</span></span><br><span class="line">    <span class="comment">// 再試 p[0...j] 的「次長的相同前綴後綴」，</span></span><br><span class="line">    <span class="comment">// 也就是 p[0...failure[j]]。</span></span><br><span class="line">    <span class="comment">// 再試 p[0...failure[j]] 的「次長的相同前綴後綴」……</span></span><br><span class="line">        <span class="comment">// 直到試成功為止。</span></span><br><span class="line">        <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; p[j+<span class="number">1</span>] != p[i])</span><br><span class="line">        j = failure[j];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// p[i] 終於有用處了，終於可以加長！</span></span><br><span class="line">        <span class="keyword">if</span> (p[j+<span class="number">1</span>] == p[i]) j++;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 得到了 failure[i] 的值！</span></span><br><span class="line">failure[i] = j;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>稱作 failure function ，是因為比對失敗時，就會使用它。<br>稱作 prefix function ，是因為此函數的定義域是 prefix 。稱作 border function ，是因為此函數的值域是 border 。</p>
 <h3 id="Morris-Pratt-Algorithm"><a href="#Morris-Pratt-Algorithm" class="headerlink" title="Morris-Pratt Algorithm"></a>Morris-Pratt Algorithm</h3><p>1.<br>T: aabzabzabcz<br>P:abzabc</p>
 <p>2.<br>窮舉法，從左往右逐步挪動P。</p>
 <pre><code>aabzabzabcz   aabzabzabcz   aabzabzabcz
@@ -591,8 +544,8 @@ P:       abcabcacab
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/11/Hi-Lucy/" rel="next" title="Hi Lucy">
-                <i class="fa fa-chevron-left"></i> Hi Lucy
+              <a href="/2018/07/11/Hi-Lucy/" rel="next" title="Grand Opening - Lucy's TechGarden!">
+                <i class="fa fa-chevron-left"></i> Grand Opening - Lucy's TechGarden!
               </a>
             
           </div>
@@ -677,7 +630,7 @@ P:       abcabcacab
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

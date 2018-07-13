@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="LUCY&#39;s TechGarden">
 <meta property="og:description" content="正則表達式, 符號對照及範例正則表達式: 定義一個搜索模式的字符串。 正則表達式可以用於搜索、编輯和操作文本.用有限的符號,表達無限的序列    this is text  精確匹配字符串 “this is text” this\s + is\s + text匹配單詞”this” 後跟一個或多個字符後跟詞 “is” 後跟一個或多個字符後跟詞 “text” ^\d+(\.\d+)?^ 定義模式必須匹">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-12T05:46:26.980Z">
+<meta property="og:updated_time" content="2018-07-13T03:00:59.825Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA基礎 - 正則表達式">
 <meta name="twitter:description" content="正則表達式, 符號對照及範例正則表達式: 定義一個搜索模式的字符串。 正則表達式可以用於搜索、编輯和操作文本.用有限的符號,表達無限的序列    this is text  精確匹配字符串 “this is text” this\s + is\s + text匹配單詞”this” 後跟一個或多個字符後跟詞 “is” 後跟一個或多個字符後跟詞 “text” ^\d+(\.\d+)?^ 定義模式必須匹">
@@ -347,12 +347,24 @@
                 
               
 
-              <time title="Created: 2018-07-12 12:51:24 / Modified: 13:46:26" itemprop="dateCreated datePublished" datetime="2018-07-12T12:51:24+08:00">2018-07-12</time>
+              <time title="Created: 2018-07-12 12:51:24" itemprop="dateCreated datePublished" datetime="2018-07-12T12:51:24+08:00">2018-07-12</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-07-13 11:00:59" itemprop="dateModified" datetime="2018-07-13T11:00:59+08:00">2018-07-13</time>
               
             
           </span>
@@ -436,7 +448,7 @@
 <p><code>{X}</code><br>只匹配 X 個字符<br>\d{3} 表示匹配 3 個數字<br>.{10} 表示匹配任何長度是 10 的字符串</p>
 <p><code>{X,Y}</code><br>匹配 &gt;=X 且 &lt;=Y 個<br>\d{1,4} 表示匹配至少 1 個最多 4 個數字</p>
 <p><code>*?</code><br>如果 ? 是限定符 * 或 + 或 ? 或 {} 後面的第一個字符，<br>那麽表示非貪婪模式（盡可能少的匹配字符），而不是默認的貪婪模式</p>
-<h4 id="Leetcode-實例"><a href="#Leetcode-實例" class="headerlink" title="Leetcode 實例"></a>Leetcode 實例</h4><p><em>125. Valid Palindrome<br>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.<br>Note: For the purpose of this problem, we define empty string as valid palindrome.</em></p>
+<h4 id="Leetcode-實例"><a href="#Leetcode-實例" class="headerlink" title="Leetcode 實例"></a>Leetcode 實例</h4><p><em>125. Valid Palindrome</em><br><em>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.<br>Note: For the purpose of this problem, we define empty string as valid palindrome.</em></p>
 <p><code>Example 1:
 Input: &quot;A man, a plan, a canal: Panama&quot;
 Output: true</code></p>
@@ -445,36 +457,11 @@ Input: &quot;race a car&quot;
 Output: false</code></p>
 <ul>
 <li><p>MySolution:</p>
-<pre><code>public class Solution {
-    public boolean isPalindrome(String s) {
-    String str = new String ();
-    str = s.toLowerCase().replaceAll(&quot;[^(a-zA-Z0-9)]&quot;, &quot;&quot;).replaceAll(&quot;\\pP&quot;,&quot;&quot;);
-        //&quot;\\pP&quot;用來去除所有符號,不包括空格
-
-    StringBuffer strb = new StringBuffer(str);
-        //需用StringBuffer的reverse方法
-
-    String strv  = new String(strb.reverse());
-        //需用String的CompareTo方法
-
-    if(str.compareTo(strv)!= 0){
-    return false;
-    }
-    else{
-    return true;
-    }
-    }
-}
-</code></pre></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    String str = <span class="keyword">new</span> String ();</span><br><span class="line">    str = s.toLowerCase().replaceAll(<span class="string">"[^(a-zA-Z0-9)]"</span>, <span class="string">""</span>).replaceAll(<span class="string">"\\pP"</span>,<span class="string">""</span>);</span><br><span class="line">        <span class="comment">//"\\pP"用來去除所有符號,不包括空格</span></span><br><span class="line">    </span><br><span class="line">    StringBuffer strb = <span class="keyword">new</span> StringBuffer(str);</span><br><span class="line">        <span class="comment">//需用StringBuffer的reverse方法</span></span><br><span class="line">    </span><br><span class="line">    String strv  = <span class="keyword">new</span> String(strb.reverse());</span><br><span class="line">        <span class="comment">//需用String的CompareTo方法</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(str.compareTo(strv)!= <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>BetterSolution:</p>
-<pre><code>public class Solution {
-    public boolean isPalindrome(String s) {
-    String actual = s.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;).toLowerCase();
-    String rev = new StringBuffer(actual).reverse().toString();
-    return actual.equals(rev);
-    }
-}
-</code></pre></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    String actual = s.replaceAll(<span class="string">"[^A-Za-z0-9]"</span>, <span class="string">""</span>).toLowerCase();</span><br><span class="line">    String rev = <span class="keyword">new</span> StringBuffer(actual).reverse().toString();</span><br><span class="line">    <span class="keyword">return</span> actual.equals(rev);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <blockquote>
 <p>引用：<a href="https://juejin.im/post/5acb0c526fb9a028ba1fc602" target="_blank" rel="noopener">https://juejin.im/post/5acb0c526fb9a028ba1fc602</a></p>
@@ -600,7 +587,7 @@ Output: false</code></p>
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
