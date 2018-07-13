@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/l.png?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Markdown簡介Markdown 是一種輕量級的標記語言，由John Gruber和Aaron Swartz創建，使其成為可讀性最大並可再發行的可輸入輸出的格式。這種語言創建靈感來自於已經存在的帶標記的電子郵件文本。Markdown 允許 HTML 語法, 所以使用者如果需要可以直接用 HTML來表示是可以的。Markdown最初由Gruber應用在Perl語言中，但現在已經有多種編程語言應用">
+<meta name="keywords" content="Markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown語法筆記">
+<meta property="og:url" content="http://yoursite.com/2018/07/13/markdown/index.html">
+<meta property="og:site_name" content="LUCY&#39;s TechGarden">
+<meta property="og:description" content="Markdown簡介Markdown 是一種輕量級的標記語言，由John Gruber和Aaron Swartz創建，使其成為可讀性最大並可再發行的可輸入輸出的格式。這種語言創建靈感來自於已經存在的帶標記的電子郵件文本。Markdown 允許 HTML 語法, 所以使用者如果需要可以直接用 HTML來表示是可以的。Markdown最初由Gruber應用在Perl語言中，但現在已經有多種編程語言應用">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://i4.bvimg.com/653403/1df487649728c24d.png">
+<meta property="og:image" content="http://i2.bvimg.com/653403/919c349753da9e24t.jpg">
+<meta property="og:image" content="http://i2.bvimg.com/653403/919c349753da9e24t.jpg">
+<meta property="og:updated_time" content="2018-07-13T06:45:02.514Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Markdown語法筆記">
+<meta name="twitter:description" content="Markdown簡介Markdown 是一種輕量級的標記語言，由John Gruber和Aaron Swartz創建，使其成為可讀性最大並可再發行的可輸入輸出的格式。這種語言創建靈感來自於已經存在的帶標記的電子郵件文本。Markdown 允許 HTML 語法, 所以使用者如果需要可以直接用 HTML來表示是可以的。Markdown最初由Gruber應用在Perl語言中，但現在已經有多種編程語言應用">
+<meta name="twitter:image" content="http://i4.bvimg.com/653403/1df487649728c24d.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/13/markdown/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Markdown語法筆記 | LUCY's TechGarden</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LUCY's TechGarden</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/13/markdown/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuju(Lucy) Kuo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LUCY's TechGarden">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Markdown語法筆記
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-13 13:52:06 / Modified: 14:45:02" itemprop="dateCreated datePublished" datetime="2018-07-13T13:52:06+08:00">2018-07-13</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Markdown簡介"><a href="#Markdown簡介" class="headerlink" title="Markdown簡介"></a>Markdown簡介</h2><p>Markdown 是一種輕量級的標記語言，由John Gruber和Aaron Swartz創建，使其成為可讀性最大並可再發行的可輸入輸出的格式。這種語言創建靈感來自於已經存在的帶標記的電子郵件文本。Markdown 允許 HTML 語法, 所以使用者如果需要可以直接用 HTML來表示是可以的。Markdown最初由Gruber應用在Perl語言中，但現在已經有多種編程語言應用了。它是開源項目，並以BSD-style許可證的許可方式以插件形式或內容管理系統形式發布。</p>
+<h2 id="標題"><a href="#標題" class="headerlink" title="標題"></a>標題</h2><p>前面以 # 開頭，有幾個 #，就表示是幾級標題，註意符號 和 文字之間的間隔</p>
+<p><code># 一級標題</code><br><code>## 二級標題</code><br><code>### 三級標題</code><br><code>#### 四級標題</code></p>
+<p>效果：<br><img src="http://i4.bvimg.com/653403/1df487649728c24d.png" alt="Markdown"></p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>1、無序列表，在 文字之間添加 -，+ 或者 * 符號，註意 符號 與 文字之間的空格<br>2、有序列表，以數字開頭，數字後面接一個點號【.】，註意點號 與 文字之間的間隔</p>
+<p><code>- 無序列表一</code><br><code>- 無序列表二</code><br><code>- 無序列表三</code><br><code>- 無序列表四</code></p>
+<p>效果:</p>
+<ul>
+<li>無序列表一</li>
+<li>無序列表二</li>
+<li>無序列表三</li>
+<li>無序列表四</li>
+</ul>
+<p><code>1. 有序列表一</code><br><code>2. 有序列表二</code><br><code>3. 有序列表三</code><br><code>4. 有序列表四</code></p>
+<p>效果:</p>
+<ol>
+<li>有序列表一</li>
+<li>有序列表二</li>
+<li>有序列表三</li>
+<li>有序列表四</li>
+</ol>
+<h2 id="分割線"><a href="#分割線" class="headerlink" title="分割線"></a>分割線</h2><p><code>***</code><br><code>---</code></p>
+<p>效果：</p>
+<hr>
+<hr>
+<h2 id="鏈接"><a href="#鏈接" class="headerlink" title="鏈接"></a>鏈接</h2><p>[要顯示的文字] + (鏈接)</p>
+<p><code>[Leetcode](https://leetcode.com/)</code><br>效果：<br><a href="https://leetcode.com/" target="_blank" rel="noopener">Leetcode</a></p>
+<h2 id="圖片"><a href="#圖片" class="headerlink" title="圖片"></a>圖片</h2><p><code>![Lucy&#39;s favicon](http://i2.bvimg.com/653403/919c349753da9e24t.jpg)</code><br><code>[Lucy&#39;s favicon](http://i2.bvimg.com/653403/919c349753da9e24.png)</code></p>
+<p>效果：<br><img src="http://i2.bvimg.com/653403/919c349753da9e24t.jpg" alt="Lucy&#39;s favicon"><br><a href="http://i2.bvimg.com/653403/919c349753da9e24.png" target="_blank" rel="noopener">Lucy’s favicon</a></p>
+<p>還可以以索引方式把url都列在文章的最後，例如這樣：</p>
+<p><code>[Lucy&#39;s favicon][1]</code><br><code>![Lucy&#39;s favicon][2]</code></p>
+<p><code>[1]:http://i2.bvimg.com/653403/919c349753da9e24t.jpg</code><br><code>[2]:http://i2.bvimg.com/653403/919c349753da9e24t.jpg</code></p>
+<p>效果：<br><a href="http://i2.bvimg.com/653403/919c349753da9e24t.jpg" target="_blank" rel="noopener">Lucy’s favicon</a><br><img src="http://i2.bvimg.com/653403/919c349753da9e24t.jpg" alt="Lucy&#39;s favicon"></p>
+<h2 id="斜體，粗體，粗斜體"><a href="#斜體，粗體，粗斜體" class="headerlink" title="斜體，粗體，粗斜體"></a>斜體，粗體，粗斜體</h2><p>一個星號括起來 表示斜體；兩個表示粗體；三個表示粗斜體</p>
+<p><code>*斜體*</code><br><code>**粗體**</code><br><code>***粗斜體***</code></p>
+<p><em>斜體</em><br><strong>粗體</strong><br><strong><em>粗斜體</em></strong></p>
+<h2 id="特殊符號"><a href="#特殊符號" class="headerlink" title="特殊符號"></a>特殊符號</h2><h3 id="Markdown-支持以下這些符號前面加上反斜-來幫助插入普通的符號："><a href="#Markdown-支持以下這些符號前面加上反斜-來幫助插入普通的符號：" class="headerlink" title="Markdown 支持以下這些符號前面加上反斜\來幫助插入普通的符號："></a>Markdown 支持以下這些符號前面加上反斜<code>\</code>來幫助插入普通的符號：</h3><p>\ 反斜線<br>\ ` 反引號<br>*星號<br>_  底線<br>{ } 花括號<br>[ ] 方括號<br>( ) 括弧<br>#井字號<br>+加號<br>-減號<br>. 英文句點<br>! 驚嘆號</p>
+<h3 id="其它一些特殊符號"><a href="#其它一些特殊符號" class="headerlink" title="其它一些特殊符號"></a>其它一些特殊符號</h3><p><code>30&amp;deg;</code> 表示度數<br><code>&amp;copy;</code> 表示版權符號</p>
+<blockquote>
+<p>註意：小於號前後都要有空格，避免當做特殊符號處理</p>
+</blockquote>
+<p>效果：<br> 30&deg;<br> &copy;<br>2 &lt; 3</p>
+<p>八、代碼區<br>將代碼前後用` ` ` 包含起來 前面可以加上語法 會自動抓顏色<br>效果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getMarkdown</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"我是一個Java方法"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>中間對齊，左邊對齊，右邊對齊，文本刪除符號，文本斜體</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Age           | Time  | Food | Gold      &lt;--標題列 (必要)</span><br><span class="line">--------------|-------|------|------     &lt;--分隔列 (必要)</span><br><span class="line">Feudal Age    | 02:10 |  500 |    0      &lt;--資料列 (選填)</span><br><span class="line">Castle Age    | 02:40 |  800 |  200</span><br><span class="line">Imperial Age  | 03:30 | 1000 |  800</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| 左邊對齊 | 中間對齊 | 右邊對齊</span><br><span class="line">| :------------ | :-----------:| ----------: |</span><br><span class="line">| 李白 | 杜牧 |趙孟頫|</span><br><span class="line">| Jack | ~~Bob~~ | _Charies_ |</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<table>
+<thead>
+<tr>
+<th>Age</th>
+<th>Time</th>
+<th>Food</th>
+<th>Gold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Feudal Age</td>
+<td>02:10</td>
+<td>500</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Castle Age</td>
+<td>02:40</td>
+<td>800</td>
+<td>200</td>
+</tr>
+<tr>
+<td>Imperial Age</td>
+<td>03:30</td>
+<td>1000</td>
+<td>800</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">左邊對齊</th>
+<th style="text-align:center">中間對齊</th>
+<th style="text-align:right">右邊對齊</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">李白</td>
+<td style="text-align:center">杜牧</td>
+<td style="text-align:right">趙孟頫</td>
+</tr>
+<tr>
+<td style="text-align:left">Jack</td>
+<td style="text-align:center"><del>Bob</del></td>
+<td style="text-align:right"><em>Charies</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="段內換行與換段落"><a href="#段內換行與換段落" class="headerlink" title="段內換行與換段落"></a>段內換行與換段落</h2><p>1、段內換行：在一句話結尾處連續輸入兩個空格<code></code>，然後再輸入一個enter鍵<br>2、換段落：連續輸入兩個 enter 鍵<br>3、我們可以看到段內換行與換段落的差別，段內換行上下兩句文本間隔很小，而換段落上下兩句文本間間隔很大。</p>
+<h2 id="Markdown中實現首行縮進的兩種方法"><a href="#Markdown中實現首行縮進的兩種方法" class="headerlink" title="Markdown中實現首行縮進的兩種方法"></a>Markdown中實現首行縮進的兩種方法</h2><p>由於markdown語法主要考慮的是英文，所以對於中文的首行縮進並不太友好，兩種方法都可以完美解決這個問題。<br>1、把輸入法由半角改為全角。 兩次空格之後就能夠有兩個漢字的縮進。<br>2、在開頭的時候，先輸入下面的代碼，然後緊跟著輸入文本即可。分號也不要掉。</p>
+<p>直接寫：<br>半方大的空白<code>&amp;ensp;</code>或<code>&amp;#8194;</code><br>全方大的空白<code>&amp;emsp;</code>或<code>&amp;#8195;</code><br>不斷行的空白格<code>&amp;nbsp;</code>或<code>&amp;#160;</code></p>
+<h2 id="表情符號"><a href="#表情符號" class="headerlink" title="表情符號"></a>表情符號</h2><p><a href="https://github.com/guodongxiaren/README/blob/master/emoji.md" target="_blank" rel="noopener">表情符號在這裡</a></p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p>1、<a href="http://sspai.com/25137" target="_blank" rel="noopener">認識 Markdown</a><br>2、<a href="http://www.cnblogs.com/rossoneri/p/4446440.html" target="_blank" rel="noopener">Wossoneri</a><br>3、<a href="http://wowubuntu.com/markdown/#list" target="_blank" rel="noopener">Markdown 語法說明</a><br>4、<a href="http://write.blog.csdn.net/mdeditor" target="_blank" rel="noopener">歡迎使用CSDN-markdown編輯器</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Markdown/" rel="tag"># Markdown</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/12/DynamicProgramming/" rel="next" title="演算法 - Dynamic Programming">
+                <i class="fa fa-chevron-left"></i> 演算法 - Dynamic Programming
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yuju(Lucy) Kuo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:yujuko@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/yujuko" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown簡介"><span class="nav-number">1.</span> <span class="nav-text">Markdown簡介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#標題"><span class="nav-number">2.</span> <span class="nav-text">標題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">3.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分割線"><span class="nav-number">4.</span> <span class="nav-text">分割線</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#鏈接"><span class="nav-number">5.</span> <span class="nav-text">鏈接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#圖片"><span class="nav-number">6.</span> <span class="nav-text">圖片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斜體，粗體，粗斜體"><span class="nav-number">7.</span> <span class="nav-text">斜體，粗體，粗斜體</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊符號"><span class="nav-number">8.</span> <span class="nav-text">特殊符號</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Markdown-支持以下這些符號前面加上反斜-來幫助插入普通的符號："><span class="nav-number">8.1.</span> <span class="nav-text">Markdown 支持以下這些符號前面加上反斜\來幫助插入普通的符號：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它一些特殊符號"><span class="nav-number">8.2.</span> <span class="nav-text">其它一些特殊符號</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">9.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#段內換行與換段落"><span class="nav-number">10.</span> <span class="nav-text">段內換行與換段落</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown中實現首行縮進的兩種方法"><span class="nav-number">11.</span> <span class="nav-text">Markdown中實現首行縮進的兩種方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表情符號"><span class="nav-number">12.</span> <span class="nav-text">表情符號</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考資料"><span class="nav-number">13.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuju(Lucy) Kuo</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
