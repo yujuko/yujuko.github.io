@@ -61,16 +61,16 @@
 <link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/roselogo.png?v=6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/l.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/roselogo.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/l.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/roselogo.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/l.png?v=6.3.0">
 
 
-  <link rel="mask-icon" href="/images/roselogo.png?v=6.3.0" color="#222">
+  <link rel="mask-icon" href="/images/l.png?v=6.3.0" color="#222">
 
 
 
@@ -117,7 +117,7 @@
 <meta property="og:description" content="演算法 - Dynamic Programming中文譯作「動態規劃」，英文縮寫為 DP 。在數學領域中， programming 是指「最佳化（ optimization ）」的意思，例如求極大值、求極小值。dynamic 是指「動態」的意思。顧名思義， Dynamic Programming 是一個以動態的方式來進行最佳化的方法。 DP = Divide and Conquer + Memoi">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://i4.bvimg.com/653403/5077bb639360e087.png">
-<meta property="og:updated_time" content="2018-07-12T08:58:11.043Z">
+<meta property="og:updated_time" content="2018-07-13T01:32:38.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="演算法 - Dynamic Programming">
 <meta name="twitter:description" content="演算法 - Dynamic Programming中文譯作「動態規劃」，英文縮寫為 DP 。在數學領域中， programming 是指「最佳化（ optimization ）」的意思，例如求極大值、求極小值。dynamic 是指「動態」的意思。顧名思義， Dynamic Programming 是一個以動態的方式來進行最佳化的方法。 DP = Divide and Conquer + Memoi">
@@ -349,12 +349,24 @@
                 
               
 
-              <time title="Created: 2018-07-12 16:43:25 / Modified: 16:58:11" itemprop="dateCreated datePublished" datetime="2018-07-12T16:43:25+08:00">2018-07-12</time>
+              <time title="Created: 2018-07-12 16:43:25" itemprop="dateCreated datePublished" datetime="2018-07-12T16:43:25+08:00">2018-07-12</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-07-13 09:32:38" itemprop="dateModified" datetime="2018-07-13T09:32:38+08:00">2018-07-13</time>
               
             
           </span>
@@ -409,6 +421,43 @@
 <h4 id="DP-Divide-and-Conquer-Memoization"><a href="#DP-Divide-and-Conquer-Memoization" class="headerlink" title="DP = Divide and Conquer + Memoization"></a>DP = Divide and Conquer + Memoization</h4><p>DP 可視做是 Divide and Conquer 的延伸版本<br>當運用 Divide and Conquer 所遞迴分割出來的子問題都非常相像的時候<br>並且當同樣的子問題一而再、再而三出現的時候<br>──就運用 Memoization 儲存全部子問題的答案，節省重複計算相同問題的時間，以空間來換取時間。</p>
 <p><img src="http://i4.bvimg.com/653403/5077bb639360e087.png" alt="Markdown"></p>
 <p>由於全部子問題的答案都儲存在記憶體的緣故，<br>計算答案的過程，就是反覆不斷地在各塊記憶體中讀取數據、計算數據、儲存數據，<br>動感地達成最佳化──動態規劃之名由此而來。</p>
+<h4 id="用-Dynamic-Programming-設計演算法時的步驟"><a href="#用-Dynamic-Programming-設計演算法時的步驟" class="headerlink" title="用 Dynamic Programming 設計演算法時的步驟"></a>用 Dynamic Programming 設計演算法時的步驟</h4><ol>
+<li><p>利用Divide and Conquer把原問題遞迴地分成許多更小的問題。（recurrence）<br>甲、子問題與原問題的求解方式皆類似。（optimal sub-structure）<br>乙、子問題會一而再、再而三的出現。（overlapping sub-problems）</p>
+<blockquote>
+<p>先找到原問題和其子問題們之間的關係，寫出遞迴公式。如此一來，便可利用遞迴公式，用子子問題的答案，求出子問題的答案；用子問題的答案，求出原問題的答案。</p>
+</blockquote>
+</li>
+<li><p>確認每個問題需要哪些子問題來計算答案，並確認總共有哪些子問題。（state space）</p>
+<blockquote>
+<p>確認可能出現的子問題全部共有哪些，這樣才能知道要計算哪些子問題，才能知道共會花多少時間、多少記憶體。</p>
+</blockquote>
+</li>
+<li><p>決定各個問題的計算先後次序。（computational sequence）</p>
+<blockquote>
+<p>有了遞迴公式和表格結構之後，就必須安排出一套計算的順序。大問題的答案，總是以小問題的答案來求得的，所以，小問題的答案是必須先算的，否則大問題的答案從何而來呢？我們會利用較小問題的答案，計算出較大問題的答案<br>──因此，一個好的安排方式，不但會使程式碼容易撰寫，還可有效節省記憶體空間，甚至重複利用記憶體空間。</p>
+</blockquote>
+</li>
+<li><p>安排好各個問題的答案，要存放在表格的哪個位置。（lookup table）</p>
+<blockquote>
+<p>實作 DP 的程式時，會建立一個表格，在表格存入所有大小問題的答案。安排好每個問題的答案在表格的哪個位置，這樣計算時才能知道該在哪裡取值。這個表格其實就是所謂的 lookup table 。</p>
+</blockquote>
+</li>
+<li><p>實做程式，主要有兩種方式：</p>
+</li>
+</ol>
+<ul>
+<li>Top-down, Recursive.</li>
+<li>Bottom-up, Iterative.</li>
+</ul>
+<p><em>撰寫程式碼的時候，應小心下面幾項問題:</em></p>
+<ul>
+<li><p>初始值：記得先將最小、最先被計算的子問題，將其答案預先算好，內建於程式碼中，並存入表格。一道遞迴公式必須擁有初始值，才有辦法計算其他項。</p>
+</li>
+<li><p>表格界限：切勿存取超出表格界限的地方。計算過程中，一旦子問題的答案出錯，就會如骨牌效應般一個影響一個，造成很難除錯。</p>
+</li>
+<li><p>計算順序：切勿存取還沒計算過答案的子問題，原因同前項所述。</p>
+</li>
+</ul>
 
       
     </div>
@@ -600,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#演算法-Dynamic-Programming"><span class="nav-number">1.</span> <span class="nav-text">演算法 - Dynamic Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中文譯作「動態規劃」，英文縮寫為-DP-。"><span class="nav-number">1.1.</span> <span class="nav-text">中文譯作「動態規劃」，英文縮寫為 DP 。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DP-Divide-and-Conquer-Memoization"><span class="nav-number">1.1.1.</span> <span class="nav-text">DP = Divide and Conquer + Memoization</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#演算法-Dynamic-Programming"><span class="nav-number">1.</span> <span class="nav-text">演算法 - Dynamic Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中文譯作「動態規劃」，英文縮寫為-DP-。"><span class="nav-number">1.1.</span> <span class="nav-text">中文譯作「動態規劃」，英文縮寫為 DP 。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DP-Divide-and-Conquer-Memoization"><span class="nav-number">1.1.1.</span> <span class="nav-text">DP = Divide and Conquer + Memoization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用-Dynamic-Programming-設計演算法時的步驟"><span class="nav-number">1.1.2.</span> <span class="nav-text">用 Dynamic Programming 設計演算法時的步驟</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
