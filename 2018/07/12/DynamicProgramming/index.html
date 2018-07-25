@@ -117,7 +117,7 @@
 <meta property="og:description" content="演算法 - Dynamic Programming中文譯作「動態規劃」，英文縮寫為 DP 。在數學領域中， programming 是指「最佳化（ optimization ）」的意思，例如求極大值、求極小值。dynamic 是指「動態」的意思。顧名思義， Dynamic Programming 是一個以動態的方式來進行最佳化的方法。 DP = Divide and Conquer + Memoi">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://i4.bvimg.com/653403/5077bb639360e087.png">
-<meta property="og:updated_time" content="2018-07-13T07:50:25.200Z">
+<meta property="og:updated_time" content="2018-07-24T04:53:45.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="演算法 - Dynamic Programming">
 <meta name="twitter:description" content="演算法 - Dynamic Programming中文譯作「動態規劃」，英文縮寫為 DP 。在數學領域中， programming 是指「最佳化（ optimization ）」的意思，例如求極大值、求極小值。dynamic 是指「動態」的意思。顧名思義， Dynamic Programming 是一個以動態的方式來進行最佳化的方法。 DP = Divide and Conquer + Memoi">
@@ -240,7 +240,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">5</span></a>
   </li>
         
         
@@ -248,7 +248,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">1</span></a>
   </li>
         
         
@@ -256,7 +256,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">6</span></a>
   </li>
 
       
@@ -311,7 +311,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yuju(Lucy) Kuo">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Don’t be afraid to give up the good to go for the great. John D. Rockefeller">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -366,7 +366,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-13 15:50:25" itemprop="dateModified" datetime="2018-07-13T15:50:25+08:00">2018-07-13</time>
+                <time title="Modified: 2018-07-24 12:53:45" itemprop="dateModified" datetime="2018-07-24T12:53:45+08:00">2018-07-24</time>
               
             
           </span>
@@ -468,6 +468,13 @@
 <p><code>dp[3]=4</code>     由於dp[2]=-2&lt;0，故dp[3]=nums[3]=4<br><code>dp[4]=3</code>     4-1<br><code>dp[5]=5</code>     3+2<br><code>dp[6]=6</code>     5+1<br><code>dp[7]=1</code>     6-5<br><code>dp[8]=5</code>     1+4</p>
 <p>迭代公式為：<code>dp[i]=(dp[i-1]&gt;0?dp[i-1]:0)+nums[i];</code><br>顯而易見，dp數組的最大值就是子數組和的最大值。<br>回過頭來也可以理解為什麽一定要將nums[i]的值計算進去：<br>因為題目要求子數組中所有成員位置上必須是左右相鄰的，如果不將nums[i]的值強行包含進去，<br>則可能出現最優解在後面但搜索不到的情形。</p>
 <p>完整Solution如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[A.length];  <span class="comment">//dp[i] means the maximum subarray ending with A[i];</span></span><br><span class="line">    dp[<span class="number">0</span>] = A[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">int</span> maxx = dp[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; A.length; i++)&#123;</span><br><span class="line">        dp[i] = A[i] + (dp[i - <span class="number">1</span>] &gt; <span class="number">0</span> ? dp[i - <span class="number">1</span>] : <span class="number">0</span>);</span><br><span class="line">        max = Math.max(maxx, dp[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Leetcode舉例三：House-Robber"><a href="#Leetcode舉例三：House-Robber" class="headerlink" title="Leetcode舉例三：House Robber"></a>Leetcode舉例三：House Robber</h3><ul>
+<li>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night. *</li>
+<li>Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police. *</li>
+</ul>
+<p>Example 1:</p>
+<p>Input: [1,2,3,1]<br>Output: 4<br>Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3).<br>Total amount you can rob = 1 + 3 = 4.<br>Example 2:</p>
+<p>Input: [2,7,9,3,1]<br>Output: 12<br>Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).<br>Total amount you can rob = 2 + 9 + 1 = 12.</p>
 
       
     </div>
@@ -581,7 +588,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Yuju(Lucy) Kuo</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">Don’t be afraid to give up the good to go for the great. John D. Rockefeller</p>
           </div>
 
           
@@ -679,7 +686,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#演算法-Dynamic-Programming"><span class="nav-number">1.</span> <span class="nav-text">演算法 - Dynamic Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DP-Divide-and-Conquer-Memoization"><span class="nav-number">1.0.1.</span> <span class="nav-text">DP = Divide and Conquer + Memoization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用-Dynamic-Programming-設計演算法時的步驟"><span class="nav-number">1.0.2.</span> <span class="nav-text">用 Dynamic Programming 設計演算法時的步驟</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode舉例一：Climbing-Stairs"><span class="nav-number">1.1.</span> <span class="nav-text">Leetcode舉例一：Climbing Stairs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode舉例二：Maximum-Subarray"><span class="nav-number">1.2.</span> <span class="nav-text">Leetcode舉例二：Maximum Subarray</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#演算法-Dynamic-Programming"><span class="nav-number">1.</span> <span class="nav-text">演算法 - Dynamic Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DP-Divide-and-Conquer-Memoization"><span class="nav-number">1.0.1.</span> <span class="nav-text">DP = Divide and Conquer + Memoization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用-Dynamic-Programming-設計演算法時的步驟"><span class="nav-number">1.0.2.</span> <span class="nav-text">用 Dynamic Programming 設計演算法時的步驟</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode舉例一：Climbing-Stairs"><span class="nav-number">1.1.</span> <span class="nav-text">Leetcode舉例一：Climbing Stairs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode舉例二：Maximum-Subarray"><span class="nav-number">1.2.</span> <span class="nav-text">Leetcode舉例二：Maximum Subarray</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode舉例三：House-Robber"><span class="nav-number">1.3.</span> <span class="nav-text">Leetcode舉例三：House Robber</span></a></li></ol></li></ol></div>
             
 
           </div>
