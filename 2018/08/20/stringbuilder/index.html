@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="Java  Stack  類別 (Vector子類別)Stack 是Vector的一個子類別 -實現了後進先出(Last-In-First-Out, LIFO)的排程 建構方法：public Stack( ) 創建一个空Stack 而在此資料結構中至少會實作兩個操作：  push( )：將資料放入堆疊頂端 pop：取出堆疊頂端之資料  也有一些額外的操作以方便使用：  peek( )：看堆疊頂端的">
+  <meta name="description" content="String / StringBuilder / StringBuffer當使用文本數據時，Java提供了三種類別，包括String, StringBuffer和StringBuilder。 當使用大數據來工作時，你應該用StringBuffer或StringBuilder來優化效率。 三類別差異如下：  String 是不可變的。它不允許子類的存在。  StringBuffer, StringB">
 <meta name="keywords" content="Java,Learning,Java Class">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA類別 - Stack">
-<meta property="og:url" content="http://yoursite.com/2018/07/12/stack/index.html">
+<meta property="og:title" content="JAVA 類別 - StringBuilder &amp; StringBuffer">
+<meta property="og:url" content="http://yoursite.com/2018/08/20/stringbuilder/index.html">
 <meta property="og:site_name" content="LUCY&#39;s TechGarden">
-<meta property="og:description" content="Java  Stack  類別 (Vector子類別)Stack 是Vector的一個子類別 -實現了後進先出(Last-In-First-Out, LIFO)的排程 建構方法：public Stack( ) 創建一个空Stack 而在此資料結構中至少會實作兩個操作：  push( )：將資料放入堆疊頂端 pop：取出堆疊頂端之資料  也有一些額外的操作以方便使用：  peek( )：看堆疊頂端的">
+<meta property="og:description" content="String / StringBuilder / StringBuffer當使用文本數據時，Java提供了三種類別，包括String, StringBuffer和StringBuilder。 當使用大數據來工作時，你應該用StringBuffer或StringBuilder來優化效率。 三類別差異如下：  String 是不可變的。它不允許子類的存在。  StringBuffer, StringB">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-25T08:58:46.555Z">
+<meta property="og:updated_time" content="2018-08-20T16:19:17.444Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA類別 - Stack">
-<meta name="twitter:description" content="Java  Stack  類別 (Vector子類別)Stack 是Vector的一個子類別 -實現了後進先出(Last-In-First-Out, LIFO)的排程 建構方法：public Stack( ) 創建一个空Stack 而在此資料結構中至少會實作兩個操作：  push( )：將資料放入堆疊頂端 pop：取出堆疊頂端之資料  也有一些額外的操作以方便使用：  peek( )：看堆疊頂端的">
+<meta name="twitter:title" content="JAVA 類別 - StringBuilder &amp; StringBuffer">
+<meta name="twitter:description" content="String / StringBuilder / StringBuffer當使用文本數據時，Java提供了三種類別，包括String, StringBuffer和StringBuilder。 當使用大數據來工作時，你應該用StringBuffer或StringBuilder來優化效率。 三類別差異如下：  String 是不可變的。它不允許子類的存在。  StringBuffer, StringB">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/12/stack/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/20/stringbuilder/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>JAVA類別 - Stack | LUCY's TechGarden</title>
+  <title>JAVA 類別 - StringBuilder & StringBuffer | LUCY's TechGarden</title>
   
 
 
@@ -305,7 +305,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/12/stack/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/20/stringbuilder/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yuju(Lucy) Kuo">
@@ -322,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JAVA類別 - Stack
+          <h1 class="post-title" itemprop="name headline">JAVA 類別 - StringBuilder & StringBuffer
               
             
           </h1>
@@ -347,24 +347,12 @@
                 
               
 
-              <time title="Created: 2018-07-12 10:15:05" itemprop="dateCreated datePublished" datetime="2018-07-12T10:15:05-04:00">2018-07-12</time>
+              <time title="Created: 2018-08-20 11:54:03 / Modified: 12:19:17" itemprop="dateCreated datePublished" datetime="2018-08-20T11:54:03-04:00">2018-08-20</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-07-25 04:58:46" itemprop="dateModified" datetime="2018-07-25T04:58:46-04:00">2018-07-25</time>
               
             
           </span>
@@ -415,41 +403,154 @@
       
 
       
-        <h2 id="Java-Stack-類別-Vector子類別"><a href="#Java-Stack-類別-Vector子類別" class="headerlink" title="Java  Stack  類別 (Vector子類別)"></a>Java  Stack  類別 (Vector子類別)</h2><p>Stack 是Vector的一個子類別 -實現了後進先出(Last-In-First-Out, LIFO)的排程</p>
-<p>建構方法：<br>public Stack( ) 創建一个空Stack</p>
-<p>而在此資料結構中至少會實作兩個操作：</p>
+        <h2 id="String-StringBuilder-StringBuffer"><a href="#String-StringBuilder-StringBuffer" class="headerlink" title="String / StringBuilder / StringBuffer"></a>String / StringBuilder / StringBuffer</h2><p>當使用文本數據時，Java提供了三種類別，包括<strong>String</strong>, <strong>StringBuffer</strong>和<strong>StringBuilder</strong>。</p>
+<p>當使用大數據來工作時，你應該用<strong>StringBuffer</strong>或<strong>StringBuilder</strong>來優化效率。</p>
+<p>三類別差異如下：</p>
 <ul>
-<li>push( )：將資料放入堆疊頂端</li>
-<li>pop：取出堆疊頂端之資料</li>
-</ul>
-<p>也有一些額外的操作以方便使用：</p>
-<ul>
-<li>peek( )：看堆疊頂端的資料而不取出<blockquote>
-<p>註：也有top等不同的用字</p>
+<li><p>String 是不可變的。它不允許子類的存在。</p>
+</li>
+<li><p>StringBuffer, StringBuilder 是可變的。</p>
+</li>
+<li><p>StringBuilder和StringBuffer都是一樣的，除了涉及到多線程的使用情況。</p>
+<blockquote>
+<p>為了處理多線程使用文本，你應該為了防止線程之間沖突而使用StringBuffer。<br>要使用一個線程處理的文本，你應該使用StringBuilder。</p>
 </blockquote>
 </li>
-<li>size：取得堆疊的數目</li>
-<li>boolean empty( ) 測試是否為空</li>
-<li>int search(Object object) 返回對象在堆棧中的位置</li>
-</ul>
-<p>以下舉例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StackDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showpush</span><span class="params">(Stack&lt;Integer&gt; st, <span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">    st.push(<span class="keyword">new</span> Integer(a));</span><br><span class="line">    System.out.println(<span class="string">"push("</span> + a + <span class="string">")"</span>);</span><br><span class="line">    System.out.println(<span class="string">"stack: "</span> + st);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showpop</span><span class="params">(Stack&lt;Integer&gt; st)</span> </span>&#123;</span><br><span class="line">    System.out.print(<span class="string">"pop -&gt; "</span>);</span><br><span class="line">    Integer a = (Integer) st.pop();</span><br><span class="line">    System.out.println(a);</span><br><span class="line">    System.out.println(<span class="string">"stack: "</span> + st);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">    Stack&lt;Integer&gt; st = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    System.out.println(<span class="string">"stack: "</span> + st);</span><br><span class="line"></span><br><span class="line">    showpush(st, <span class="number">42</span>);</span><br><span class="line">    showpush(st, <span class="number">66</span>);</span><br><span class="line">    showpush(st, <span class="number">99</span>);</span><br><span class="line">    showpop(st);</span><br><span class="line">    showpop(st);</span><br><span class="line">    showpop(st);</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    showpop(st);</span><br><span class="line">&#125; <span class="keyword">catch</span> (EmptyStackException e) &#123;</span><br><span class="line">    System.out.println(<span class="string">"empty stack"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>以下為執行結果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">stack: [ ]</span><br><span class="line">push(42)</span><br><span class="line"></span><br><span class="line">stack: [42]</span><br><span class="line">push(66)</span><br><span class="line"></span><br><span class="line">stack: [42, 66]</span><br><span class="line">push(99)</span><br><span class="line"></span><br><span class="line">stack: [42, 66, 99]</span><br><span class="line">pop -&gt; 99</span><br><span class="line"></span><br><span class="line">stack: [42, 66]</span><br><span class="line">pop -&gt; 66</span><br><span class="line"></span><br><span class="line">stack: [42]</span><br><span class="line">pop -&gt; 42</span><br><span class="line"></span><br><span class="line">stack: [ ]</span><br><span class="line">pop -&gt; empty stack</span><br></pre></td></tr></table></figure>
-<h4 id="Leetcode-實例："><a href="#Leetcode-實例：" class="headerlink" title="Leetcode 實例："></a>Leetcode 實例：</h4><p><em>20. Valid Parentheses</em><br><em>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’,<br>determine if the input string is valid.</em></p>
-<p>An input string is valid if:<br>Open brackets must be closed by the same type of brackets.<br>Open brackets must be closed in the correct order.<br>Note that an empty string is also considered valid.</p>
-<ul>
-<li><p>Example 1:<br>Input: “()”<br>Output: true</p>
-</li>
-<li><p>Example 2:<br>Input: “()[]{}”<br>Output: true</p>
-</li>
-<li><p>Example 3:<br>Input: “(]”<br>Output: false</p>
-</li>
-<li><p>Example 4:<br>Input: “([)]”<br>Output: false</p>
-</li>
-<li><p>Example 5:<br>Input: “{[]}”<br>Output: true</p>
+<li><p>處理的速度，StringBuilder是最好的，其次是StringBuffer，而最後是String。</p>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">Stack&lt;Character&gt; st = <span class="keyword">new</span> Stack&lt;Character&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>( <span class="keyword">char</span> a : s.toCharArray())&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ( a == <span class="string">'('</span>) st.push(<span class="string">')'</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( a == <span class="string">'['</span>) st.push(<span class="string">']'</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( a == <span class="string">'&#123;'</span>) st.push(<span class="string">'&#125;'</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( st.isEmpty() || st.pop()!= a ) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> st.isEmpty() ;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="JAVA-StringBuilder-amp-StringBuffer-類別"><a href="#JAVA-StringBuilder-amp-StringBuffer-類別" class="headerlink" title="JAVA StringBuilder&amp; StringBuffer 類別"></a>JAVA StringBuilder&amp; StringBuffer 類別</h2><p>當對字符串進行修改的時候，需要使用 StringBuffer 和 StringBuilder 類。</p>
+<p>和 String 類不同的是，StringBuffer 和 StringBuilder 類的對象能夠被多次的修改，並且不產生新的未使用對象。</p>
+<p>StringBuilder 類在 Java 5 中被提出，它和 StringBuffer 之間的最大不同在於<strong>StringBuilder 的方法不是線程安全的（不能同步訪問）。</strong></p>
+<p>由於 StringBuilder 相較於 StringBuffer 有速度優勢，所以多數情況下建議使用 StringBuilder 類。</p>
+<p>然而在應用程序要求線程安全的情況下，則必須使用 StringBuffer 類。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">    StringBuffer sBuffer = <span class="keyword">new</span> StringBuffer(<span class="string">"露西個人網頁網址："</span>);</span><br><span class="line">    sBuffer.append(<span class="string">"www"</span>);</span><br><span class="line">    sBuffer.append(<span class="string">".yujukuo"</span>);</span><br><span class="line">    sBuffer.append(<span class="string">".com"</span>);</span><br><span class="line">    System.out.println(sBuffer);  </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上實例編譯運行結果如下：</p>
+<p><code>露西個人網頁網址：www.yujukuo.com</code></p>
+<h3 id="其他StringBuffer-方法"><a href="#其他StringBuffer-方法" class="headerlink" title="其他StringBuffer 方法"></a>其他StringBuffer 方法</h3><p>以下是 StringBuffer 類支持的主要方法：</p>
+<table>
+<thead>
+<tr>
+<th>序號</th>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>public StringBuffer append(String s)</td>
+<td>將指定的字符串追加到此字符序列。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>public StringBuffer reverse()</td>
+<td>將此字符序列用其反轉形式取代。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>public delete(int start, int end)</td>
+<td>移除此序列的子字符串中的字符。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>public insert(int offset, int i)</td>
+<td>將 int 參數的字符串表示形式插入此序列中。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>replace(int start, int end, String str)</td>
+<td>使用給定 String 中的字符替換此序列的子字符串中的字符。</td>
+</tr>
+</tbody>
+</table>
+<p>下面的列表裏的方法和 String 類的方法類似：</p>
+<table>
+<thead>
+<tr>
+<th>序號</th>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>int capacity()</td>
+<td>返回當前容量。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>char charAt(int index)</td>
+<td>返回此序列中指定索引處的 char 值。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>void ensureCapacity(int minimumCapacity)</td>
+<td>確保容量至少等於指定的最小值。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)</td>
+<td>將字符從此序列覆制到目標字符數組 dst。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>int indexOf(String str)</td>
+<td>返回第一次出現的指定子字符串在該字符串中的索引。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>int indexOf(String str, int fromIndex)</td>
+<td>從指定的索引處開始，返回第一次出現的指定子字符串在該字符串中的索引。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>int lastIndexOf(String str)</td>
+<td>返回最右邊出現的指定子字符串在此字符串中的索引。</td>
+</tr>
+<tr>
+<td>8</td>
+<td>int lastIndexOf(String str, int fromIndex)</td>
+<td>返回 String 對象中子字符串最後出現的位置。</td>
+</tr>
+<tr>
+<td>9</td>
+<td>int length()</td>
+<td>返回長度（字符數）。</td>
+</tr>
+<tr>
+<td>10</td>
+<td>void setCharAt(int index, char ch)</td>
+<td>將給定索引處的字符設置為 ch。</td>
+</tr>
+<tr>
+<td>11</td>
+<td>void setLength(int newLength)</td>
+<td>設置字符序列的長度。</td>
+</tr>
+<tr>
+<td>12</td>
+<td>CharSequence subSequence(int start, int end)</td>
+<td>返回一個新的字符序列，該字符序列是此序列的子序列。</td>
+</tr>
+<tr>
+<td>13</td>
+<td>String substring(int start)</td>
+<td>返回一個新的 String，它包含此字符序列當前所包含的字符子序列。</td>
+</tr>
+<tr>
+<td>14</td>
+<td>String substring(int start, int end)</td>
+<td>返回一個新的 String，它包含此序列當前所包含的字符子序列。</td>
+</tr>
+<tr>
+<td>15</td>
+<td>String toString()</td>
+<td>返回此序列中數據的字符串表示形式。</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -487,8 +588,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/11/KMP/" rel="next" title="演算法 - KMP">
-                <i class="fa fa-chevron-left"></i> 演算法 - KMP
+              <a href="/2018/08/20/string/" rel="next" title="JAVA 類別 - String">
+                <i class="fa fa-chevron-left"></i> JAVA 類別 - String
               </a>
             
           </div>
@@ -496,10 +597,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/12/regex/" rel="prev" title="JAVA基礎 - 正則表達式">
-                JAVA基礎 - 正則表達式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -661,7 +758,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-Stack-類別-Vector子類別"><span class="nav-number">1.</span> <span class="nav-text">Java  Stack  類別 (Vector子類別)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Leetcode-實例："><span class="nav-number">1.0.1.</span> <span class="nav-text">Leetcode 實例：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#String-StringBuilder-StringBuffer"><span class="nav-number">1.</span> <span class="nav-text">String / StringBuilder / StringBuffer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA-StringBuilder-amp-StringBuffer-類別"><span class="nav-number">2.</span> <span class="nav-text">JAVA StringBuilder&amp; StringBuffer 類別</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#其他StringBuffer-方法"><span class="nav-number">2.1.</span> <span class="nav-text">其他StringBuffer 方法</span></a></li></ol></li></ol></div>
             
 
           </div>
