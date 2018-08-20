@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/l.png?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="JAVA 類別 - String字符串廣泛應用 在Java 編程中，在 Java 中字符串屬於對象，Java 提供了 String 類來創建和操作字符串。 String greeting = “HelloLucy”;在代碼中遇到字符串常量時，這裏的值是 “HelloLucy””，編譯器會使用該值創建一個 String 對象。 創建 String和其它對象一樣，可以使用關鍵字和構造方法來創建 Str">
+<meta name="keywords" content="Java,Learning,Java Class">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA 類別 - String">
+<meta property="og:url" content="http://yoursite.com/2018/08/20/string/index.html">
+<meta property="og:site_name" content="LUCY&#39;s TechGarden">
+<meta property="og:description" content="JAVA 類別 - String字符串廣泛應用 在Java 編程中，在 Java 中字符串屬於對象，Java 提供了 String 類來創建和操作字符串。 String greeting = “HelloLucy”;在代碼中遇到字符串常量時，這裏的值是 “HelloLucy””，編譯器會使用該值創建一個 String 對象。 創建 String和其它對象一樣，可以使用關鍵字和構造方法來創建 Str">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-20T15:50:44.394Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA 類別 - String">
+<meta name="twitter:description" content="JAVA 類別 - String字符串廣泛應用 在Java 編程中，在 Java 中字符串屬於對象，Java 提供了 String 類來創建和操作字符串。 String greeting = “HelloLucy”;在代碼中遇到字符串常量時，這裏的值是 “HelloLucy””，編譯器會使用該值創建一個 String 對象。 創建 String和其它對象一樣，可以使用關鍵字和構造方法來創建 Str">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/20/string/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JAVA 類別 - String | LUCY's TechGarden</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LUCY's TechGarden</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">5</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">1</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">8</span></a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/20/string/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuju(Lucy) Kuo">
+      <meta itemprop="description" content="Don’t be afraid to give up the good to go for the great. John D. Rockefeller">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LUCY's TechGarden">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JAVA 類別 - String
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-20 10:34:03 / Modified: 11:50:44" itemprop="dateCreated datePublished" datetime="2018-08-20T10:34:03-04:00">2018-08-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java學習筆記/" itemprop="url" rel="index"><span itemprop="name">Java學習筆記</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="JAVA-類別-String"><a href="#JAVA-類別-String" class="headerlink" title="JAVA 類別 - String"></a>JAVA 類別 - String</h2><p>字符串廣泛應用 在Java 編程中，在 Java 中字符串屬於對象，Java 提供了 String 類來創建和操作字符串。</p>
+<p>String greeting = “HelloLucy”;<br>在代碼中遇到字符串常量時，這裏的值是 “HelloLucy””，編譯器會使用該值創建一個 String 對象。</p>
+<h3 id="創建-String"><a href="#創建-String" class="headerlink" title="創建 String"></a>創建 String</h3><p>和其它對象一樣，可以使用關鍵字和構造方法來創建 String 對象。String 類有 11 種構造方法，這些方法提供不同的參數來初始化字符串，比如提供一個字符Array參數:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringDemo</span></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">      <span class="keyword">char</span>[] helloArray = &#123; <span class="string">'r'</span>, <span class="string">'u'</span>, <span class="string">'n'</span>, <span class="string">'o'</span>, <span class="string">'o'</span>, <span class="string">'b'</span>&#125;;</span><br><span class="line">      String helloString = <span class="keyword">new</span> String(helloArray);  </span><br><span class="line">      System.out.println( helloString );</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上實例編譯運行結果如下：</p>
+<p><code>runoob</code></p>
+<blockquote>
+<p>注意:String 類是不可改變的，所以你一但創建了 String 對象，那它的值就無法改變了。如果需要對字符串做很多修改，那麽應該選擇使用 <strong>StringBuffer</strong> &amp; <strong>StringBuilder</strong> 類。</p>
+</blockquote>
+<h3 id="字符串長度"><a href="#字符串長度" class="headerlink" title="字符串長度"></a>字符串長度</h3><p>用於獲取有關對象的信息的方法稱為訪問器方法。</p>
+<p>String 類的一個訪問器方法是<code>length()</code>方法，它返回字符串對象包含的字符數。</p>
+<p>下面的代碼執行後，len變量等於14:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        String site = <span class="string">"www.yujukuo.com"</span>;</span><br><span class="line">        <span class="keyword">int</span> len = site.length();</span><br><span class="line">        System.out.println( <span class="string">"露西個人網頁網址長度 : "</span> + len );</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上實例編譯運行結果如下：</p>
+<p><code>露西個人網頁網址長度 : 15</code></p>
+<h3 id="連接字符串"><a href="#連接字符串" class="headerlink" title="連接字符串"></a>連接字符串</h3><p>String 類提供了連接兩個字符串的方法：</p>
+<ul>
+<li>string1.concat(string2);<br>返回 string2 連接 string1 的新字符串。也可以對字符串常量使用 concat() 方法，如：</li>
+</ul>
+<p><code>&quot;我的名字是 &quot;.concat(&quot;yuju&quot;);</code></p>
+<ul>
+<li>更常用的是使用’+’操作符來連接字符串，如：</li>
+</ul>
+<p><code>&quot;Hello,&quot; + &quot; yuju&quot; + &quot;!&quot;</code></p>
+<p>結果如下:</p>
+<p><code>&quot;Hello, yuju!&quot;</code></p>
+<p>下面是一個例子:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;     </span><br><span class="line">        String string1 = <span class="string">"露西個人網頁網址："</span>;     </span><br><span class="line">        System.out.println(<span class="string">"1、"</span> + string1 + <span class="string">"www.yujukuo.com"</span>);  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上實例編譯運行結果如下：</p>
+<p><code>1、露西個人網頁網址：www.yujukuo.com</code></p>
+<h3 id="創建格式化字符串"><a href="#創建格式化字符串" class="headerlink" title="創建格式化字符串"></a>創建格式化字符串</h3><p>我們知道輸出格式化數字可以使用 <strong>printf()</strong> 和 <strong>format()</strong> 方法。</p>
+<ul>
+<li><p>String 類使用靜態方法 format() 返回一個String 對象而不是 PrintStream 對象。</p>
+</li>
+<li><p>String 類的靜態方法 format() 能用來創建可覆用的格式化字符串，而不僅僅是用於一次打印輸出。</p>
+</li>
+</ul>
+<p>如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">System.out.printf(<span class="string">"浮點型變量的值為 "</span> +</span><br><span class="line">                  <span class="string">"%f, 整型變量的值為 "</span> +</span><br><span class="line">                  <span class="string">" %d, 字符串變量的值為 "</span> +</span><br><span class="line">                  <span class="string">"is %s"</span>, floatVar, intVar, stringVar);</span><br></pre></td></tr></table></figure>
+<p>你也可以這樣寫</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String fs;</span><br><span class="line">fs = String.format(<span class="string">"浮點型變量的值為 "</span> +</span><br><span class="line">                   <span class="string">"%f, 整型變量的值為 "</span> +</span><br><span class="line">                   <span class="string">" %d, 字符串變量的值為 "</span> +</span><br><span class="line">                   <span class="string">" %s"</span>, floatVar, intVar, stringVar);</span><br></pre></td></tr></table></figure>
+<h3 id="其他String-方法"><a href="#其他String-方法" class="headerlink" title="其他String 方法"></a>其他String 方法</h3><p>下面是 String 類支持的方法:</p>
+<ol>
+<li><strong><code>char charAt(int index)</code></strong><br>返回指定索引處的 char 值。</li>
+<li><strong><code>int compareTo(Object o)</code></strong><br>把這個字符串和另一個對象比較。</li>
+<li><code>int compareTo(String anotherString)</code><br>按字典順序比較兩個字符串。</li>
+<li><code>int compareToIgnoreCase(String str)</code><br>按字典順序比較兩個字符串，不考慮大小寫。</li>
+<li><strong><code>String concat(String str)</code></strong><br>將指定字符串連接到此字符串的結尾。</li>
+<li><code>boolean contentEquals(StringBuffer sb)</code><br>當且僅當字符串與指定的StringBuffer有相同順序的字符時候返回真。</li>
+<li><code>static String copyValueOf(char[] data)</code><br>返回指定數組中表示該字符序列的 String。</li>
+<li><code>static String copyValueOf(char[] data, int offset, int count)</code><br>返回指定數組中表示該字符序列的 String。</li>
+<li><code>boolean endsWith(String suffix)</code><br>測試此字符串是否以指定的後綴結束。</li>
+<li><code>boolean equals(Object anObject)</code><br>將此字符串與指定的對象比較。</li>
+<li><strong><code>boolean equalsIgnoreCase(String anotherString)</code></strong><br>將此 String 與另一個 String 比較，不考慮大小寫。</li>
+<li><code>byte[] getBytes()</code><br> 使用平台的默認字符集將此 String 編碼為 byte 序列，並將結果存儲到一個新的 byte 數組中。</li>
+<li><code>byte[] getBytes(String charsetName)</code><br>使用指定的字符集將此 String 編碼為 byte 序列，並將結果存儲到一個新的 byte 數組中。</li>
+<li><code>void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)</code><br>將字符從此字符串覆制到目標字符數組。</li>
+<li><code>int hashCode()</code><br>返回此字符串的哈希碼。</li>
+<li><strong><code>int indexOf(int ch)</code></strong><br>返回指定字符在此字符串中第一次出現處的索引。</li>
+<li><code>int indexOf(int ch, int fromIndex)</code><br>返回在此字符串中第一次出現指定字符處的索引，從指定的索引開始搜索。</li>
+<li><code>int indexOf(String str)</code><br> 返回指定子字符串在此字符串中第一次出現處的索引。</li>
+<li><code>int indexOf(String str, int fromIndex)</code><br>返回指定子字符串在此字符串中第一次出現處的索引，從指定的索引開始。</li>
+<li><code>String intern()</code><br> 返回字符串對象的規範化表示形式。</li>
+<li><code>int lastIndexOf(int ch)</code><br> 返回指定字符在此字符串中最後一次出現處的索引。</li>
+<li><code>int lastIndexOf(int ch, int fromIndex)</code><br>返回指定字符在此字符串中最後一次出現處的索引，從指定的索引處開始進行反向搜索。</li>
+<li><code>int lastIndexOf(String str)</code><br>返回指定子字符串在此字符串中最右邊出現處的索引。</li>
+<li><code>int lastIndexOf(String str, int fromIndex)</code><br> 返回指定子字符串在此字符串中最後一次出現處的索引，從指定的索引開始反向搜索。</li>
+<li><code>int length()</code><br>返回此字符串的長度。</li>
+<li><code>boolean matches(String regex)</code><br>告知此字符串是否匹配給定的正則表達式。</li>
+<li><code>boolean regionMatches(boolean ignoreCase, int toffset, String other, int ooffset, int len)</code><br>測試兩個字符串區域是否相等。</li>
+<li><code>boolean regionMatches(int toffset, String other, int ooffset, int len)</code><br>測試兩個字符串區域是否相等。</li>
+<li><strong><code>String replace(char oldChar, char newChar)</code></strong><br>返回一個新的字符串，它是通過用 newChar 替換此字符串中出現的所有 oldChar 得到的。</li>
+<li><code>String replaceAll(String regex, String replacement)</code><br>使用給定的 replacement 替換此字符串所有匹配給定的正則表達式的子字符串。</li>
+<li><code>String replaceFirst(String regex, String replacement)</code><br> 使用給定的 replacement 替換此字符串匹配給定的正則表達式的第一個子字符串。</li>
+<li><code>String[] split(String regex)</code><br>根據給定正則表達式的匹配拆分此字符串。</li>
+<li><code>String[] split(String regex, int limit)</code><br>根據匹配給定的正則表達式來拆分此字符串。</li>
+<li><code>boolean startsWith(String prefix)</code><br>測試此字符串是否以指定的前綴開始。</li>
+<li><code>boolean startsWith(String prefix, int toffset)</code><br>測試此字符串從指定索引開始的子字符串是否以指定前綴開始。</li>
+<li><code>CharSequence subSequence(int beginIndex, int endIndex)</code><br> 返回一個新的字符序列，它是此序列的一個子序列。</li>
+<li><code>String substring(int beginIndex)</code><br>返回一個新的字符串，它是此字符串的一個子字符串。</li>
+<li><code>String substring(int beginIndex, int endIndex)</code><br>返回一個新字符串，它是此字符串的一個子字符串。</li>
+<li><strong><code>char[] toCharArray()</code></strong><br>將此字符串轉換為一個新的字符數組。</li>
+<li><strong><code>String toLowerCase()</code></strong><br>使用默認語言環境的規則將此 String 中的所有字符都轉換為小寫。</li>
+<li><code>String toLowerCase(Locale locale)</code><br> 使用給定 Locale 的規則將此 String 中的所有字符都轉換為小寫。</li>
+<li><code>String toString()</code><br> 返回此對象本身（它已經是一個字符串！）。</li>
+<li><strong><code>String toUpperCase()</code></strong><br>使用默認語言環境的規則將此 String 中的所有字符都轉換為大寫。</li>
+<li><code>String toUpperCase(Locale locale)</code><br>使用給定 Locale 的規則將此 String 中的所有字符都轉換為大寫。</li>
+<li><strong><code>String trim()</code></strong><br>返回字符串的副本，忽略前導空白和尾部空白。</li>
+<li><code>static String valueOf(primitive data type x)</code><br>返回給定data type類型x參數的字符串表示形式。</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/Learning/" rel="tag"># Learning</a>
+          
+            <a href="/tags/Java-Class/" rel="tag"># Java Class</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/25/vector/" rel="next" title="JAVA類別 - Vector">
+                <i class="fa fa-chevron-left"></i> JAVA類別 - Vector
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yuju(Lucy) Kuo</p>
+              <p class="site-description motion-element" itemprop="description">Don’t be afraid to give up the good to go for the great. John D. Rockefeller</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:yujuko@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/yujuko" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA-類別-String"><span class="nav-number">1.</span> <span class="nav-text">JAVA 類別 - String</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#創建-String"><span class="nav-number">1.1.</span> <span class="nav-text">創建 String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串長度"><span class="nav-number">1.2.</span> <span class="nav-text">字符串長度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#連接字符串"><span class="nav-number">1.3.</span> <span class="nav-text">連接字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#創建格式化字符串"><span class="nav-number">1.4.</span> <span class="nav-text">創建格式化字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他String-方法"><span class="nav-number">1.5.</span> <span class="nav-text">其他String 方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuju(Lucy) Kuo</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
