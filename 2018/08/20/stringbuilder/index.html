@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="LUCY&#39;s TechGarden">
 <meta property="og:description" content="String / StringBuilder / StringBuffer當使用文本數據時，Java提供了三種類別，包括String, StringBuffer和StringBuilder。 當使用大數據來工作時，你應該用StringBuffer或StringBuilder來優化效率。 三類別差異如下：  String 是不可變的。它不允許子類的存在。  StringBuffer, StringB">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-20T16:19:17.444Z">
+<meta property="og:updated_time" content="2018-08-20T16:32:32.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA 類別 - StringBuilder &amp; StringBuffer">
 <meta name="twitter:description" content="String / StringBuilder / StringBuffer當使用文本數據時，Java提供了三種類別，包括String, StringBuffer和StringBuilder。 當使用大數據來工作時，你應該用StringBuffer或StringBuilder來優化效率。 三類別差異如下：  String 是不可變的。它不允許子類的存在。  StringBuffer, StringB">
@@ -347,7 +347,7 @@
                 
               
 
-              <time title="Created: 2018-08-20 11:54:03 / Modified: 12:19:17" itemprop="dateCreated datePublished" datetime="2018-08-20T11:54:03-04:00">2018-08-20</time>
+              <time title="Created: 2018-08-20 11:54:03 / Modified: 12:32:32" itemprop="dateCreated datePublished" datetime="2018-08-20T11:54:03-04:00">2018-08-20</time>
             
 
             
@@ -551,6 +551,38 @@
 </tr>
 </tbody>
 </table>
+<h3 id="Leetcode舉例"><a href="#Leetcode舉例" class="headerlink" title="Leetcode舉例"></a>Leetcode舉例</h3><h4 id="38-CountAndSay"><a href="#38-CountAndSay" class="headerlink" title="38.CountAndSay"></a>38.CountAndSay</h4><ul>
+<li>The count-and-say sequence is the sequence of integers with the first five terms as following:</li>
+</ul>
+<ol>
+<li>1</li>
+<li>11</li>
+<li>21</li>
+<li>1211</li>
+<li>111221<br>1 is read off as “one 1” or 11.<br>11 is read off as “two 1s” or 21.<br>21 is read off as “one 2, then one 1” or 1211.<br>Given an integer n, generate the nth term of the count-and-say sequence.</li>
+</ol>
+<p>Note: Each term of the sequence of integers will be represented as a string.*<br><code>Example 1:
+Input: 1
+Output: &quot;1&quot;</code></p>
+<p><code>Example 2:
+Input: 4
+Output: &quot;1211&quot;</code></p>
+<p>Solution:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">countAndSay</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">StringBuilder curr = <span class="keyword">new</span> StringBuilder(<span class="string">"1"</span>);</span><br><span class="line">StringBuilder prev ;</span><br><span class="line"><span class="keyword">int</span> count;</span><br><span class="line"><span class="keyword">char</span> num;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ( <span class="keyword">int</span> i=<span class="number">1</span> ; i&lt;n ; i++ )&#123;</span><br><span class="line">prev = curr;</span><br><span class="line">curr = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">count = <span class="number">1</span>;</span><br><span class="line">num = prev.charAt(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> j=<span class="number">1</span>, len = prev.length() ; j&lt;len ; j++ )&#123;</span><br><span class="line"><span class="keyword">if</span> ( prev.charAt(j) != num )&#123;</span><br><span class="line">curr.append(count).append(num);</span><br><span class="line">count = <span class="number">1</span>;</span><br><span class="line">num = prev.charAt(j);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">count ++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">curr.append(count).append(num);</span><br><span class="line">&#125;<span class="keyword">return</span> curr.toString();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="125-ValidPalindrome"><a href="#125-ValidPalindrome" class="headerlink" title="125.ValidPalindrome"></a>125.ValidPalindrome</h4><p><em>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.<br>Note: For the purpose of this problem, we define empty string as valid palindrome.</em></p>
+<p><code>Example 1:
+ Input: &quot;A man, a plan, a canal: Panama&quot;
+ Output: true</code></p>
+<p> <code>Example 2:
+ Input: &quot;race a car&quot;
+ Output: false</code></p>
+<ul>
+<li><p>Better Solution:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">String actual = s.replaceAll(<span class="string">"[^A-Za-z0-9]"</span>, <span class="string">""</span>).toLowerCase();</span><br><span class="line">String rev = <span class="keyword">new</span> StringBuffer(actual).reverse().toString();</span><br><span class="line"><span class="keyword">return</span> actual.equals(rev);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>My Solution</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">String str = <span class="keyword">new</span> String ();</span><br><span class="line">str = s.toLowerCase().replaceAll(<span class="string">"[^(a-zA-Z0-9)]"</span>, <span class="string">""</span>).replaceAll(<span class="string">"\\pP"</span>,<span class="string">""</span>);</span><br><span class="line"><span class="comment">//"\\pP"用來去除所有符號,不包括空格</span></span><br><span class="line"></span><br><span class="line">StringBuffer strb = <span class="keyword">new</span> StringBuffer(str);</span><br><span class="line"><span class="comment">//需用StringBuffer的reverse方法</span></span><br><span class="line"></span><br><span class="line">String strv  = <span class="keyword">new</span> String(strb.reverse());</span><br><span class="line"><span class="comment">//需用String的CompareTo方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(str.compareTo(strv)!= <span class="number">0</span>)&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
@@ -758,7 +790,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#String-StringBuilder-StringBuffer"><span class="nav-number">1.</span> <span class="nav-text">String / StringBuilder / StringBuffer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA-StringBuilder-amp-StringBuffer-類別"><span class="nav-number">2.</span> <span class="nav-text">JAVA StringBuilder&amp; StringBuffer 類別</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#其他StringBuffer-方法"><span class="nav-number">2.1.</span> <span class="nav-text">其他StringBuffer 方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#String-StringBuilder-StringBuffer"><span class="nav-number">1.</span> <span class="nav-text">String / StringBuilder / StringBuffer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA-StringBuilder-amp-StringBuffer-類別"><span class="nav-number">2.</span> <span class="nav-text">JAVA StringBuilder&amp; StringBuffer 類別</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#其他StringBuffer-方法"><span class="nav-number">2.1.</span> <span class="nav-text">其他StringBuffer 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode舉例"><span class="nav-number">2.2.</span> <span class="nav-text">Leetcode舉例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#38-CountAndSay"><span class="nav-number">2.2.1.</span> <span class="nav-text">38.CountAndSay</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#125-ValidPalindrome"><span class="nav-number">2.2.2.</span> <span class="nav-text">125.ValidPalindrome</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
