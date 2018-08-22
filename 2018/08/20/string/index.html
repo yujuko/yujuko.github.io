@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="LUCY&#39;s TechGarden">
 <meta property="og:description" content="JAVA String 類別字符串廣泛應用 在Java 編程中，在 Java 中字符串屬於對象，Java 提供了 String 類來創建和操作字符串。 String greeting = “HelloLucy”;在代碼中遇到字符串常量時，這裏的值是 “HelloLucy””，編譯器會使用該值創建一個 String 對象。 創建 String和其它對象一樣，可以使用關鍵字和構造方法來創建 Strin">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-20T16:25:46.482Z">
+<meta property="og:updated_time" content="2018-08-22T14:22:44.831Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA 類別 - String">
 <meta name="twitter:description" content="JAVA String 類別字符串廣泛應用 在Java 編程中，在 Java 中字符串屬於對象，Java 提供了 String 類來創建和操作字符串。 String greeting = “HelloLucy”;在代碼中遇到字符串常量時，這裏的值是 “HelloLucy””，編譯器會使用該值創建一個 String 對象。 創建 String和其它對象一樣，可以使用關鍵字和構造方法來創建 Strin">
@@ -347,12 +347,24 @@
                 
               
 
-              <time title="Created: 2018-08-20 10:34:03 / Modified: 12:25:46" itemprop="dateCreated datePublished" datetime="2018-08-20T10:34:03-04:00">2018-08-20</time>
+              <time title="Created: 2018-08-20 10:34:03" itemprop="dateCreated datePublished" datetime="2018-08-20T10:34:03-04:00">2018-08-20</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-22 10:22:44" itemprop="dateModified" datetime="2018-08-22T10:22:44-04:00">2018-08-22</time>
               
             
           </span>
@@ -414,10 +426,10 @@
 </blockquote>
 <h3 id="字符串長度"><a href="#字符串長度" class="headerlink" title="字符串長度"></a>字符串長度</h3><p>用於獲取有關對象的信息的方法稱為訪問器方法。</p>
 <p>String 類的一個訪問器方法是<code>length()</code>方法，它返回字符串對象包含的字符數。</p>
-<p>下面的代碼執行後，len變量等於15:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        String site = <span class="string">"www.yujukuo.com"</span>;</span><br><span class="line">        <span class="keyword">int</span> len = site.length();</span><br><span class="line">        System.out.println( <span class="string">"露西個人網頁網址長度 : "</span> + len );</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面的代碼執行後，len變量等於25:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        String site = <span class="string">"https://yujuko.github.io/"</span>;</span><br><span class="line">        <span class="keyword">int</span> len = site.length();</span><br><span class="line">        System.out.println( <span class="string">"露西個人網頁網址長度 : "</span> + len );</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以上實例編譯運行結果如下：</p>
-<p><code>露西個人網頁網址長度 : 15</code></p>
+<p><code>露西個人網頁網址長度 : 25</code></p>
 <h3 id="連接字符串"><a href="#連接字符串" class="headerlink" title="連接字符串"></a>連接字符串</h3><p>String 類提供了連接兩個字符串的方法：</p>
 <ul>
 <li>string1.concat(string2);<br>返回 string2 連接 string1 的新字符串。也可以對字符串常量使用 concat() 方法，如：</li>
@@ -430,9 +442,9 @@
 <p>結果如下:</p>
 <p><code>&quot;Hello, yuju!&quot;</code></p>
 <p>下面是一個例子:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;     </span><br><span class="line">        String string1 = <span class="string">"露西個人網頁網址："</span>;     </span><br><span class="line">        System.out.println(<span class="string">"1、"</span> + string1 + <span class="string">"www.yujukuo.com"</span>);  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;     </span><br><span class="line">        String string1 = <span class="string">"露西個人網頁網址："</span>;     </span><br><span class="line">        System.out.println(<span class="string">"1、"</span> + string1 + <span class="string">"https://yujuko.github.io/"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以上實例編譯運行結果如下：</p>
-<p><code>1、露西個人網頁網址：www.yujukuo.com</code></p>
+<p><code>1、露西個人網頁網址：https://yujuko.github.io/</code></p>
 <h3 id="創建格式化字符串"><a href="#創建格式化字符串" class="headerlink" title="創建格式化字符串"></a>創建格式化字符串</h3><p>我們知道輸出格式化數字可以使用 <strong>printf()</strong> 和 <strong>format()</strong> 方法。</p>
 <ul>
 <li><p>String 類使用靜態方法 format() 返回一個String 對象而不是 PrintStream 對象。</p>
@@ -686,6 +698,9 @@
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>reference:<br><a href="http://www.runoob.com/java/java-stringbuffer.html" target="_blank" rel="noopener">http://www.runoob.com/java/java-stringbuffer.html</a><br><a href="https://www.yiibai.com/java/string-stringbuffer-and-stringbuilder-tutorial.html" target="_blank" rel="noopener">https://www.yiibai.com/java/string-stringbuffer-and-stringbuilder-tutorial.html</a></p>
+</blockquote>
 
       
     </div>
