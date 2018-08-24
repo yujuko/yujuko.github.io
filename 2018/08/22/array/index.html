@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/l.png?v=6.3.0" color="#222">
+
+
+  <link rel="manifest" href="/images/l.png">
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Array 陣列宣告與配置一維陣列要整理全班的 Java 小考成績，全班共有 40 名學生，要宣告 40 個名稱不同的變數來儲存學生的成績資料嗎？當然不必這麼麻煩，Java 提供「陣列」（Array）,可以宣告一個以「索引」（Index）作為識別的資料結構，在 Java 中，可以宣告一個陣列並初始陣列內容： int[] score = {90, 85, 55, 94, 77}; 這個程式片段宣告了">
+<meta name="keywords" content="Java,Learning,Java Class">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA類別 - Array陣列">
+<meta property="og:url" content="http://yoursite.com/2018/08/22/array/index.html">
+<meta property="og:site_name" content="LUCY&#39;s TechGarden">
+<meta property="og:description" content="Array 陣列宣告與配置一維陣列要整理全班的 Java 小考成績，全班共有 40 名學生，要宣告 40 個名稱不同的變數來儲存學生的成績資料嗎？當然不必這麼麻煩，Java 提供「陣列」（Array）,可以宣告一個以「索引」（Index）作為識別的資料結構，在 Java 中，可以宣告一個陣列並初始陣列內容： int[] score = {90, 85, 55, 94, 77}; 這個程式片段宣告了">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/uploads/array.png">
+<meta property="og:image" content="http://yoursite.com/uploads/array2.png">
+<meta property="og:image" content="http://yoursite.com/uploads/array3.png">
+<meta property="og:image" content="http://yoursite.com/uploads/array4.png">
+<meta property="og:image" content="http://yoursite.com/uploads/array5.png">
+<meta property="og:image" content="http://yoursite.com/uploads/array6.png">
+<meta property="og:updated_time" content="2018-08-24T15:48:32.174Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA類別 - Array陣列">
+<meta name="twitter:description" content="Array 陣列宣告與配置一維陣列要整理全班的 Java 小考成績，全班共有 40 名學生，要宣告 40 個名稱不同的變數來儲存學生的成績資料嗎？當然不必這麼麻煩，Java 提供「陣列」（Array）,可以宣告一個以「索引」（Index）作為識別的資料結構，在 Java 中，可以宣告一個陣列並初始陣列內容： int[] score = {90, 85, 55, 94, 77}; 這個程式片段宣告了">
+<meta name="twitter:image" content="http://yoursite.com/uploads/array.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/22/array/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JAVA類別 - Array陣列 | LUCY's TechGarden</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LUCY's TechGarden</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">5</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">1</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">10</span></a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/22/array/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuju(Lucy) Kuo">
+      <meta itemprop="description" content="Don’t be afraid to give up the good to go for the great. John D. Rockefeller">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LUCY's TechGarden">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JAVA類別 - Array陣列
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-22 16:38:31" itemprop="dateCreated datePublished" datetime="2018-08-22T16:38:31-04:00">2018-08-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-24 11:48:32" itemprop="dateModified" datetime="2018-08-24T11:48:32-04:00">2018-08-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java學習筆記/" itemprop="url" rel="index"><span itemprop="name">Java學習筆記</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Array-陣列宣告與配置"><a href="#Array-陣列宣告與配置" class="headerlink" title="Array 陣列宣告與配置"></a>Array 陣列宣告與配置</h2><h3 id="一維陣列"><a href="#一維陣列" class="headerlink" title="一維陣列"></a>一維陣列</h3><p>要整理全班的 Java 小考成績，全班共有 40 名學生，要宣告 40 個名稱不同的變數來儲存學生的成績資料嗎？<br>當然不必這麼麻煩，Java 提供「陣列」（Array）,可以宣告一個以「索引」（Index）作為識別的資料結構，<br>在 Java 中，可以宣告一個陣列並初始陣列內容：</p>
+<p><code>int[] score = {90, 85, 55, 94, 77};</code></p>
+<p>這個程式片段宣告了一個 score 陣列，它的內容包括 90、85、55、94 與 77 這五個元素，<br>要存取陣列時，必須使用索引值來指定存取陣列中的哪個元素,<br>在Java 中陣列的索引是<strong>由0開始</strong>，<br>也就是說索引 0 的位置儲存 90、索引 1 的位置儲存 85、索引 2 的位置儲存 55，依此類推，<br>如果要循序的取出陣列中的每個值並顯示出來，可以使用 for 迴圈，如下所示。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SimpleArray.java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleArray</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span>[] score = &#123;<span class="number">90</span>, <span class="number">85</span>, <span class="number">55</span>, <span class="number">94</span>, <span class="number">77</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; score.length; i++)</span><br><span class="line">System.out.printf(<span class="string">"score[%d] = %d\n"</span>, i, score[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在範例中，在每次的 i 遞增後，都會作為陣列的索引指定以取出對應的陣列值，執行的結果如下：</p>
+<p><code>score[0] = 90
+score[1] = 85
+score[2] = 55
+score[3] = 94
+score[4] = 77</code></p>
+<p>在存取陣列元素時，必須注意到<strong>指定的索引值不可超出陣列範圍</strong>，<br>例如在範例中，陣列最多可以索引到 4，所以您不可以存取超過 4 的索引值，<br>否則會發生 <em>ArrayIndexOutOfBoundsException</em> 例外，如果不處理這個例外，程式將會終止。</p>
+<p>範例中使用了 length 這個陣列物件的屬性成員，<br>在 Java 中陣列是一個<strong>物件</strong>，而不是單純的資料集合，<br>陣列物件的 length 屬性成員可以取回陣列的長度，也就是陣列中的元素個數。</p>
+<h4 id="宣告陣列"><a href="#宣告陣列" class="headerlink" title="宣告陣列"></a>宣告陣列</h4><p>當宣告一個陣列時，其實就是在配置一個陣列物件，<br>實際上範例中只是陣列宣告與初始化成員的一個簡易宣告方式，<br>在 Java 中物件都是以 new 來配置記憶體空間，陣列的使用也不例外，一個完整的陣列宣告方式如下所示：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br></pre></td></tr></table></figure></p>
+<p>在上面的宣告中，arr 是個 int[] 型態的<strong>參考名稱</strong>，程式會為 arr 配置可以儲存 10 個 int 整數的一維陣列物件，索引為 0 到 9，初始值預設為 0，<br>在 Java 中配置陣列之後，若還沒有指定初值，則依資料型態的不同，會預設有不同的初值，如下表所示。</p>
+<p>陣列元素初始值：</p>
+<table>
+<thead>
+<tr>
+<th>資料型態</th>
+<th>初始值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>0</td>
+</tr>
+<tr>
+<td>short</td>
+<td>0</td>
+</tr>
+<tr>
+<td>int</td>
+<td>0</td>
+</tr>
+<tr>
+<td>long</td>
+<td>0L</td>
+</tr>
+<tr>
+<td>float</td>
+<td>0.0f</td>
+</tr>
+<tr>
+<td>double</td>
+<td>0.0d</td>
+</tr>
+<tr>
+<td>char</td>
+<td>\u0000</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<h4 id="配置陣列"><a href="#配置陣列" class="headerlink" title="配置陣列"></a>配置陣列</h4><p>下面使用配置的語法來宣告陣列，並使用 for 迴圈來設定每個元素的值然後顯示出來。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ArrayDemo.java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayDemo</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">System.out.print(<span class="string">"arr 初始值: "</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">System.out.print(arr[i] + <span class="string">" "</span>);</span><br><span class="line">arr[i] = i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.print(<span class="string">"\narr 設定值: "</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++)</span><br><span class="line">System.out.print(arr[i] + <span class="string">" "</span>);</span><br><span class="line">System.out.println();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>執行結果：<br><code>arr 初始值: 0 0 0 0 0 0 0 0 0 0</code><br><code>arr 設定值: 0 1 2 3 4 5 6 7 8 9</code></p>
+<h4 id="指定初始值陣列"><a href="#指定初始值陣列" class="headerlink" title="指定初始值陣列"></a>指定初始值陣列</h4><p>如果您想要在使用 new 新增陣列時一併指定初始值，則可以如下撰寫，注意這個方式<strong>不必指定陣列長度</strong>：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] score = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;<span class="number">90</span>, <span class="number">85</span>, <span class="number">55</span>, <span class="number">94</span>, <span class="number">77</span>&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>這個宣告方式是上面例子中 score 陣列宣告的完整形式，執行結果是相同的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SimpleArray2.java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleArray2</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span>[] score = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;<span class="number">90</span>, <span class="number">85</span>, <span class="number">55</span>, <span class="number">94</span>, <span class="number">77</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; score.length; i++)</span><br><span class="line">System.out.printf(<span class="string">"score[%d] = %d\n"</span>, i, score[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="動態配置陣列長度"><a href="#動態配置陣列長度" class="headerlink" title="動態配置陣列長度"></a>動態配置陣列長度</h4><p>由於陣列的記憶體空間是使用 new 配置而來，這意味著您也可以使用動態的方式來宣告陣列長度，而不用在程式中事先決定陣列大小，<br>下面示範了如何由使用者的輸入來決定陣列長度，它是一個計算輸入分數平均的程式。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">AverageInput.java</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AverageInput</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"></span><br><span class="line">System.out.print(<span class="string">"請輸入學生人數: "</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> length = scanner.nextInt();</span><br><span class="line"><span class="keyword">float</span>[] score = <span class="keyword">new</span> <span class="keyword">float</span>[length];  <span class="comment">// 動態配置長度</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; score.length; i++) &#123;</span><br><span class="line">System.out.print(<span class="string">"輸入分數："</span>);</span><br><span class="line"><span class="keyword">float</span> input = scanner.nextFloat();</span><br><span class="line">score[i] = input;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.print(<span class="string">"\n分數："</span>);</span><br><span class="line"><span class="keyword">float</span> total = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; score.length; i++) &#123;</span><br><span class="line">total = total + score[i];</span><br><span class="line">System.out.print(score[i] + <span class="string">" "</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.printf(<span class="string">"\n平均：%.2f"</span>, total / score.length);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>執行結果：<br><code>請輸入學生人數: 3</code><br><code>輸入分數：88.3</code><br><code>輸入分數：76.2</code><br><code>輸入分數：90.0</code></p>
+<p><code>分數：88.3 76.2 90.0</code><br><code>平均：84.83</code></p>
+<p>在上例中，先宣告一個陣列參考名稱 score，使用 float[] score 表示 score 名稱將參考至一個元素為 float 的一維陣列物件，<br>在使用者輸入指定長度後，使用這個長度來配置陣列物件，並將這個陣列物件指定給 score 名稱來參考。</p>
+<blockquote>
+<p>也可以使用像是 int arr[] 這樣的方式來宣告陣列，這種宣告方式源於 C/C++ 中對陣列宣告的語法，不過在 Java 中建議使用 int[] arr 這樣的宣告方式，這也表明了 arr 是個 int[] 型態的參考名稱。</p>
+</blockquote>
+<blockquote>
+<p>陣列的索引值由 0 開始並不是沒有原因的，事實上索引值表示的是：所指定的陣列元素相對於陣列第一個元素記憶體位置的位移量（Offset）。索引為 0 表示位移量為 0，所以就是指第一個元素，而索引 9 就是指相對於第一個元素的位移量為 9。不過在 Java 中您不直接處理關於記憶體位址的操作，以上的觀念主要是讓您更瞭解一下陣列索引的運作原理。</p>
+</blockquote>
+<h3 id="二維陣列"><a href="#二維陣列" class="headerlink" title="二維陣列"></a>二維陣列</h3><p>一維陣列使用「名稱」與「一個索引」來指定存取陣列中的元素，<br>也可以宣告二維陣列，二維陣列使用「名稱」與「兩個索引」來指定存取陣列中的元素，<br>其宣告方式與一維陣列類似：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[][] arr = &#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, &#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<p>從上面這個程式片段來看，就可以清楚的看出二維陣列的索引方式，宣告了 2 列（Row）3 行（Column）的陣列，<br>使用 { } 與適當的斷行可以協助指定陣列初值，下例簡單的示範二維陣列的存取。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">TwoDimArray.java</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TwoDimArray</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span>[][] arr =     &#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;,</span><br><span class="line">&#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr[<span class="number">0</span>].length; j++)</span><br><span class="line">System.out.print(arr[i][j] + <span class="string">" "</span>);</span><br><span class="line">System.out.println();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>執行結果：<br><code>1 2 3</code><br><code>4 5 6</code><br>陣列值 arr[i][j] 表示指定的是第 i 列第 j 行的值。在使用二維陣列物件時，注意 length 所代表的長度，陣列名稱後直接加上 length（如 arr.length），所指的是有幾列（Row）；<br>指定索引後加上 length（如 arr[0].length），指的是該列所擁有的元素，也就是行（Column）數目。</p>
+<p>要瞭解上例中 length 成員各代表哪一個長度，必須從物件配置的角度來瞭解。<br>以物件的方式來配置一個二維陣列物件，要使用以下的語法：</p>
+<p><code>int[][] arr = new int[2][3];</code><br>上面這個程式片段中，配置了 2 列 3 行的二維陣列物件，由於陣列元素的資料型態是 int，所以陣列元素的預設元素為 0。<br>來細究一下二維陣列的配置細節，其實 arr[0]、arr[1] 是<strong>參考名稱</strong>，分別參考至兩個 int[] 型態的物件，其長度各為 3，<br>而 arr 名稱的型態是 int[][]，參考至 int[][] 型態的物件，物件中包括 arr[0] 與 arr[1] 兩個名稱，<br>其關係如圖所示。<br><img src="/uploads/array.png" alt="二維陣列的配置關係"></p>
+<p>從圖中可以看到，arr 參考至 int[][] 形態的物件，而 arr[0] 與 arr[1] 再分別參考至一個 int[] 物件，<br>所以上例中，使用的 arr.length 得到的是 2，而 arr[0].length 得到的長度是 3。</p>
+<p>有了陣列配置的觀念，可以改寫例子如下，<br>讓程式中的 int[] 型態之名稱 foo 來循序取出 arr[0] 與 arr[1] 所參考的 int[] 物件中的每個元素值，執行結果是相同的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">TwoDimArray2.java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TwoDimArray2</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span>[][] arr = &#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;,</span><br><span class="line">&#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>[] foo = arr[<span class="number">0</span>]; <span class="comment">// 將arr[0] 所參考的陣列物件指定給foo</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; foo.length; i++) &#123;</span><br><span class="line">System.out.print(foo[i] + <span class="string">" "</span>);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println();</span><br><span class="line"></span><br><span class="line">foo = arr[<span class="number">1</span>]; <span class="comment">// 將arr[1] 所參考的陣列物件指定給foo</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; foo.length; i++) &#123;</span><br><span class="line">System.out.print(foo[i] + <span class="string">" "</span>);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果在使用 new 配置二維陣列後想要一併指定初值，則可以如下撰寫：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[][] arr = <span class="keyword">new</span> <span class="keyword">int</span>[][] &#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, &#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="三維陣列"><a href="#三維陣列" class="headerlink" title="三維陣列"></a>三維陣列</h3><p>同樣的道理，也可以宣告三維以上的陣列，如果要同時宣告初始元素值，可以使用以下的簡便語法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[][][] arr = &#123;</span><br><span class="line">&#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, &#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;&#125;,</span><br><span class="line">&#123;&#123;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;, &#123;<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>&#125;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>上面這個程式片段所宣告的三維陣列是 2x2x3，可以想成兩面 2x3 二維陣列交疊在一起，每一面的元素如下圖所示。<br><img src="/uploads/array2.png" alt="三維陣列的配置關係"></p>
+<h4 id="動態宣告三維陣列"><a href="#動態宣告三維陣列" class="headerlink" title="動態宣告三維陣列"></a>動態宣告三維陣列</h4><p>如果要動態宣告三維陣列，就使用以下的語法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[][][] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>][<span class="number">2</span>][<span class="number">3</span>];</span><br></pre></td></tr></table></figure></p>
+<p>比三維以上的更多維陣列之宣告，在Java中也是可行的，但並不建議使用，使用多維陣列會讓元素索引的指定更加困難，<br>此時適當的將資料加以分割，或是使用其它的資料結構來解決，會比直接宣告多維陣列來得實在。</p>
+<h3 id="不規則陣列"><a href="#不規則陣列" class="headerlink" title="不規則陣列"></a>不規則陣列</h3><p>由以上的說明，接下來討論「不規則陣列」。<br>陣列的維度不一定要是四四方方的，也可以製作一個二維陣列，而每個維度的長度並不相同，下例是個簡單的示範。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">TwoDimArray3.java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TwoDimArray3</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> arr[][];</span><br><span class="line"></span><br><span class="line">arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>][];</span><br><span class="line">arr[<span class="number">0</span>] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>]; <span class="comment">// arr[0] 參考至長度為3的一維陣列</span></span><br><span class="line">arr[<span class="number">1</span>] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>]; <span class="comment">// arr[1] 參考至長度為5的一維陣列</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr[i].length; j++)</span><br><span class="line">arr[i][j] = j + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr[i].length; j++)</span><br><span class="line">System.out.print(arr[i][j] + <span class="string">" "</span>);</span><br><span class="line">System.out.println();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>這個例子只是先前說明之觀念延伸，在這個例子中，陣列第一列的長度是3，而第二列的長度是 5，執行結果如下：<br><code>1 2 3</code><br><code>1 2 3 4 5</code></p>
+<blockquote>
+<p>在宣告二維陣列時，也可以使用 int arr[][] 這樣的宣告方式，這種宣告方式源於C/C++中對陣列宣告的語法，不過在 Java 中建議使用 int[][] arr 這樣的宣告方式，這也表示了 arr 是個 int[][] 型態的參考名稱；同樣的也可以使用 int arr[][][] 這樣的方式來宣告三維陣列，但鼓勵使用 int[][][] arr 的宣告方式。</p>
+</blockquote>
+<h2 id="進階陣列觀念"><a href="#進階陣列觀念" class="headerlink" title="進階陣列觀念"></a>進階陣列觀念</h2><h3 id="進階的陣列操作"><a href="#進階的陣列操作" class="headerlink" title="進階的陣列操作"></a>進階的陣列操作</h3><p>藉由對陣列物件的進一步探討，可以稍微瞭解 Java 對物件處理的一些作法，<br>首先來看看一維陣列的參考名稱之宣告：</p>
+<p><code>int[] arr = null;</code><br>在這個宣告中，arr 表示一個可以參考至 int 一維陣列物件的參考名稱，但是目前將這個名稱參考至 null，<br>表示這個名稱參考還沒有參考至實際的物件，在 Java 中，’=’ 運算用於基本資料型態時，是將值複製給變數，但當它用於物件時，<br>則是將物件指定給參考名稱來參考，也可以將同一個物件指定給兩個參考名稱，<br>當物件的值藉由其中一個參考名稱進行操作而變更時，另一個參考名稱所參考到的值也會更動，下例示範。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">AdvancedArray.java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdvancedArray</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span>[] arr1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] tmp1 = arr1;</span><br><span class="line"><span class="keyword">int</span>[] tmp2 = arr1;</span><br><span class="line"></span><br><span class="line">System.out.print(<span class="string">"透過tmp1取出陣列值："</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tmp1.length; i++)</span><br><span class="line">System.out.print(tmp1[i] + <span class="string">" "</span>);</span><br><span class="line"></span><br><span class="line">System.out.print(<span class="string">"\n透過tmp2取出陣列值："</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tmp2.length; i++)</span><br><span class="line">System.out.print(tmp2[i] + <span class="string">" "</span>);</span><br><span class="line"></span><br><span class="line">tmp1[<span class="number">2</span>] = <span class="number">9</span>;</span><br><span class="line">System.out.print(<span class="string">"\n\n透過tmp1取出陣列值："</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tmp1.length; i++)</span><br><span class="line">System.out.print(tmp1[i] + <span class="string">" "</span>);</span><br><span class="line"></span><br><span class="line">System.out.print(<span class="string">"\n透過tmp2取出陣列值："</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tmp2.length; i++)</span><br><span class="line">System.out.print(tmp2[i] + <span class="string">" "</span>);</span><br><span class="line">System.out.println();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>執行結果：<br><code>透過tmp1取出陣列值：1 2 3 4 5</code><br><code>透過tmp2取出陣列值：1 2 3 4 5</code></p>
+<p><code>透過tmp1取出陣列值：1 2 9 4 5</code><br><code>透過tmp2取出陣列值：1 2 9 4 5</code><br>在這個範例,藉由 tmp1 名稱改變了索引 2 的元素值，由於 tmp2 也參考至同一陣列物件，所以 tmp2 取出索引 2 的元素值是改變後的值，<br>事實上有三個參考名稱參考至同一個陣列物件，也就是 arr1、tmp1 與 tmp2，如下圖所示：<br><img src="/uploads/array3.png" alt="三個名稱參考至同一物件"><br>所以如果取出 arr1 索引 2 的元素，元素值也會是 9。</p>
+<p>在宣告 int[] arr 之後，arr 是一個一維陣列物件的參考名稱，所以它可以參考至任何長度的一維陣列物件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">AdvancedArray2.java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdvancedArray2</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span>[] arr1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] arr2 = &#123;<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] tmp = arr1;</span><br><span class="line"></span><br><span class="line">System.out.print(<span class="string">"使用tmp取出arr1中的元素："</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tmp.length; i++)</span><br><span class="line">System.out.print(tmp[i] + <span class="string">" "</span>);</span><br><span class="line"></span><br><span class="line">tmp = arr2;</span><br><span class="line">System.out.print(<span class="string">"\n使用tmp取出arr2中的元素："</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tmp.length; i++)</span><br><span class="line">System.out.print(tmp[i] + <span class="string">" "</span>);</span><br><span class="line">System.out.println();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在範例中，tmp 可以參考至擁有5個元素的一維陣列，也可以參考至擁有 3 個元素的一維陣列，執行結果如下：</p>
+<p><code>使用tmp取出arr1中的元素：1 2 3 4 5</code><br><code>使用tmp取出arr2中的元素：5 6 7</code></p>
+<blockquote>
+<p>在 Java 中陣列是一個物件，而使用 ‘=’ 指定時是將物件指定給陣列名稱來參考，也就是相當於圖 5.3 中改變名稱所綁定的物件，而不是將陣列進行複製，如果想將整個陣列的值複製給另一個陣列可以使用迴圈，將整個陣列的元素值走訪一遍，並指定給另一個陣列相對應的索引位置</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ArrayCopy.java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayCopy</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span>[] arr1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] arr2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr1.length; i++)</span><br><span class="line">arr2[i] = arr1[i];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr2.length; i++)</span><br><span class="line">System.out.print(arr2[i] + <span class="string">" "</span>);</span><br><span class="line">System.out.println();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>執行結果：<br><code>1 2 3 4 5</code></p>
+<p>另一個進行陣列複製的方法是使用 System 類別所提供的 arraycopy() 方法，其語法如下：</p>
+<p><code>System.arraycopy(來源, 起始索引, 目的, 起始索引, 複製長度);</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ArrayCopy2.java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayCopy2</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span>[] arr1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] arr2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line">System.arraycopy(arr1, <span class="number">0</span>, arr2, <span class="number">0</span>, arr1.length);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr2.length; i++)</span><br><span class="line">System.out.print(arr2[i] + <span class="string">" "</span>);</span><br><span class="line">System.out.println();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在 JDK6 中，也為 Arrays 類別新增了陣列複製的 copyOf() 方法</p>
+</blockquote>
+<h4 id="Arrays-類別"><a href="#Arrays-類別" class="headerlink" title="Arrays 類別"></a>Arrays 類別</h4><p>對陣列的一些基本操作，像是排序、搜尋與比較等動作是很常見的，在 Java 中提供了 Arrays 類別可以協助您作這幾個動作，Arrays 類別位於 java.util 套件中，它提供了幾個方法可以直接呼叫使用。</p>
+<p>Arrays 類別提供的幾個方法說明:</p>
+<table>
+<thead>
+<tr>
+<th>名稱</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sort()</td>
+<td>幫助您對指定的陣列排序，所使用的是快速排序法</td>
+</tr>
+<tr>
+<td>binarySearch()</td>
+<td>讓您對已排序的陣列進行二元搜尋，如果找到指定的值就傳回該值所在的索引，否則就傳回負值</td>
+</tr>
+<tr>
+<td>fill()</td>
+<td>當您配置一個陣列之後，會依資料型態來給定預設值，例如整數陣列就初始為 0，您可以使用Arrays.fill()方法來將所有的元素設定為指定的值</td>
+</tr>
+<tr>
+<td>equals()</td>
+<td>比較兩個陣列中的元素值是否全部相等，如果是將傳回true，否則傳回 false</td>
+</tr>
+</tbody>
+</table>
+<h5 id="陣列的排序與搜尋"><a href="#陣列的排序與搜尋" class="headerlink" title="陣列的排序與搜尋"></a>陣列的排序與搜尋</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">ArraysMethodDemo.java</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArraysMethodDemo</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>[] arr = &#123;<span class="number">93</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">55</span>, <span class="number">57</span>, <span class="number">7</span>, <span class="number">2</span> ,<span class="number">73</span>, <span class="number">41</span>, <span class="number">91</span>&#125;;</span><br><span class="line"></span><br><span class="line">System.out.print(<span class="string">"排序前: "</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++)</span><br><span class="line">System.out.print(arr[i] + <span class="string">" "</span>);</span><br><span class="line">System.out.println();</span><br><span class="line"></span><br><span class="line">Arrays.sort(arr);</span><br><span class="line"></span><br><span class="line">System.out.print(<span class="string">"排序後: "</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++)</span><br><span class="line">System.out.print(arr[i] + <span class="string">" "</span>);</span><br><span class="line"></span><br><span class="line">System.out.print(<span class="string">"\n請輸入搜尋值: "</span>);</span><br><span class="line"><span class="keyword">int</span> key = scanner.nextInt();</span><br><span class="line"><span class="keyword">int</span> find = -<span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>((find = Arrays.binarySearch(arr, key)) &gt; -<span class="number">1</span>) &#123;</span><br><span class="line">System.out.println(<span class="string">"找到值於索引 "</span> +</span><br><span class="line">find + <span class="string">" 位置"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">System.out.println(<span class="string">"找不到指定值"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>執行結果：</p>
+<p><code>排序前: 93 5 3 55 57 7 2 73 41 91</code><br><code>排序後: 2 3 5 7 41 55 57 73 91 93</code><br><code>請輸入搜尋值: 7</code><br><code>找到值於索引 3 位置</code></p>
+<h5 id="陣列的填充與比較"><a href="#陣列的填充與比較" class="headerlink" title="陣列的填充與比較"></a>陣列的填充與比較</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">ArraysMethodDemo2.java</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArraysMethodDemo2</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span>[] arr1 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">int</span>[] arr2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">int</span>[] arr3 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">Arrays.fill(arr1, <span class="number">5</span>);</span><br><span class="line">Arrays.fill(arr2, <span class="number">5</span>);</span><br><span class="line">Arrays.fill(arr3, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">System.out.print(<span class="string">"arr1: "</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr1.length; i++)</span><br><span class="line">System.out.print(arr1[i] + <span class="string">" "</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"\narr1 = arr2 ? "</span> +</span><br><span class="line">Arrays.equals(arr1, arr2));</span><br><span class="line">System.out.println(<span class="string">"arr1 = arr3 ? "</span> +</span><br><span class="line">Arrays.equals(arr1, arr3));</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>執行結果：<br><code>arr1: 5 5 5 5 5 5 5 5 5 5</code><br><code>arr1 = arr2 ? true</code><br><code>arr1 = arr3 ? false</code></p>
+<blockquote>
+<p>注意: 不可以用 ‘==’ 來比較兩個陣列的元素值是否相等，’==’ 使用於物件比對時，是用來測試兩個物件名稱是否參考至同一個物件，也就是測試兩個名稱是不是綁定至同一個物件。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">TestArrayValue.java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestArrayValue</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span>[] arr1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] arr2 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>[] tmp = arr1;</span><br><span class="line"></span><br><span class="line">System.out.println(arr1 == tmp);</span><br><span class="line">System.out.println(arr2 == tmp);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上例中，雖然 arr1 與 arr2 中的元素值是相同的，但實際上 arr1 與 arr2 是參考至不同的兩個陣列物件，<br>將 arr1 指定給 tmp 來參考，由於 tmp 與 arr1 是參考同一陣列物件，如圖所示：<br><img src="/uploads/array4.png" alt="arr1 與 tmp 是參考至同一物件"><br>所以進行 ‘arr1==tmp’ 比較時會顯示 true，而 tmp 與 arr2 是參考至不同陣列物件，所以進行 ‘arr2==tmp’ 比較時會顯示 false，執行結果如下：<br><code>true</code><br><code>false</code></p>
+<h5 id="Arrays-類別新增的兩個方法說明"><a href="#Arrays-類別新增的兩個方法說明" class="headerlink" title="Arrays 類別新增的兩個方法說明"></a>Arrays 類別新增的兩個方法說明</h5><p>在 J2SE 5.0 中對對 Arrays 類別作了不少的修改與功能新增，由此可見陣列操作在程式中的重要性，這邊介紹 Arrays 中新增的兩個方法：deepEquals() 與 deepToString()。</p>
+<table>
+<thead>
+<tr>
+<th>名稱</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>deepEquals()</td>
+<td>對陣列作深層比較，可以對二維仍至三維以上的陣列進行比較是否相等</td>
+</tr>
+<tr>
+<td>deepToString()</td>
+<td>將陣列值作深層輸出，您可以對二維仍至三維以上的陣列輸出其字串值</td>
+</tr>
+</tbody>
+</table>
+<p>下面是個簡單示範，它對三個二維陣列進行深層比較與深層輸出。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">NewArraysDemo.java</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NewArraysDemo</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span>[][] arr1 = &#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;,</span><br><span class="line">&#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;,</span><br><span class="line">&#123;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;&#125;;</span><br><span class="line"><span class="keyword">int</span>[][] arr2 = &#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;,</span><br><span class="line">&#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;,</span><br><span class="line">&#123;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;&#125;;</span><br><span class="line"><span class="keyword">int</span>[][] arr3 = &#123;&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>&#125;,</span><br><span class="line">&#123;<span class="number">4</span>, <span class="number">6</span>, <span class="number">4</span>&#125;,</span><br><span class="line">&#123;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"arr1 內容等於 arr2 ? "</span> +</span><br><span class="line">Arrays.deepEquals(arr1, arr2));</span><br><span class="line">System.out.println(<span class="string">"arr1 內容等於 arr3 ? "</span> +</span><br><span class="line">Arrays.deepEquals(arr1, arr3));</span><br><span class="line">System.out.println(<span class="string">"arr1 deepToString()\n\t"</span> +</span><br><span class="line">Arrays.deepToString(arr1));</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>執行結果：<br><code>arr1 內容等於 arr2 ? true</code><br><code>arr1 內容等於 arr3 ? false</code><br><code>arr1 deepToString()</code><br><code>[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code></p>
+<h5 id="foreach-與陣列"><a href="#foreach-與陣列" class="headerlink" title="foreach 與陣列"></a>foreach 與陣列</h5><p>J2SE 5.0 新增了 foreach 的語法，又稱加強的 for 迴圈（Enhanced for Loop），其應用的對象之一是在陣列的循序存取上，foreach 語法如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(type element : array) &#123;</span><br><span class="line">　　System.out.println(element)....</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure></p>
+<p>直接以實例的方式來說明會更容易瞭解這個語法如何使用，在 J2SE 5.0 之前您可以使用以下的方式來循序存取陣列中的元素：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">　　<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++)</span><br><span class="line">　　System.out.println(arr[i]);</span><br></pre></td></tr></table></figure></p>
+<p>　　在 J2SE 5.0 中可以使用新的 foreach 語法這麼寫：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">　　<span class="keyword">for</span>(<span class="keyword">int</span> element : arr)</span><br><span class="line">　　System.out.println(element);</span><br></pre></td></tr></table></figure></p>
+<p>每一次從 arr 中取出的元素，會自動設定給 element，不用自行判斷是否超出了陣列的長度，</p>
+<blockquote>
+<p>注意 element 的型態必須與陣列元素的元素的型態相同。<br>　　<br>如果是物件的話，作法也是類似，例如存取字串陣列的話，可以如下撰寫：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　String[] names = &#123;<span class="string">"caterpillar"</span>, <span class="string">"momor"</span>, <span class="string">"bush"</span>&#125;;</span><br><span class="line">　　<span class="keyword">for</span>(String name : names)</span><br><span class="line">　　System.out.println(name);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>那麼二維陣列舉例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="keyword">int</span>[][] arr = &#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;,</span><br><span class="line">　　&#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;,</span><br><span class="line">　　&#123;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;&#125;;</span><br><span class="line">　　<span class="keyword">for</span>(<span class="keyword">int</span>[] row : arr) &#123;</span><br><span class="line">　　<span class="keyword">for</span>(<span class="keyword">int</span> element : row) &#123;</span><br><span class="line">　　System.out.println(element);</span><br><span class="line">　　&#125;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure></p>
+<p>三維以上的陣列使用 foreach 的方式來存取也可以依此類推。
+　　</p>
+<h4 id="物件陣列"><a href="#物件陣列" class="headerlink" title="物件陣列"></a>物件陣列</h4><p>如果使用類別型態來宣告陣列，有幾個常見的問題，首先先看以下產生幾個物件：<br>　　<br><code>nt[] arr = new int[3];</code><br>這個是很基本的問題，答案是一個一維陣列物件，由於元素型態是 int，所以每個元素值初始值是 0。那麼以下的宣告產生幾個物件：<br>　　<br><code>int[][] arr = new int[2][3];</code><br>答案是 3 個，理由可以看看先前圖 的圖解就可以明白。現在再請問，以下產生幾個物件：<br>　　<br><code>Integer[] arr = new Integer[3];</code><br>有的人會以為這樣會產生 3 個 Integer 的實例，但事實上不是，以上產生的是<strong> 1 個一維陣列</strong>，由於元素型態是 Integer，所以元素值全部參考至 null，<br>如圖所示：<br><img src="/uploads/array5.png" alt="一維物件陣列示意圖"></p>
+<p>最後一個問題，請問以下的宣告產生幾個物件？<br><code>Integer[][] arr = new Integer[2][3];</code></p>
+<p>這時畫個圖就很清楚了：<br><img src="/uploads/array6.png" alt="二維物件陣列示意圖"></p>
+<p>當搞不清楚物件之間的配置關係時，畫圖是很好的表示方式，<br>在上圖中可以看到有3個物件，而由於元素型態是 Integer，所以六個元素參考名稱預設都是參考至 null。</p>
+<blockquote>
+<p>Reference: <a href="https://caterpillar.gitbooks.io/javase6tutorial/content/index.html" target="_blank" rel="noopener">Java SE 6 技術手冊</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/Learning/" rel="tag"># Learning</a>
+          
+            <a href="/tags/Java-Class/" rel="tag"># Java Class</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/20/stringbuilder/" rel="next" title="JAVA 類別 - StringBuilder & StringBuffer">
+                <i class="fa fa-chevron-left"></i> JAVA 類別 - StringBuilder & StringBuffer
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yuju(Lucy) Kuo</p>
+              <p class="site-description motion-element" itemprop="description">Don’t be afraid to give up the good to go for the great. John D. Rockefeller</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:yujuko@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/yujuko" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-陣列宣告與配置"><span class="nav-number">1.</span> <span class="nav-text">Array 陣列宣告與配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一維陣列"><span class="nav-number">1.1.</span> <span class="nav-text">一維陣列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#宣告陣列"><span class="nav-number">1.1.1.</span> <span class="nav-text">宣告陣列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置陣列"><span class="nav-number">1.1.2.</span> <span class="nav-text">配置陣列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指定初始值陣列"><span class="nav-number">1.1.3.</span> <span class="nav-text">指定初始值陣列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#動態配置陣列長度"><span class="nav-number">1.1.4.</span> <span class="nav-text">動態配置陣列長度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二維陣列"><span class="nav-number">1.2.</span> <span class="nav-text">二維陣列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三維陣列"><span class="nav-number">1.3.</span> <span class="nav-text">三維陣列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#動態宣告三維陣列"><span class="nav-number">1.3.1.</span> <span class="nav-text">動態宣告三維陣列</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不規則陣列"><span class="nav-number">1.4.</span> <span class="nav-text">不規則陣列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#進階陣列觀念"><span class="nav-number">2.</span> <span class="nav-text">進階陣列觀念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#進階的陣列操作"><span class="nav-number">2.1.</span> <span class="nav-text">進階的陣列操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Arrays-類別"><span class="nav-number">2.1.1.</span> <span class="nav-text">Arrays 類別</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#陣列的排序與搜尋"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">陣列的排序與搜尋</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#陣列的填充與比較"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">陣列的填充與比較</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Arrays-類別新增的兩個方法說明"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">Arrays 類別新增的兩個方法說明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#foreach-與陣列"><span class="nav-number">2.1.1.4.</span> <span class="nav-text">foreach 與陣列</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#物件陣列"><span class="nav-number">2.1.2.</span> <span class="nav-text">物件陣列</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuju(Lucy) Kuo</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
