@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/l.png?v=6.3.0" color="#222">
+
+
+  <link rel="manifest" href="/images/l.png">
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="LaTeX簡介What is TeXTeX 是 Donald E. Knuth1.1 教授的精心傑作，它是個功能非常強大的幕後排版系統，含有彈性很大，而且很低階的排版語言。當初，是因為 Knuth 教授在寫他的大著 TAOCP(The Art of Computer Programming) 時，發覺書商把他書中的數學式子排得太難看了，於是決定自行開發一個非常適合排數學式子的排版語言，這就是 Te">
+<meta name="keywords" content="Writting,Latex,Math">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Latex語法筆記">
+<meta property="og:url" content="http://yoursite.com/2018/09/09/Latex/index.html">
+<meta property="og:site_name" content="LUCY&#39;s TechGarden">
+<meta property="og:description" content="LaTeX簡介What is TeXTeX 是 Donald E. Knuth1.1 教授的精心傑作，它是個功能非常強大的幕後排版系統，含有彈性很大，而且很低階的排版語言。當初，是因為 Knuth 教授在寫他的大著 TAOCP(The Art of Computer Programming) 時，發覺書商把他書中的數學式子排得太難看了，於是決定自行開發一個非常適合排數學式子的排版語言，這就是 Te">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/uploads/baseline.png">
+<meta property="og:image" content="http://yoursite.com/uploads/quotation.png">
+<meta property="og:image" content="http://yoursite.com/uploads/abbreviation.png">
+<meta property="og:image" content="http://yoursite.com/uploads/abbreviation2.png">
+<meta property="og:image" content="http://yoursite.com/uploads/dots.png">
+<meta property="og:image" content="http://yoursite.com/uploads/1.png">
+<meta property="og:image" content="http://yoursite.com/uploads/2.png">
+<meta property="og:image" content="http://yoursite.com/uploads/3.png">
+<meta property="og:image" content="http://yoursite.com/uploads/4.png">
+<meta property="og:image" content="http://yoursite.com/uploads/5.png">
+<meta property="og:image" content="http://yoursite.com/uploads/6.png">
+<meta property="og:image" content="http://yoursite.com/uploads/7.png">
+<meta property="og:image" content="http://yoursite.com/uploads/8.png">
+<meta property="og:image" content="http://yoursite.com/uploads/9.png">
+<meta property="og:image" content="http://yoursite.com/uploads/10.png">
+<meta property="og:updated_time" content="2018-09-10T03:26:54.299Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Latex語法筆記">
+<meta name="twitter:description" content="LaTeX簡介What is TeXTeX 是 Donald E. Knuth1.1 教授的精心傑作，它是個功能非常強大的幕後排版系統，含有彈性很大，而且很低階的排版語言。當初，是因為 Knuth 教授在寫他的大著 TAOCP(The Art of Computer Programming) 時，發覺書商把他書中的數學式子排得太難看了，於是決定自行開發一個非常適合排數學式子的排版語言，這就是 Te">
+<meta name="twitter:image" content="http://yoursite.com/uploads/baseline.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/09/Latex/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Latex語法筆記 | LUCY's TechGarden</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LUCY's TechGarden</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">9</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">2</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">12</span></a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/09/Latex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuju(Lucy) Kuo">
+      <meta itemprop="description" content="Don’t be afraid to give up the good to go for the great. John D. Rockefeller">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LUCY's TechGarden">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Latex語法筆記
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-09 17:05:15 / Modified: 23:26:54" itemprop="dateCreated datePublished" datetime="2018-09-09T17:05:15-04:00">2018-09-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Typesetting-Language/" itemprop="url" rel="index"><span itemprop="name">Typesetting Language</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="LaTeX簡介"><a href="#LaTeX簡介" class="headerlink" title="LaTeX簡介"></a>LaTeX簡介</h2><h3 id="What-is-TeX"><a href="#What-is-TeX" class="headerlink" title="What is TeX"></a>What is TeX</h3><p>TeX 是 Donald E. Knuth1.1 教授的精心傑作，它是個功能非常強大的幕後排版系統，含有彈性很大，而且很低階的排版語言。當初，是因為 Knuth 教授在寫他的大著 TAOCP(The Art of Computer Programming) 時，發覺書商把他書中的數學式子排得太難看了，於是決定自行開發一個非常適合排數學式子的排版語言，這就是 TeX 系統的來由。</p>
+<p>不僅僅是談到 TeX 一定會提到 Knuth 教授，只要提到排版，沒有人可以忽略他的 TeX 所帶來的變革、影響，甚至 TeX 已經 20 幾歲了，仍然深深影響著排版界及排版軟體，可見這個排版軟體真的是非同小可。</p>
+<h3 id="What-is-LaTeX"><a href="#What-is-LaTeX" class="headerlink" title="What is LaTeX"></a>What is LaTeX</h3><p>但TeX 是個很低階的排版語言，如果排版時都要從這種低階語言來控制版面的話，那將會非常的煩複，所以，一些經常要用到的功能，都會先去定義好（稱為巨集，macro），這樣排版時才會方便、快速，直接引用已定義好的巨集裡頭的指令就可以了。</p>
+<p>原始的 TeX 已經有了一組 macro，是 Knuth 教授所寫的，那就是著名的 Plain TeX，但仍然不夠方便、直觀，於是 Leslie Lamport1.7又寫了另一組的 macro，稱為 LaTeX，主要是把版面配置和文章內容，適度的分開處理，只要使用者選定了一種類別，整本書或整篇文章的結構就是按照這個類別來安排版面，這樣寫文件的人只要專注於文章內容就可以了，版面配置就完全交給 TeX/LaTeX 去處理。</p>
+<p>既然 LaTeX 只不過是 TeX 的一大組巨集，那，當然原來的 TeX 的指令，大部份也是可以用在 LaTeX 文稿當中的。而且，LaTeX 並不是目前唯一的 TeX macro，其他如 eplain TeX, ConTeXt, TeXinfo 等都是 TeX macro，也都有他們自成一套的語法。目前的 LaTeX 由 LaTeX 3 Project1.8所維護及發展。</p>
+<h2 id="TeX-LaTeX-語法概說"><a href="#TeX-LaTeX-語法概說" class="headerlink" title="TeX/LaTeX 語法概說"></a>TeX/LaTeX 語法概說</h2><h3 id="LaTeX-文稿的處理流程"><a href="#LaTeX-文稿的處理流程" class="headerlink" title="LaTeX 文稿的處理流程"></a>LaTeX 文稿的處理流程</h3><p>把編輯器編輯好的文稿（通常結尾是 .tex），利用 latex 這個指令去編譯文稿就對了<br><code>latex your.tex</code></p>
+<p>需要注意的是，如果有索引，還要用 makeindex 執行一次，有參考文獻，還需要 bibtex 處理一次，最後再使用 latex 再處理一至二次，<strong>也就是說視文稿的複雜程度，latex 可能需要執行好幾次</strong>。<br>另外，處理中文的話，需要其他前置處理，這裡暫時先以英文文稿來說明，中文的部份，只要加入中文環境及（或）改用能處理中文的前置處理器就可以了。</p>
+<p>這樣經過 latex 處理後，會產生一個 <code>your.dvi</code>檔，然後可以使用 dvips 來產生 POSTSCRIPT 格式的檔案。也可以使用 dvipdfm[x] 來產生 PDF 的格式，當然，也可以使用 ps2pdf 經由 POSTSCRIPT 格式轉換成 PDF 格式。另外，也可由 pdflatex 由 your.tex 直接編譯成 PDF 格式的輸出。</p>
+<h3 id="LaTeX-的特殊專用符號"><a href="#LaTeX-的特殊專用符號" class="headerlink" title="LaTeX 的特殊專用符號"></a>LaTeX 的特殊專用符號</h3><p>在 TeX/LaTeX 的世界，原始文稿都是純文字檔，任何一種編輯器都可以打開來編輯、觀看。<br>而<strong>排版指令通常是由反斜線（\, backslash）所開頭來引導</strong>。<strong>註解則是由百分號（%）來引導</strong>。<br>例如，以編輯器編輯下列文字：<br><code>This is my first \LaTeX\ typesetting example.</code></p>
+<p>編譯後會變成以下的結果：<br><code>This is my first LaTeX typesetting example.</code><br>其中的 \LaTeX 就是 LaTeX 的一個指令，會顯示 LaTeX 這個特殊的圖示。</p>
+<p>由於，西方國家的語系，通常字母、符號的最大容量只有 256 個（$ 2^8$），因此，許多現有的符號必須拿來當做控制指令，才能符合排版的多樣化需求。<br>以下的符號可能都得時時留意，不要未經處理就直接寫進文稿裡了。<br>通常，編輯器的語法顏色會幫助判斷語法是否正確，但不是都能完美無缺，有時還是會漏掉，這時別忘了查看一下 <code>*.log</code>檔案，<br>例如：編譯 your.tex 檔的話，他的 log 檔就是 your.log。</p>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>作用</th>
+<th>文稿上使用</th>
+<th>LaTeX 的替代指令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\</td>
+<td>下排版命令</td>
+<td>\ $\backslash$</td>
+<td>\textbackslash</td>
+</tr>
+<tr>
+<td>%</td>
+<td>註解</td>
+<td>\%</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>#</td>
+<td>定義巨集</td>
+<td>#</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>~</td>
+<td>產生一個空白</td>
+<td>~{}</td>
+<td>\textasciitilde</td>
+</tr>
+<tr>
+<td>$</td>
+<td>進入（離開）數學模式</td>
+<td>\$</td>
+<td>\textdollar</td>
+</tr>
+<tr>
+<td>_</td>
+<td>數學模式中產生下標字</td>
+<td>_{}</td>
+<td>\textunderscore</td>
+</tr>
+<tr>
+<td>^</td>
+<td>數學模式中產生上標字</td>
+<td>\^{}</td>
+<td>\textasciicircum</td>
+</tr>
+<tr>
+<td>{</td>
+<td>標示命令的作用範圍</td>
+<td>{</td>
+<td>\textbraceleft</td>
+</tr>
+<tr>
+<td>}</td>
+<td>標示命令的作用範圍</td>
+<td>}</td>
+<td>\textbraceright</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>數學模式中的小於符號</td>
+<td>$&lt;$</td>
+<td>\textless</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>數學模式中的大於符號</td>
+<td>$&gt;$</td>
+<td>\textgreater</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>表格中的分隔符號</td>
+<td>\&amp;</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<h3 id="LaTeX-排版上的一些規範或慣例"><a href="#LaTeX-排版上的一些規範或慣例" class="headerlink" title="LaTeX 排版上的一些規範或慣例"></a>LaTeX 排版上的一些規範或慣例</h3><h4 id="字型的相關術語"><a href="#字型的相關術語" class="headerlink" title="字型的相關術語"></a>字型的相關術語</h4><p>通常我們每個字都是置放於一個假想的方框中，稱為 em-square，同一個字型的同一個點數，每一個 em-square 大小都是相同的，實際上的字（glyph）要置放在這個 em-square 的什麼位置，這是字型設計者的觀點，所以，同樣點數的不同字型，他的字的大小不一定會一樣，因為我們是使用 em-square 的大小在比較的，而非實際的 glyph。</p>
+<p>在文章中排列的時候，則是將 glyph 置於一個以假想參考點（reference point）為基準的一個假想線上，稱為基線（baseline），大寫字母除了 Q 以外，他們的底部都是置於基線上的。但小寫字母則不一定剛好座落在基線上，有些字的筆畫可能超出基線以下，例如 y、j 等字母。關於字型在文章中的置放位置，下面是一個模擬圖：</p>
+<p><img src="\uploads\baseline.png" alt="baseline"></p>
+<ul>
+<li>Image baseline: 這個超出基線以下的長度，我們稱之為深度（depth），以上的就稱為字高（height），當然大小寫的不同又分為大寫字母的字高（cap height）及小寫字母 x 的字高（x-height），由於這個例子裡是調合字，所以每個字的寬度（width）不一定會一樣，像打字機字族的則是等寬的字型。字高加上深度，我們就稱之為 totalheight，大部份的情況，僅僅說 height 時是不包括 depth 的，而且通常指的是 cap height。</li>
+<li>mean line: 一般比較少用到，通常是字型設計時才會用到，他是指小寫字母去除上面突出的部份所連成的一個基準線，這個 mean line 到 baseline 的距離，一般就稱為 x-height，當然就是小寫字母 x 的高度，因此我們會有一個長度單位，稱為 ex，指的就是這個 x-height。</li>
+</ul>
+<p>中文字的話比較特殊，他是以 em-square 的中心點來置放 glyph 的，在中英文混合時，中文字並不是剛好座落於基線上的，會超出基線下一點點，至於會超出多少，則和字型的設計有關，每種字型都有可能會不同。這也是為求排版上的一致性，字型可能都需要盡量使用同一套的各種字型的原因，否則就得經過微調，才能使整個字型表現上取得協調一致。</p>
+<h4 id="一般性的規則"><a href="#一般性的規則" class="headerlink" title="一般性的規則"></a>一般性的規則</h4><p>LaTeX 的指令都是大小寫有別的，由<code>\</code>開頭，後接由字母組成的字串或單一的非字母字元。</p>
+<p>由<code>[ ]</code>中括號括住的是選擇性參數，可以省略，由<code>{ }</code> 大括號括住的是不能省略的參數，當然LaTeX 的指令不一定會有參數，但絕大<br>部份都會有參數，只不過把他給省略使用預設值了。</p>
+<p>LaTeX 文稿中，<strong>空一個英文空白和空多個英文空白的作用是一樣</strong>，LaTeX 會認作一個英文空白。 平常我們編輯純文字檔，按個 Enter 鍵，就代表換行，但實際排版出來，一行的寬度是按照排版版面的設定，也就是說，<strong>你在文稿中按 Enter，不代表排版後就是從這裡斷行，LaTeX 會依一行應有的寬度經過整體計算後自動補成一整行後再來斷行，而且會在中間自動補足一個空白</strong>這在英文很自然，稱為字（word）間空白，但中文則不一樣，在編輯器中編輯中文，隨意按 Enter 的結果，會造成文章中的中文間出現空白。編輯器中，多按幾次 Enter 就多空出幾行，但在 LaTeX 文稿裡，多個空白行，和一個空白行是一樣的作用，LaTeX 會把他認作是一個空白行。而這個空白行，LaTeX 同時也會認作是新段落的開始，所以 <strong>LaTeX 是以空白行來分隔各個段落</strong>。</p>
+<p>LaTeX 預設每個章節的第一個段落的第一行是不內縮（noindent），從第二個段落開始才會內縮（indent)。</p>
+<p>LaTeX 的指令，是從<em>反斜線後第一個字母開始，到第一個非字母符號為止（包括空白、標點符號及數字）</em>。因此：<br><code>This is my first \LaTeX typesetting example.</code></p>
+<p>這樣的話，實際結果，因為 \LaTeX 後的空白是屬於指令的一部份，空白將不會被解釋，這樣會印成：<br><code>This is my first LaTeXtypesetting example.</code></p>
+<p>這種結果，LaTeX 和 typesetting 連在一起了。要避免的話，就要指定指令的作用範圍，例如以下的大括號。或就真的加個空白，例如 \ ，LaTeX 碰到 \ 就會形成完整的指令，其後的空白就會被真正解釋為空白了</p>
+<p><code>This is my first {\LaTeX} typesetting example.</code><br><code>This is my first \LaTeX{} typesetting example.</code><br><code>This is my first \LaTeX\ typesetting example.</code></p>
+<p>所以，正常印出來應該是：<br><code>This is my first LaTeX typesetting example.</code></p>
+<p>註解符號（%）<br><code>This is my fisrt \LaTeX\ document. Give \LaTeX\ a% try.</code></p>
+<p>這樣一來，排版出來會變成：<br><code>This is my fisrt LaTeX document. Give LaTeX atry.</code></p>
+<p>a 和 try 連在一起了！正常應該是：<br><code>This is my fisrt LaTeX document. Give LaTeX a try.</code></p>
+<p>基於這個特性，我們可以應用在中文，也就是說在編輯器中，中文文章按 Enter 鍵換行時，尾端加個 %，這樣一來 LaTeX 就不會插入英文字間空白，中文字就可以連成中間沒有空白的一整行了，否則 LaTeX 在整篇文稿斷句時，會自動在原換行處填入一個英文空白，因為，原始的 TeX/LaTeX 是認不得中文的。</p>
+<p>中英文混合的時候，通常，英文字前後都會留個空白，以便和中文區隔開來，只是這個空白要多大，這就沒有固定的慣例，通常留個英文空白也是可以。</p>
+<h4 id="針對標點符號的規則"><a href="#針對標點符號的規則" class="headerlink" title="針對標點符號的規則"></a>針對標點符號的規則</h4><p>中英文的引號不一樣。中、英文引號不管單雙都要分左右。<br>英文的話，左邊的引號是 grave accent，是鍵盤左上方 Esc 或 F1 下方有波形號的那一個鍵；右邊的是 apostrophe，也就是鍵盤左邊 Enter 鍵隔壁的那個鍵。</p>
+<p>雙引號的情形是鍵入兩次的左單引號及兩次的右單引號，而不是用<code>&quot;</code>這個一次完成兩個點的 ditto marks。<br>所以，實際上在鍵入文稿時是：<br>Please press an <code>Esc&#39; key.
+Please press an &#39;Esc&#39; key. 這是錯誤示範！
+`</code>This sentence.’’<br>“This sentence.” 這是錯誤示範! 排版出來的情形是：<br><img src="/uploads/quotation.png" alt="quotation"></p>
+<p>中文的話，我們是使用中文全形的<code>「`</code>」<code>及</code>『<code></code>』`，在中國大陸則已改用和英文相同形狀的全形符號，但這在中文直排時會出問題，因此，中文的單、雙引號還是得維持我們目前使用的。</p>
+<p>LaTeX 會在英文文章的一個句子結束和另一個句子開始的中間，自動調整成較大一點的空白，這可以增加文章的易讀性。所謂一個句子結束，例如：句點（.）、問號（?）、驚嘆號（!）及冒號（:），這當然是指英文的半形標點符號，不是中文的全形標點符號。可以注意一下上面所舉的例子，在 document. 和 Give 之間的空白會稍微大於其他英文單字間的空白。</p>
+<p>現在的問題是，如果<strong>這些標點符號後面不是另一個句子的開始的時候，LaTeX 無法去判斷這種情形</strong>，這時得由我們自己自行判斷、處理了。例如英文縮寫字：<br><code>I am Mr. Edward G.J. Lee, G.J. is a abbreviation of my name.</code><br><code>I am Mr.~Edward G.J. Lee, G.J. is a abbreviation of my name.</code><br><code>I am Mr.\ Edward G.J. Lee, G.J. is a abbreviation of my name.</code></p>
+<p>其中 Mr.\ Edward 的寫法，和 Mr.~Edward 幾乎是一樣的，都是強迫插入一個比較小的正常單字間空白，差別在於<strong>後者也另外表示不可以從這裡換行</strong>，通常用在人名的時候，讓他們不致中斷，一般在人名的排版，包括他的頭銜、職稱，是不中斷成兩行而分開的。而且整個文句較長的話，以後者較恰當，才不會因為斷行被分成兩半，這個 <code>~</code>符號也因此在 TeX 的專有名詞，就稱為 tie，把他們綁住的意思。排版出來的時候會變成：<br><img src="/uploads/abbreviation.png" alt="abbreviation"></p>
+<p>請放大去仔細比較一下結果就知道了。第二行的才是正確的，Mr. 和 Edward 之間的空白是正常單字間空白，比第一行的句子結束空白要小一點點。其他有使用到縮寫字的場合，例如：<code>Dr.</code>、<code>etc.</code>、<code>e.g.</code>、<code>i.e.</code>、<code>vs.</code>、<code>Fig.</code>、<code>cf.</code>、<code>Mrs.</code>，這些都不是代表句子結束，所以，要插入一個正常空白。</p>
+<p>那 G.J. 後面為什麼沒有插入正常空白？那是因為，J 是大寫的，這時 LaTeX 不會去誤認為是句子結束，<strong>通常句子結束時的句點前的那個字母是小寫的</strong> 如果句子的結束是 <code>Please see Appendix A.</code> 後面又還接有另一個句子。這時怎麼辦？由於，不會認為是句子結束，因此會插入正常空白，但這正是句子結束呀！請暫時先記得，使用 <code>...Appendix A\null.</code>，或<code>...Appendix A\@.。</code>請記得 <code>\null</code>和句點間是沒有空白的。例如：<br><code>Please see Appendix A. We will be there soon.</code><br><code>Please see Appendix A\null. We will be there soon.</code></p>
+<p>排版出來的結果將會是（差異不明顯，要小心比較）：<br><img src="/uploads/abbreviation2.png" alt="abbreviation2"></p>
+<p>如果，你現在閱讀的是 HTML 格式文件，有些例子如果無法明顯顯示出來，請改閱覽 PDF 版本。而且，如果你製作 PDF 格式時，字型沒有內嵌（本文的英數字是嵌入 Computer Modern Type1 字型），差異可能將會更不明顯。可試著使用 gv/gsview 去閱覽，然後調整成 Landscape，把句子尾部拉到邊緣的地方去就看得出來了。這在句子多的時候，這個空白也並非固定大小的，LaTeX 會視文章結構的需要做細微的調整。</p>
+<p>刪節號中文英也是不同，英文是三點，如果碰到句點的話，則是四點。中文的話是六點，碰到中文句點很容易就分得清楚。但是英文這個三點，不是就打個三個句點了事，這樣的點太密集，可以使用<code>\ldots</code>或<code>\dots</code>指令，例如：<br><code>I&#39;m not a good man ..., but a good husband .... 錯誤示範！</code><br><code>I&#39;m not a good \ldots\ man \ldots, but a good husband \ldots.</code><br><code>I&#39;m not a good \dots\ man \dots, but a good husband \dots.</code><br>排版出的來結果是：<br><img src="/uploads/dots.png" alt="dots"></p>
+<p>中文的刪節號是由兩個全形的三點所組成六點的，即：<code>$ \cdots\cdots$</code>，就是我們 Big-5 碼的 0xa14b（U+2026），但由於 Unicode 尚有一個 MIDLINE HORIZONTAL ELLIPSIS(U+22EF)，因此，有些軟體在解讀上有可能會不一樣，因為我們的字型，大部分在製作標點符號時是置在中央的地方，不像中國大陸是置放在基線的地方，而 Unicode 官方採用的樣本字型，剛好是中國大陸的廠商所提供，這樣一來有些軟體工作者就認為我們的刪節號應該是 U+22EF 了，很不幸的，我們的 Big-5 碼並沒有相對應的字碼。</p>
+<p>破折號。在英文，相當於破折號的可能有三種：</p>
+<ul>
+<li><code>hyphen</code>: 這是最短的 dash，通常就是鍵入 - 就行了，例如 father-in-low，這樣會表現成 fater-in-low。</li>
+<li><code>en-dash</code>: 這是最常用的破折號，是鍵入兩個 hyphen。例如 1991–2003 年，這會表現成 1991-2003 年。</li>
+<li><p><code>em-dash</code>: 這是最長的 dash，由三個連續的 hyphen 組成，應該是最相近於我們中文所說的破折號。例如 I am—a good man. 會表現成 I am–a good man.。至於這個三個連續的 hyphen 前後是否要留空白，都有人使用，並沒有硬性的慣例，但為了和中文的破折號配合（中文破折號前後，通常不留空白），個人通常是不留空白的。</p>
+</li>
+<li><p>真正的減號: 這應不能算是破折號，而是實際的減號或負號，這要進入數學模式，例如：負五，要寫成<code>$-5$</code>，然後表現出來是 <code>-5</code>。<strong>不能直接鍵入一般的負號那個鍵來充數</strong>，這是因為 TeX/LaTeX 的數學式子的用字和間隔處理，和一般內文不同的關係。</p>
+</li>
+<li><p>中文的破折號: 中文的破折號是佔兩個中文字位置的的一橫線，長度和刪節號相同。在中線位置的，定義上是有兩種，<code>en-dash</code> 是 Big-5 0xa156，<code>em-dash</code> 是 Big-5 0xa158。但由於中文字間距的問題，有可能打出來的破折號中間會有一點空白3.2，例如——中文的 em-dash，這是––中文的 en-dash。在論文中，破折號通常可以使用小括號或冒號代替。</p>
+</li>
+<li>中文的私名號及書名號: 中文的私名號，可以標明人名、地名，如孫逸仙；書名號（私名號的底線換成波紋形狀），可以用在書名，這些符號常造成排版上的困擾，常使用 《 》來取代書名號，私名號則無其他取代方法。在一般的自然及應用科學論文上通常不使用這種舊式的私名號及書名號。</li>
+</ul>
+<p>避頭點:<br>這是排版的重要功能。英文的通常沒有問題，LaTeX 會自動避開處理，中文就不一定了，LaTeX 可不認識中文，但通常中文相關程式及套件，多多少少都會處理，只不過，有時候偶爾可能會誤判。那麼，到底什麼是避頭點？底下列個表，大家就明白了，我列中文的，英文的就不列出來了，因為 LaTeX 會自動處理，不必我們擔心。</p>
+<table>
+<thead>
+<tr>
+<th>標點符號</th>
+<th>置放處</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>，。；、:」）》！？</td>
+<td>不能置於行首</td>
+</tr>
+<tr>
+<td>「（《</td>
+<td>不能置於行尾</td>
+</tr>
+<tr>
+<td>破折號及刪節號</td>
+<td>置於首尾皆可</td>
+</tr>
+</tbody>
+</table>
+<p>除了破折號及刪節號，沒有開口的，不能置於最開頭<br>開口向右的，不能置於最右<br>開口向左的，不能置於最左。通常都會處理好，但校稿的時候要注意一下誤判的地方。</p>
+<h3 id="LaTeX-的文稿結構"><a href="#LaTeX-的文稿結構" class="headerlink" title="LaTeX 的文稿結構"></a>LaTeX 的文稿結構</h3><h3 id="環境（environment）"><a href="#環境（environment）" class="headerlink" title="環境（environment）"></a>環境（environment）</h3><p>上一節所談的都是指令，雖然也可以由大括號來定作用範圍，但如果是一整段，甚至是一整篇文章都要作用時，那指令可能就不很適合了，因此，LaTeX 也有一種巨集結構，稱為環境（environment），主要是讓作用範圍能擴大至較大的範圍。</p>
+<p>所有的環境，都是起於 <code>\begin{環境名稱}</code>，止於 <code>\end{環境名稱}</code>，這兩個指令之間的文稿都會被作用，而且，環境之內還可以套用其他不同的環境。</p>
+<p>LaTeX 文稿的內文，其實就是包在一個<code>\begin{document}</code>和 <code>\end{document}</code>這個 document 環境當中。</p>
+<h4 id="最簡單的-LaTeX-的文稿結構"><a href="#最簡單的-LaTeX-的文稿結構" class="headerlink" title="最簡單的 LaTeX 的文稿結構"></a>最簡單的 LaTeX 的文稿結構</h4><p>以下就是所有 LaTeX 必需具備的文稿大結構：</p>
+<p><code>\documentclass{article}</code></p>
+<p>這裡是 preamble 區</p>
+<p><code>\begin{document}</code></p>
+<p>這裡是本文區</p>
+<p><code>\end{document}</code></p>
+<p>以下解釋：<br>\documentclass{article}，這是在告訴 LaTeX 使用哪一種類別，我們目前使用的是 article 類別。<br>preamble 區，則是下一些會影響整個文稿的指令，及引用巨集套件的地方，當然，完全不引用巨集，也不使用影響全文的指令的話，preamble 區就是空白，不寫任何東西。<br>本文區，就是我們實際上寫文章的地方。</p>
+<h4 id="preamble-區可以放些什麼？"><a href="#preamble-區可以放些什麼？" class="headerlink" title="preamble 區可以放些什麼？"></a>preamble 區可以放些什麼？</h4><p>這裡可以引用巨集，而且會影響整篇文稿的指令，例如一些事先定義好的指令，想在整篇文稿中使用，就可以置放在 preamble 區。</p>
+<p>巨集的引用:<br>本文主要是標準 LaTeX，但前面已提到，會有些巨集套件不得不要引用，底下就來說明如格引用套件。這些套件都是一般 TeX 系統都會附上的。</p>
+<p>指令及環境要如何開頭都介紹過了，現在來看看引用巨集要怎麼開頭。</p>
+<p><code>\documentclass{article}</code><br><code>\usepackage{color}</code><br><code>\begin{document}</code><br><code>\textcolor{blue}{This is blue color.}</code><br><code>\end{document}</code><br>這裡使用的就是 color package，裡頭是由 TeX/LaTeX macro 所寫成一個巨集套件。一般簡單的我們就稱為<strong>巨集（macro）</strong>，複雜一點的就稱為<strong>巨集套件（package）</strong>，其實，裡頭都是一樣的，只不過大小及有沒有整理成一個系統的差別。</p>
+<p>LaTeX 裡頭有什麼現成的套件可以使用，每個散佈的 TeX 系統所收集的可能都會有所不同。大概沒有人可以精通所有現存的 LaTeX 巨集套件，因為實在是太多了，不過，本文大概都會提到常用的巨集套件。</p>
+<p>影響整篇文稿的指令:<br>會影響整篇文稿的指令，通常也是放在 preamble 區，例如：<br><code>\linespread{1.36}</code><br><code>\parindent=0pt</code></p>
+<p>\linespread 是在控制上下行的行距，這裡就是將行距變成原來的 1.36 倍。至於什麼是行距呢？就是這一行的基線（baseline）到下一行的基線的距離，通常英文文章不必去調整他的行距，但中文得適當加大行距以利閱讀。</p>
+<p>\parindent 是調整段落內縮的程度，這裡調整成 0，也就是說各段落都不內縮的意思，也可以調整成其他的值，LaTeX 就會依這個值去內縮。當然，不去設定的話，LaTeX 就會依他的預設值去內縮。</p>
+<h4 id="章節結構"><a href="#章節結構" class="headerlink" title="章節結構"></a>章節結構</h4><p>本文區當然是我們寫文章的主要地方，及一些微調。在 LaTeX 的文稿裡頭，章節標題的形成都是由同樣的指令來控制的，這樣有一個好處，臨時插入章節標題及其內文時，我們不必去理會標題編號及目錄的問題，也不必去理會要用什麼字型、及字型大小要多大，LaTeX 會自動計算處理，字型大小也會和內文使用的字型大小互相配合調整，使用者就專心在內文構思、寫作即可。以下由列表來瞭解整個章節結構：</p>
+<table>
+<thead>
+<tr>
+<th>深度標號</th>
+<th>指令</th>
+<th>作用及注意事項</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$ -1$</td>
+<td>\part{}</td>
+<td>這是最大的結構，我們中文通常稱為「部」。</td>
+</tr>
+<tr>
+<td>0</td>
+<td>\chapter{}</td>
+<td>章。在 article 類別裡頭沒有章。</td>
+</tr>
+<tr>
+<td>1</td>
+<td>\section{}</td>
+<td>節。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>\subsection{}</td>
+<td>小節。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>\subsubsection{}</td>
+<td>次小節。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>\paragraph{}</td>
+<td>段落。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>\subparagraph{}</td>
+<td>小段落。</td>
+</tr>
+</tbody>
+</table>
+<p>章節標題的內容就是直接寫入指令的大括號裡頭就可以了，LaTeX 在排版時會自動使用粗體、加入章節編號及納入目錄裡頭。</p>
+<p>至於第一欄的深度標號（secnumdepth），book/report 類別的深度標號是 2，article 的是 3。也就是說 book/report 類別的文稿，在<code>\subsection{}</code> 以後（subsection 本身仍會編號），章節就不再編號了；同樣的，在 article 類別的文稿，在<code>\subsubsection{}</code>以後就不編號了。但仍然會獨立出一單獨行來表示這個是標題。不編號了的章節內容，當然也就不納入目錄裡頭了。這當然是可以更改的，只要更改 LaTeX 的 secnumdepth 這個變數的值就可以了，在 preamble 區就有一個設定：<br><code>% let the depth of report to subsubsection</code><br><code>\setcounter{secnumdepth}{3}</code><br>所以，這篇文章雖然使用的是 report 類別，但是章節的深度標號是標在 3，也就是說會編號到 subsubsection 為止，但這仍然是沒有編入目錄中的。</p>
+<h3 id="數學排版"><a href="#數學排版" class="headerlink" title="數學排版"></a>數學排版</h3><p>對於較複雜的數學式子，除非是自行定義巨集，否則 LaTeX 內建所提供的排版數學式子的能力可能會有不足，這時可以使用美國數學協會所開發的 AmS-LaTeX 巨集套件，目前所有的 TeX 發行版本應該都會附上，而且也會附上另一套 AMSFonts 巨集套件及其字型。這個套件的使用，這裡並不做詳細的說明，只在必要的時候附帶提及，可以另外參考系統上所附的 amsldoc.dvi 文件及 The LaTeX Companion 這本書第八章，這個部份網路上可以抓得到，檔名是 ch8.pdf，<a href="http://www.ctan.org/tex-archive/info/companion-rev/ch8.pdf" target="_blank" rel="noopener">CTAN</a> 有收錄</p>
+<h4 id="進入數學模式（math-mode）的方法"><a href="#進入數學模式（math-mode）的方法" class="headerlink" title="進入數學模式（math mode）的方法"></a>進入數學模式（math mode）的方法</h4><p>我們平常寫文章的模式無法正確處理數學式子間的空間位置，而且要鍵入次方、方根、積分等等符號，會有困難，因此，所有的數學式子都得進入數學模式來處理。在數學模式下，不僅大部份文字、符號會採用斜體字，而且空間會另做安排，額外的空白會被 LaTeX 忽略，在數學模式中要鍵入一般的正常文字，要退出數學模式，或者由<code>\mbox{}</code>或<code>\textmr{}</code>包圍起來才行。</p>
+<p>LaTeX 的數學模式有兩種，一種是和內文排列在一起的隨文數式（math inline mode），他是和一般正常文字混在一起排版的；另外一種是獨立的展式數式（math display mode），他會單獨成一行，而且上下會和正常文字有一定的空間來區隔。</p>
+<p>隨文數式（math inline mode）:<br>這是在夾雜在一般文章內的數學式子，是隨著整個文章段落一起排版的。<br><code>$ 數學式子 $</code><br>由兩個錢字符號 $ 所包圍的內容就會進入隨文的數學模式，在一般文字段落內要使用到一些數學式子的話，這是最方便的方法。為什麼是使用錢字符號？因為 Knuth 教授認為數學是很「昂貴」的！真正文章中要寫錢字符號時，要把他 escape，寫成<code>\$</code><br><code>\begin{math} 數學式子 \end{math}</code><br>如果數學式子很長，那麼使用環境的方式亦可。但是這個環境和一般的環境不同的是，他不會在上下行區隔出來，而是隨著其他正常文字一起排版的。要非常注意的是，在這個環境的上下行不要留空白行，否則會另起段落排版，那就不是我們所要的隨文數式了。<br><code>\( 數學式子 \)</code><br>這是<code>\begin{math} 數學式子 \end{math}</code>省略寫法。</p>
+<p>展式數式（math display mode）:<br>通常獨立的數學式子，我們不會使用一般文章一樣的做法去換行，而是讓他進入展式數式的數學模式，他會獨立成一行，有需要的話也可以加入編號，以方便在文章中引用。和隨文數式另一個很大的不同是，展示數式會適當的選用較大的數學符號及字體，尤其是較複雜的數學式子的時候。<br><code>\begin{displaymath} 數學式子 \end{displaymath}</code><br>這會使數學式子獨立成一行。<br><code>\[ 數學式子 \]</code><br>這種方式也可以，也比較常用。這兩種的展示數式都不會編號。<br><code>\begin{equation} 數學式子 \end{equation}</code><br>這種使用方式，亦會獨立成一行，而且會附上編號。</p>
+<blockquote>
+<p>equation* 則不附編號。<br>使用展式數式要注意的是和上下文章不要空出空白行出來，裡頭也不要空出空白行。不要使用 TeX 裡頭的<code>$$</code>指令，這在 LaTeX 並沒有完整去重定義他，這在某些 LaTeX 指令的效果上會沒有作用。</p>
+</blockquote>
+<h4 id="數學模式符號指令"><a href="#數學模式符號指令" class="headerlink" title="數學模式符號指令"></a>數學模式符號指令</h4><ul>
+<li>二元運算符號 (加, 減, 乘, 除, 交聯集, … etc)<br><img src="/uploads/1.png" alt="1"><br>希臘字母 (大小寫對照)<br><img src="/uploads/2.png" alt="2"><br>關係(relation)符號 (大小於, 相似, 等價, … etc)<br><img src="/uploads/3.png" alt="3"><br>特殊函式(function)符號 (三角, 指對數, 極限, … etc)<br><img src="/uploads/4.png" alt="4"><br>可變換大小的符號 (使用大寫指令可放大符號)<br><img src="/uploads/5.png" alt="5"><br>重音符號 (外國語系, 重音字母)<br><img src="/uploads/6.png" alt="6"><br>箭頭(arrow)符號 (左右射線, 半射線, … etc)<br><img src="/uploads/7.png" alt="7"><br>點(dot)符號 (用於陣列的排列)<br><img src="/uploads/8.png" alt="8"><br>陣列 (行列式, 矩陣, 聯立方程式, … etc)<br><img src="/uploads/9.png" alt="9"><br><img src="/uploads/10.png" alt="10"></li>
+</ul>
+<p>Reference:</p>
+<ul>
+<li>Edward G.J. Lee (2004-03-07):Latex123</li>
+<li><a href="http://bcc16.ncu.edu.tw/7/latex/math_tex/" target="_blank" rel="noopener">http://bcc16.ncu.edu.tw/7/latex/math_tex/</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Writting/" rel="tag"># Writting</a>
+          
+            <a href="/tags/Latex/" rel="tag"># Latex</a>
+          
+            <a href="/tags/Math/" rel="tag"># Math</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/30/API/" rel="next" title="JAVA基礎 - API">
+                <i class="fa fa-chevron-left"></i> JAVA基礎 - API
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yuju(Lucy) Kuo</p>
+              <p class="site-description motion-element" itemprop="description">Don’t be afraid to give up the good to go for the great. John D. Rockefeller</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:yujuko@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/yujuko" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LaTeX簡介"><span class="nav-number">1.</span> <span class="nav-text">LaTeX簡介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-TeX"><span class="nav-number">1.1.</span> <span class="nav-text">What is TeX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-LaTeX"><span class="nav-number">1.2.</span> <span class="nav-text">What is LaTeX</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TeX-LaTeX-語法概說"><span class="nav-number">2.</span> <span class="nav-text">TeX/LaTeX 語法概說</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LaTeX-文稿的處理流程"><span class="nav-number">2.1.</span> <span class="nav-text">LaTeX 文稿的處理流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LaTeX-的特殊專用符號"><span class="nav-number">2.2.</span> <span class="nav-text">LaTeX 的特殊專用符號</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LaTeX-排版上的一些規範或慣例"><span class="nav-number">2.3.</span> <span class="nav-text">LaTeX 排版上的一些規範或慣例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字型的相關術語"><span class="nav-number">2.3.1.</span> <span class="nav-text">字型的相關術語</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一般性的規則"><span class="nav-number">2.3.2.</span> <span class="nav-text">一般性的規則</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#針對標點符號的規則"><span class="nav-number">2.3.3.</span> <span class="nav-text">針對標點符號的規則</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LaTeX-的文稿結構"><span class="nav-number">2.4.</span> <span class="nav-text">LaTeX 的文稿結構</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#環境（environment）"><span class="nav-number">2.5.</span> <span class="nav-text">環境（environment）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最簡單的-LaTeX-的文稿結構"><span class="nav-number">2.5.1.</span> <span class="nav-text">最簡單的 LaTeX 的文稿結構</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#preamble-區可以放些什麼？"><span class="nav-number">2.5.2.</span> <span class="nav-text">preamble 區可以放些什麼？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#章節結構"><span class="nav-number">2.5.3.</span> <span class="nav-text">章節結構</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#數學排版"><span class="nav-number">2.6.</span> <span class="nav-text">數學排版</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#進入數學模式（math-mode）的方法"><span class="nav-number">2.6.1.</span> <span class="nav-text">進入數學模式（math mode）的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#數學模式符號指令"><span class="nav-number">2.6.2.</span> <span class="nav-text">數學模式符號指令</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuju(Lucy) Kuo</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
