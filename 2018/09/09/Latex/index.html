@@ -133,7 +133,7 @@
 <meta property="og:image" content="http://yoursite.com/uploads/8.png">
 <meta property="og:image" content="http://yoursite.com/uploads/9.png">
 <meta property="og:image" content="http://yoursite.com/uploads/10.png">
-<meta property="og:updated_time" content="2018-09-10T03:26:54.299Z">
+<meta property="og:updated_time" content="2018-09-18T04:42:59.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Latex語法筆記">
 <meta name="twitter:description" content="LaTeX簡介What is TeXTeX 是 Donald E. Knuth1.1 教授的精心傑作，它是個功能非常強大的幕後排版系統，含有彈性很大，而且很低階的排版語言。當初，是因為 Knuth 教授在寫他的大著 TAOCP(The Art of Computer Programming) 時，發覺書商把他書中的數學式子排得太難看了，於是決定自行開發一個非常適合排數學式子的排版語言，這就是 Te">
@@ -365,12 +365,24 @@
                 
               
 
-              <time title="Created: 2018-09-09 17:05:15 / Modified: 23:26:54" itemprop="dateCreated datePublished" datetime="2018-09-09T17:05:15-04:00">2018-09-09</time>
+              <time title="Created: 2018-09-09 17:05:15" itemprop="dateCreated datePublished" datetime="2018-09-09T17:05:15-04:00">2018-09-09</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-09-18 00:42:59" itemprop="dateModified" datetime="2018-09-18T00:42:59-04:00">2018-09-18</time>
               
             
           </span>
@@ -666,10 +678,18 @@ Please press an &#39;Esc&#39; key. 這是錯誤示範！
 <h4 id="數學模式符號指令"><a href="#數學模式符號指令" class="headerlink" title="數學模式符號指令"></a>數學模式符號指令</h4><ul>
 <li>二元運算符號 (加, 減, 乘, 除, 交聯集, … etc)<br><img src="/uploads/1.png" alt="1"><br>希臘字母 (大小寫對照)<br><img src="/uploads/2.png" alt="2"><br>關係(relation)符號 (大小於, 相似, 等價, … etc)<br><img src="/uploads/3.png" alt="3"><br>特殊函式(function)符號 (三角, 指對數, 極限, … etc)<br><img src="/uploads/4.png" alt="4"><br>可變換大小的符號 (使用大寫指令可放大符號)<br><img src="/uploads/5.png" alt="5"><br>重音符號 (外國語系, 重音字母)<br><img src="/uploads/6.png" alt="6"><br>箭頭(arrow)符號 (左右射線, 半射線, … etc)<br><img src="/uploads/7.png" alt="7"><br>點(dot)符號 (用於陣列的排列)<br><img src="/uploads/8.png" alt="8"><br>陣列 (行列式, 矩陣, 聯立方程式, … etc)<br><img src="/uploads/9.png" alt="9"><br><img src="/uploads/10.png" alt="10"></li>
 </ul>
+<h4 id="換行、換段、換頁、首行縮進等命令"><a href="#換行、換段、換頁、首行縮進等命令" class="headerlink" title="換行、換段、換頁、首行縮進等命令"></a>換行、換段、換頁、首行縮進等命令</h4><p><code>\\</code>：換行。<br><code>\newline</code>：與\相同。<br><code>\linebreak</code>：強制換行，與\newline的區別為\linebreak的當前行分散對齊。<br><code>\par</code>：分段。<br><code>\newpage</code>：分頁命令。<br><code>\clearpage</code>：和<code>\newpage</code>類似。我們在使用CJK 環境時會加入<code>\clearpage</code> 在環境末尾。</p>
+<p>首行縮進</p>
+<p>最樸實的方法是設置<code>\parindent</code>的長度：<code>\setlength{\parindent}{長度}</code>，如果想要首行縮進兩個漢字距離，則<code>\setlength{\parindent}{2em}</code><br>如果在CJK環境當中，則可以在<code>\begin{CJK}{GBK}{song}</code>後面緊跟<code>\CJKindent</code>實現首行縮進<br>默認第一段不首行縮進，如果想​​讓第一段首行縮進，則可以使用<code>\usepackage{indentfirst}</code><br>如果想讓某一段不首行縮進，則可以在該段前加上<code>\noindent</code><br>如果想讓整篇文章都首行不縮進，則：<code>\setlength{\parindent}{0pt}</code></p>
+<blockquote>
+<p>注意：在LaTeX 中，一個enter表示一個空格，兩個enter表示一個分段。</p>
+</blockquote>
+<p>實踐中，通常是按照下面的模板進行擴充：<br><code>\documentclass[12pt,a4paper]{article}</code><br><code>\usepackage{CJK}</code> %導入CJK宏包<br><code>\setlength{\parskip}{10pt}</code> % 設置部分段落間隔<br><code>\begin{document}</code><br><code>\begin{CJK*}{GBK}{song}</code>%開始CJK環境<br><code>\CJKtilde</code>%重定義”~”<br><code>\CJKindent</code> %設置首段縮進</p>
 <p>Reference:</p>
 <ul>
 <li>Edward G.J. Lee (2004-03-07):Latex123</li>
 <li><a href="http://bcc16.ncu.edu.tw/7/latex/math_tex/" target="_blank" rel="noopener">http://bcc16.ncu.edu.tw/7/latex/math_tex/</a></li>
+<li><a href="https://blog.csdn.net/xiazdong/article/details/8892105" target="_blank" rel="noopener">https://blog.csdn.net/xiazdong/article/details/8892105</a></li>
 </ul>
 
       
@@ -888,7 +908,7 @@ Please press an &#39;Esc&#39; key. 這是錯誤示範！
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LaTeX簡介"><span class="nav-number">1.</span> <span class="nav-text">LaTeX簡介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-TeX"><span class="nav-number">1.1.</span> <span class="nav-text">What is TeX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-LaTeX"><span class="nav-number">1.2.</span> <span class="nav-text">What is LaTeX</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TeX-LaTeX-語法概說"><span class="nav-number">2.</span> <span class="nav-text">TeX/LaTeX 語法概說</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LaTeX-文稿的處理流程"><span class="nav-number">2.1.</span> <span class="nav-text">LaTeX 文稿的處理流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LaTeX-的特殊專用符號"><span class="nav-number">2.2.</span> <span class="nav-text">LaTeX 的特殊專用符號</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LaTeX-排版上的一些規範或慣例"><span class="nav-number">2.3.</span> <span class="nav-text">LaTeX 排版上的一些規範或慣例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字型的相關術語"><span class="nav-number">2.3.1.</span> <span class="nav-text">字型的相關術語</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一般性的規則"><span class="nav-number">2.3.2.</span> <span class="nav-text">一般性的規則</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#針對標點符號的規則"><span class="nav-number">2.3.3.</span> <span class="nav-text">針對標點符號的規則</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LaTeX-的文稿結構"><span class="nav-number">2.4.</span> <span class="nav-text">LaTeX 的文稿結構</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#環境（environment）"><span class="nav-number">2.5.</span> <span class="nav-text">環境（environment）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最簡單的-LaTeX-的文稿結構"><span class="nav-number">2.5.1.</span> <span class="nav-text">最簡單的 LaTeX 的文稿結構</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#preamble-區可以放些什麼？"><span class="nav-number">2.5.2.</span> <span class="nav-text">preamble 區可以放些什麼？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#章節結構"><span class="nav-number">2.5.3.</span> <span class="nav-text">章節結構</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#數學排版"><span class="nav-number">2.6.</span> <span class="nav-text">數學排版</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#進入數學模式（math-mode）的方法"><span class="nav-number">2.6.1.</span> <span class="nav-text">進入數學模式（math mode）的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#數學模式符號指令"><span class="nav-number">2.6.2.</span> <span class="nav-text">數學模式符號指令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LaTeX簡介"><span class="nav-number">1.</span> <span class="nav-text">LaTeX簡介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-TeX"><span class="nav-number">1.1.</span> <span class="nav-text">What is TeX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-LaTeX"><span class="nav-number">1.2.</span> <span class="nav-text">What is LaTeX</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TeX-LaTeX-語法概說"><span class="nav-number">2.</span> <span class="nav-text">TeX/LaTeX 語法概說</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LaTeX-文稿的處理流程"><span class="nav-number">2.1.</span> <span class="nav-text">LaTeX 文稿的處理流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LaTeX-的特殊專用符號"><span class="nav-number">2.2.</span> <span class="nav-text">LaTeX 的特殊專用符號</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LaTeX-排版上的一些規範或慣例"><span class="nav-number">2.3.</span> <span class="nav-text">LaTeX 排版上的一些規範或慣例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字型的相關術語"><span class="nav-number">2.3.1.</span> <span class="nav-text">字型的相關術語</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一般性的規則"><span class="nav-number">2.3.2.</span> <span class="nav-text">一般性的規則</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#針對標點符號的規則"><span class="nav-number">2.3.3.</span> <span class="nav-text">針對標點符號的規則</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LaTeX-的文稿結構"><span class="nav-number">2.4.</span> <span class="nav-text">LaTeX 的文稿結構</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#環境（environment）"><span class="nav-number">2.5.</span> <span class="nav-text">環境（environment）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最簡單的-LaTeX-的文稿結構"><span class="nav-number">2.5.1.</span> <span class="nav-text">最簡單的 LaTeX 的文稿結構</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#preamble-區可以放些什麼？"><span class="nav-number">2.5.2.</span> <span class="nav-text">preamble 區可以放些什麼？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#章節結構"><span class="nav-number">2.5.3.</span> <span class="nav-text">章節結構</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#數學排版"><span class="nav-number">2.6.</span> <span class="nav-text">數學排版</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#進入數學模式（math-mode）的方法"><span class="nav-number">2.6.1.</span> <span class="nav-text">進入數學模式（math mode）的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#數學模式符號指令"><span class="nav-number">2.6.2.</span> <span class="nav-text">數學模式符號指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#換行、換段、換頁、首行縮進等命令"><span class="nav-number">2.6.3.</span> <span class="nav-text">換行、換段、換頁、首行縮進等命令</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
