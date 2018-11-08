@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/l.png?v=6.3.0" color="#222">
+
+
+  <link rel="manifest" href="/images/l.png">
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="用Scanner class來獲取用戶的輸入創建Scanner 對象的基本語法：Scanner s = new Scanner ( System . in ) ; 通過Scanner 類的next() 與nextLine() 方法獲取輸入的字符串在讀取前我們一般需要使用hasNext與hasNextLine判斷是否還有輸入的數據： 使用next 方法：1234567891011121314`imp">
+<meta name="keywords" content="Java,Learning,Java Class">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA 類別 - Scanner">
+<meta property="og:url" content="http://yoursite.com/2018/11/08/Scanner/index.html">
+<meta property="og:site_name" content="LUCY&#39;s TechGarden">
+<meta property="og:description" content="用Scanner class來獲取用戶的輸入創建Scanner 對象的基本語法：Scanner s = new Scanner ( System . in ) ; 通過Scanner 類的next() 與nextLine() 方法獲取輸入的字符串在讀取前我們一般需要使用hasNext與hasNextLine判斷是否還有輸入的數據： 使用next 方法：1234567891011121314`imp">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-08T18:17:06.308Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA 類別 - Scanner">
+<meta name="twitter:description" content="用Scanner class來獲取用戶的輸入創建Scanner 對象的基本語法：Scanner s = new Scanner ( System . in ) ; 通過Scanner 類的next() 與nextLine() 方法獲取輸入的字符串在讀取前我們一般需要使用hasNext與hasNextLine判斷是否還有輸入的數據： 使用next 方法：1234567891011121314`imp">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/08/Scanner/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JAVA 類別 - Scanner | LUCY's TechGarden</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LUCY's TechGarden</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">9</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">2</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">13</span></a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/Scanner/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuju(Lucy) Kuo">
+      <meta itemprop="description" content="Don’t be afraid to give up the good to go for the great. John D. Rockefeller">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LUCY's TechGarden">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JAVA 類別 - Scanner
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-11-08 19:45:11 / Modified: 13:17:06" itemprop="dateCreated datePublished" datetime="2018-11-08T19:45:11-05:00">2018-11-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java學習筆記/" itemprop="url" rel="index"><span itemprop="name">Java學習筆記</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="用Scanner-class來獲取用戶的輸入"><a href="#用Scanner-class來獲取用戶的輸入" class="headerlink" title="用Scanner class來獲取用戶的輸入"></a>用Scanner class來獲取用戶的輸入</h1><h2 id="創建Scanner-對象的基本語法："><a href="#創建Scanner-對象的基本語法：" class="headerlink" title="創建Scanner 對象的基本語法："></a>創建Scanner 對象的基本語法：</h2><p><code>Scanner s = new Scanner ( System . in ) ;</code></p>
+<h2 id="通過Scanner-類的next-與nextLine-方法獲取輸入的字符串"><a href="#通過Scanner-類的next-與nextLine-方法獲取輸入的字符串" class="headerlink" title="通過Scanner 類的next() 與nextLine() 方法獲取輸入的字符串"></a>通過Scanner 類的next() 與nextLine() 方法獲取輸入的字符串</h2><p>在讀取前我們一般需要使用<code>hasNext</code>與<code>hasNextLine</code>判斷是否還有輸入的數據：</p>
+<h3 id="使用next-方法："><a href="#使用next-方法：" class="headerlink" title="使用next 方法："></a>使用next 方法：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">`<span class="keyword">import</span> java . util . Scanner ;`</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScannerDemo</span> </span>&#123; <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">( String [ ] args )</span> </span>&#123; Scanner scan = <span class="keyword">new</span> Scanner ( System . in ) ;</span><br><span class="line"><span class="comment">// 從鍵盤接收數據</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// next方式接收字符串</span></span><br><span class="line">System . out . println ( <span class="string">" next接收："</span> ) ;</span><br><span class="line"><span class="comment">// 判斷是否還有輸入</span></span><br><span class="line"><span class="keyword">if</span> ( scan . hasNext ( ) ) &#123; String str1 = scan . next ( ) ;</span><br><span class="line">System . out . println ( <span class="string">" 輸入的數據為："</span> + str1 ) ;</span><br><span class="line">&#125; scan . close ( ) ;</span><br><span class="line">&#125; &#125;</span><br></pre></td></tr></table></figure>
+<p>執行以上程序輸出結果為：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">next 接收：</span><br><span class="line">yujuko com</span><br><span class="line">輸入的數據為：yujuko</span><br></pre></td></tr></table></figure></p>
+<p>可以看到com 字符串並未輸出</p>
+<h3 id="使用nextLine-方法："><a href="#使用nextLine-方法：" class="headerlink" title="使用nextLine 方法："></a>使用nextLine 方法：</h3><p>ScannerDemo.java 文件代碼：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java . util . Scanner ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScannerDemo</span> </span>&#123; <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">( String [ ] args )</span> </span>&#123; Scanner scan = <span class="keyword">new</span> Scanner ( System . in ) ;</span><br><span class="line"><span class="comment">// 從鍵盤接收數據</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// nextLine方式接收字符串</span></span><br><span class="line">System . out . println ( <span class="string">" nextLine接收："</span> ) ;</span><br><span class="line"><span class="comment">// 判斷是否還有輸入</span></span><br><span class="line"><span class="keyword">if</span> ( scan . hasNextLine ( ) ) &#123; String str2 = scan . nextLine ( ) ;</span><br><span class="line">System . out . println ( <span class="string">" 輸入的數據為："</span> + str2 ) ;</span><br><span class="line">&#125; scan . close ( ) ;</span><br><span class="line">&#125; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>執行以上程序輸出結果為：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nextLine 接收：</span><br><span class="line">yujuko com</span><br><span class="line">輸入的數據為：yujuko com</span><br></pre></td></tr></table></figure></p>
+<p>可以看到com 字符串輸出。</p>
+<h3 id="next-與nextLine-區別"><a href="#next-與nextLine-區別" class="headerlink" title="next() 與nextLine() 區別"></a>next() 與nextLine() 區別</h3><p>next():</p>
+<ul>
+<li>一定要讀取到有效字符後才可以結束輸入。</li>
+<li>對輸入有效字符之前遇到的空白，next() 方法會自動將其去掉。</li>
+<li>只有輸入有效字符後才將其後面輸入的空白作為分隔符或者結束符。</li>
+<li>next() 不能得到帶有空格的字符串。</li>
+</ul>
+<p>nextLine()：</p>
+<ul>
+<li>以Enter為結束符,也就是說nextLine()方法返回的是輸入回車之前的所有字符。</li>
+<li>可以獲得空白。</li>
+<li>如果要輸入int 或float 類型的數據，在Scanner 類中也有支持，但是在輸入之前最好先使用hasNextXxx() 方法進行驗證，再使用nextXxx() 來讀取：</li>
+</ul>
+<p>舉例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java . util . Scanner ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScannerDemo</span> </span>&#123; <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">( String [ ] args )</span> </span>&#123; Scanner scan = <span class="keyword">new</span> Scanner ( System . in ) ;</span><br><span class="line"><span class="comment">// 從鍵盤接收數據</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> i = <span class="number">0</span> ;</span><br><span class="line"><span class="keyword">float</span> f = <span class="number">0</span> .<span class="number">0</span> f ;</span><br><span class="line">System . out . print ( <span class="string">" 輸入整數："</span> ) ;</span><br><span class="line"><span class="keyword">if</span> ( scan . hasNextInt ( ) ) &#123; <span class="comment">// 判斷輸入的是否是整數</span></span><br><span class="line"></span><br><span class="line">i = scan . nextInt ( ) ;</span><br><span class="line"><span class="comment">// 接收整數</span></span><br><span class="line">System . out . println ( <span class="string">" 整數數據："</span> + i ) ;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123; <span class="comment">// 輸入錯誤的信息</span></span><br><span class="line"></span><br><span class="line">System . out . println ( <span class="string">" 輸入的不是整數！"</span> ) ;</span><br><span class="line">&#125; System . out . print ( <span class="string">" 輸入小數："</span> ) ;</span><br><span class="line"><span class="keyword">if</span> ( scan . hasNextFloat ( ) ) &#123; <span class="comment">// 判斷輸入的是否是小數</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">f = scan . nextFloat ( ) ;</span><br><span class="line"><span class="comment">// 接收小數</span></span><br><span class="line">System . out . println ( <span class="string">" 小數數據："</span> + f ) ;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123; <span class="comment">// 輸入錯誤的信息</span></span><br><span class="line"></span><br><span class="line">System . out . println ( <span class="string">" 輸入的不是小數！"</span> ) ;</span><br><span class="line">&#125; scan . close ( ) ;</span><br><span class="line">&#125; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>執行以上程序輸出結果為：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">輸入整數：12 整數數據：12 輸入小數：1.2 小數數據：1.2</span><br></pre></td></tr></table></figure></p>
+<p>以下例子我們可以輸入多個數字，並求其總和與平均數，每輸入一個數字用回車確認，通過輸入非數字來結束輸入並輸出執行結果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ScannerDemo.java 文件代碼：</span><br><span class="line"><span class="keyword">import</span> java . util . Scanner ;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScannerDemo</span> </span>&#123; <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">( String [ ] args )</span> </span>&#123; Scanner scan = <span class="keyword">new</span> Scanner ( System . in ) ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> sum = <span class="number">0</span> ;</span><br><span class="line"><span class="keyword">int</span> m = <span class="number">0</span> ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> ( scan . hasNextDouble ( ) ) &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> x = scan . nextDouble ( ) ;</span><br><span class="line">m = m + <span class="number">1</span> ;</span><br><span class="line">sum = sum + x ;</span><br><span class="line">&#125; System . out . println ( m + <span class="string">" 個數的和為"</span> + sum ) ;</span><br><span class="line">System . out . println ( m + <span class="string">" 個數的平均值是"</span> + ( sum /</span><br><span class="line"></span><br><span class="line">m ) ) ;</span><br><span class="line">scan . close ( ) ;</span><br><span class="line">&#125; &#125;</span><br></pre></td></tr></table></figure>
+<p>執行以上程序輸出結果為：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">12 23 15 21.4 end 4 個數的和為71.4 4 個數的平均值是17.85</span><br></pre></td></tr></table></figure></p>
+<p>Reference:</p>
+<ul>
+<li><a href="http://www.runoob.com/java/java-scanner-class.html" target="_blank" rel="noopener">http://www.runoob.com/java/java-scanner-class.html</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/Learning/" rel="tag"># Learning</a>
+          
+            <a href="/tags/Java-Class/" rel="tag"># Java Class</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/09/Latex/" rel="next" title="Latex語法筆記">
+                <i class="fa fa-chevron-left"></i> Latex語法筆記
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yuju(Lucy) Kuo</p>
+              <p class="site-description motion-element" itemprop="description">Don’t be afraid to give up the good to go for the great. John D. Rockefeller</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:yujuko@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/yujuko" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#用Scanner-class來獲取用戶的輸入"><span class="nav-number">1.</span> <span class="nav-text">用Scanner class來獲取用戶的輸入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#創建Scanner-對象的基本語法："><span class="nav-number">1.1.</span> <span class="nav-text">創建Scanner 對象的基本語法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通過Scanner-類的next-與nextLine-方法獲取輸入的字符串"><span class="nav-number">1.2.</span> <span class="nav-text">通過Scanner 類的next() 與nextLine() 方法獲取輸入的字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用next-方法："><span class="nav-number">1.2.1.</span> <span class="nav-text">使用next 方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用nextLine-方法："><span class="nav-number">1.2.2.</span> <span class="nav-text">使用nextLine 方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next-與nextLine-區別"><span class="nav-number">1.2.3.</span> <span class="nav-text">next() 與nextLine() 區別</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuju(Lucy) Kuo</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
