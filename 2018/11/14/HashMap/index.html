@@ -110,19 +110,19 @@
 
 
 
-  <meta name="description" content="HashMap概述官方文件:https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.htmlimport java.util.HashMap; 當我們執行下面的操作時：1234567891011121314151617181920212223HashMap &amp;lt;String，Integer&amp;gt; map = new HashMa">
+  <meta name="description" content="HashMap概述官方文件:https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html 當我們執行下面的操作時：1234567891011121314151617181920212223HashMap &amp;lt;String，Integer&amp;gt; map = new HashMap &amp;lt;String，Integer&amp;gt;（">
 <meta name="keywords" content="Java,Learning,Java Class">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA類別-HashMap">
 <meta property="og:url" content="http://yoursite.com/2018/11/14/HashMap/index.html">
 <meta property="og:site_name" content="LUCY&#39;s TechGarden">
-<meta property="og:description" content="HashMap概述官方文件:https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.htmlimport java.util.HashMap; 當我們執行下面的操作時：1234567891011121314151617181920212223HashMap &amp;lt;String，Integer&amp;gt; map = new HashMa">
+<meta property="og:description" content="HashMap概述官方文件:https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html 當我們執行下面的操作時：1234567891011121314151617181920212223HashMap &amp;lt;String，Integer&amp;gt; map = new HashMap &amp;lt;String，Integer&amp;gt;（">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://i1.bvimg.com/653403/f5d68e3b6f4753a2.png">
-<meta property="og:updated_time" content="2018-11-14T13:34:50.803Z">
+<meta property="og:updated_time" content="2018-11-14T13:38:17.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA類別-HashMap">
-<meta name="twitter:description" content="HashMap概述官方文件:https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.htmlimport java.util.HashMap; 當我們執行下面的操作時：1234567891011121314151617181920212223HashMap &amp;lt;String，Integer&amp;gt; map = new HashMa">
+<meta name="twitter:description" content="HashMap概述官方文件:https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html 當我們執行下面的操作時：1234567891011121314151617181920212223HashMap &amp;lt;String，Integer&amp;gt; map = new HashMap &amp;lt;String，Integer&amp;gt;（">
 <meta name="twitter:image" content="http://i1.bvimg.com/653403/f5d68e3b6f4753a2.png">
 
 
@@ -258,7 +258,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">14</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">16</span></a>
   </li>
 
       
@@ -351,7 +351,7 @@
                 
               
 
-              <time title="Created: 2018-11-14 08:13:35 / Modified: 08:34:50" itemprop="dateCreated datePublished" datetime="2018-11-14T08:13:35-05:00">2018-11-14</time>
+              <time title="Created: 2018-11-14 08:13:35 / Modified: 08:38:17" itemprop="dateCreated datePublished" datetime="2018-11-14T08:13:35-05:00">2018-11-14</time>
             
 
             
@@ -407,7 +407,7 @@
       
 
       
-        <h2 id="HashMap概述"><a href="#HashMap概述" class="headerlink" title="HashMap概述"></a>HashMap概述</h2><h3 id="官方文件"><a href="#官方文件" class="headerlink" title="官方文件:"></a>官方文件:</h3><p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html</a><br>import java.util.HashMap;</p>
+        <h2 id="HashMap概述"><a href="#HashMap概述" class="headerlink" title="HashMap概述"></a>HashMap概述</h2><h3 id="官方文件"><a href="#官方文件" class="headerlink" title="官方文件:"></a>官方文件:</h3><p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html</a></p>
 <p>當我們執行下面的操作時：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">HashMap &lt;String，Integer&gt; map = <span class="keyword">new</span> HashMap &lt;String，Integer&gt;（）;</span><br><span class="line">map.put（“語文”，<span class="number">1</span>）;</span><br><span class="line">map.put（“數學”，<span class="number">2</span>）;</span><br><span class="line">map.put（“英語”，<span class="number">3</span>）;</span><br><span class="line">map.put（“歷史”，<span class="number">4</span>）;</span><br><span class="line">map.put（“政治”，<span class="number">5</span>）;</span><br><span class="line">map.put（“地理”，<span class="number">6</span>）;</span><br><span class="line">map.put（“生物”，<span class="number">7</span>）;</span><br><span class="line">map.put（“化學”，<span class="number">8</span>）;</span><br><span class="line"><span class="keyword">for</span>（Entry &lt;String，Integer&gt; entry：map.entrySet（））&#123;</span><br><span class="line">System.out.println（entry.getKey（）+ “：” + entry.getValue（））;</span><br><span class="line">&#125;HashMap &lt;String，Integer&gt; map = <span class="keyword">new</span> HashMap &lt;String，Integer&gt;（）;</span><br><span class="line">map.put（“語文”，<span class="number">1</span>）;</span><br><span class="line">map.put（“數學”，<span class="number">2</span>）;</span><br><span class="line">map.put（“英語”，<span class="number">3</span>）;</span><br><span class="line">map.put（“歷史”，<span class="number">4</span>）;</span><br><span class="line">map.put（“政治”，<span class="number">5</span>）;</span><br><span class="line">map.put（“地理”，<span class="number">6</span>）;</span><br><span class="line">map.put（“生物”，<span class="number">7</span>）;</span><br><span class="line">map.put（“化學”，<span class="number">8</span>）;</span><br><span class="line"><span class="keyword">for</span>（Entry &lt;String，Integer&gt; entry：map.entrySet（））&#123;</span><br><span class="line">System.out.println（entry.getKey（）+ “：” + entry.getValue（））;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>執行結果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">政治：5</span><br><span class="line">生物：7</span><br><span class="line">歷史：4</span><br><span class="line">數學：2</span><br><span class="line">化學：8</span><br><span class="line">語文：1</span><br><span class="line">英語：3</span><br><span class="line">地理：6</span><br></pre></td></tr></table></figure></p>
 <p>下面是一個大致的結構:<br>HashMap中<br><img src="http://i1.bvimg.com/653403/f5d68e3b6f4753a2.png" alt="hm1"></p>
@@ -439,8 +439,10 @@
 <li><p>清空HashMap: 刪除整個HashMap內容，物件還在，但沒有東西</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hashmap.clean();</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>補充:<br>如果想要此 map 可以1對多的話(1 key 對應多個 value)<br>value 的型別可以用 ArrayList<br>好處在value可以使用所有 ArrayList 的功能<br>宣告:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;&gt; hashmap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<p>補充:<br>如果想要此 map 可以1對多的話(1 key 對應多個 value)<br>value 的型別可以用 ArrayList<br>好處在value可以使用所有 ArrayList 的功能<br>宣告:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;&gt; hashmap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure></p>
 <p>每個key對應都是一個ArrayList，放數值前要先初始化:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hashmapmap.put(<span class="string">"Item 1"</span>, <span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line">hashmapmap.put(<span class="string">"Item 2"</span>, <span class="keyword">new</span> ArrayList&lt;&gt;());</span><br></pre></td></tr></table></figure></p>
 <p>新增數值:用get得到ArrayList物件，再用他的add方法新增<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hashmap.get(<span class="string">"Item 2"</span>).add(<span class="string">"d"</span>);</span><br><span class="line">hashmap.get(<span class="string">"Item 2"</span>).add(<span class="string">"e"</span>);</span><br></pre></td></tr></table></figure></p>
 <p>刪除某個key的所有value: 下次要用此key時要再次初始化<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hashmap.remove(<span class="string">"Item 2"</span>);</span><br></pre></td></tr></table></figure></p>
@@ -496,6 +498,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/15/JSON/" rel="prev" title="JSON">
+                JSON <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -569,7 +575,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

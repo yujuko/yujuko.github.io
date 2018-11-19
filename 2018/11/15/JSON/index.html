@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/l.png?v=6.3.0" color="#222">
+
+
+  <link rel="manifest" href="/images/l.png">
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="還不知道 JSON 是什麼嘛？本篇教學會帶您瞭解 JSON 在網站上的應用，以及運作流程跟使用 PHP 和 JavaScript 來處理 JSON。假如您現在的工作就是網站設計師，相信一定聽過 JSON，但是什麼是 JSON，它能夠做什麼，及您能透過它在網站上做到哪些事情呢？ 透過本篇介紹您可以瞭解基本的 JSON，底下會列出本篇會提到的重點： JSONJSON 應用在哪些地方如何建立 JSON">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSON">
+<meta property="og:url" content="http://yoursite.com/2018/11/15/JSON/index.html">
+<meta property="og:site_name" content="LUCY&#39;s TechGarden">
+<meta property="og:description" content="還不知道 JSON 是什麼嘛？本篇教學會帶您瞭解 JSON 在網站上的應用，以及運作流程跟使用 PHP 和 JavaScript 來處理 JSON。假如您現在的工作就是網站設計師，相信一定聽過 JSON，但是什麼是 JSON，它能夠做什麼，及您能透過它在網站上做到哪些事情呢？ 透過本篇介紹您可以瞭解基本的 JSON，底下會列出本篇會提到的重點： JSONJSON 應用在哪些地方如何建立 JSON">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-15T20:19:12.489Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSON">
+<meta name="twitter:description" content="還不知道 JSON 是什麼嘛？本篇教學會帶您瞭解 JSON 在網站上的應用，以及運作流程跟使用 PHP 和 JavaScript 來處理 JSON。假如您現在的工作就是網站設計師，相信一定聽過 JSON，但是什麼是 JSON，它能夠做什麼，及您能透過它在網站上做到哪些事情呢？ 透過本篇介紹您可以瞭解基本的 JSON，底下會列出本篇會提到的重點： JSONJSON 應用在哪些地方如何建立 JSON">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/15/JSON/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JSON | LUCY's TechGarden</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LUCY's TechGarden</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">9</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">2</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">16</span></a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/15/JSON/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuju(Lucy) Kuo">
+      <meta itemprop="description" content="Don’t be afraid to give up the good to go for the great. John D. Rockefeller">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LUCY's TechGarden">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JSON
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-11-15 12:53:31 / Modified: 15:19:12" itemprop="dateCreated datePublished" datetime="2018-11-15T12:53:31-05:00">2018-11-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>還不知道 JSON 是什麼嘛？本篇教學會帶您瞭解 JSON 在網站上的應用，以及運作流程跟使用 PHP 和 JavaScript 來處理 JSON。假如您現在的工作就是網站設計師，相信一定聽過 JSON，但是什麼是 JSON，它能夠做什麼，及您能透過它在網站上做到哪些事情呢？</p>
+<p>透過本篇介紹您可以瞭解基本的 JSON，底下會列出本篇會提到的重點：</p>
+<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>JSON 應用在哪些地方<br>如何建立 JSON 字串<br>一個簡單的 JSON 範例<br>JSON vs XML<br>如何透過 PHP 及 JavaScript 使用 JSON<br>什麼是 JSON<br>JSON 是個以純文字為基底去儲存和傳送簡單結構資料，你可以透過特定的格式去儲存任何資料(字串,數字,陣列,物件)，也可以透過物件或陣列來傳送較複雜的資料。一旦建立了您的 JSON 資料，就可以非常簡單的跟其他程式溝通或交換資料，因為 JSON 就只是純文字個格式。</p>
+<h3 id="JSON-的優點如下"><a href="#JSON-的優點如下" class="headerlink" title="JSON 的優點如下:"></a>JSON 的優點如下:</h3><ul>
+<li>相容性高</li>
+<li>格式容易瞭解，閱讀及修改方便</li>
+<li>支援許多資料格式 (number,string,booleans,nulls,array,associative array)</li>
+<li>許多程式都支援函式庫讀取或修改 JSON 資料</li>
+</ul>
+<h3 id="JSON-應用在哪些地方"><a href="#JSON-應用在哪些地方" class="headerlink" title="JSON 應用在哪些地方"></a>JSON 應用在哪些地方</h3><p>JSON 最常用用在 Web 網頁程式從 Server 端傳送資料給 browser，典型範例就是透過 AJAX 方式交換 JSON 資料，底下簡單舉個範例</p>
+<p>使用者點選了線上產品縮圖<br>JavaScript 透過 AJAX 方式將產品 ID 傳送給伺服器端<br>伺服器端收到 ID，將產品資料 (ex 價格,描述) 編碼成 JSON 資料，並且回傳給瀏覽器<br>JavaScript 收到 JSON 資料，將其解碼 (decode) 並且將資料顯示在網頁上<br>您也可以透過網頁將 JSON 資料傳到伺服器端，這都是可以的，把 POST 或 GET 資訊編碼成 JSON 格式即可，如果有在使用 jQuery，它提供了兩個函式處理 JSON，分別是 getJSON 跟 parseJSON。</p>
+<p>如何建立 JSON 字串<br>可以透過底下規則來建立 JSON 字串</p>
+<p>JSON 字串可以包含陣列 Array 資料或者是物件 Object 資料<br>陣列可以用 [ ] 來寫入資料<br>物件可以用 { } 來寫入資料<br>name / value 是成對的，中間透過 (:) 來區隔<br>物件或陣列的 value 值可以如下:</p>
+<p>數字 (整數或浮點數)<br>字串 (請用 “” 括號)<br>布林函數 (boolean) (true 或 false)<br>陣列 (請用 [ ] )<br>物件 (請用 { } )<br>NULL<br>一個簡單的 JSON 範例<br>01<br>02<br>03<br>04<br>05<br>06<br>07<br>08<br>09<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>{<br>“orderID”: 12345,<br>“shopperName”: “John Smith”,<br>“shopperEmail”: “<a href="mailto:johnsmith@example.com" target="_blank" rel="noopener">johnsmith@example.com</a>“,<br>“contents”: [<br>{<br>“productID”: 34,<br>“productName”: “SuperWidget”,<br>“quantity”: 1<br>},<br>{<br>“productID”: 56,<br>“productName”: “WonderWidget”,<br>“quantity”: 3<br>}<br>],<br>“orderCompleted”: true<br>}<br>由上面例子我們可以發現 contents 陣列裡面又包含物件，透過上面例子，我們寫成 JavaScript 如下:</p>
+<p>01<br>02<br>03<br>04<br>05<br>06<br>07<br>08<br>09<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20</p>
+<p><script type="text/javascript"><br>var cart = {<br>“orderID”: 12345,<br>“shopperName”: “John Smith”,<br>“shopperEmail”: “<a href="mailto:johnsmith@example.com">johnsmith@example.com</a>“,<br>“contents”: [<br>{<br>“productID”: 34,<br>“productName”: “SuperWidget”,<br>“quantity”: 1<br>},<br>{<br>“productID”: 56,<br>“productName”: “WonderWidget”,<br>“quantity”: 3<br>}<br>],<br>“orderCompleted”: true<br>};<br></script><br>JSON vs XML<br>在許多方面，你可以想像 JSON 來替代 XML，在過去 Web Application 開發 AJAX 都是透過 XML 來交換資料，但是你可以發現近幾年來 JSON 已經漸漸取代 XML 格式了，為什麼會變成這樣呢？因為 JSON 格式容易閱讀且好修改，許多程式語言分別開發了函式庫來處理 JSON 資料，我們可以把上面的 JSON 資料改寫成 XML 如下:</p>
+<p>01<br>02<br>03<br>04<br>05<br>06<br>07<br>08<br>09<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51</p>
+<p><object></object></p>
+<p><property></property></p>
+<p><key>orderID</key></p>
+<p><number>12345</number><br></p>
+<p><property></property></p>
+<p><key>shopperName</key></p>
+<p><string>John Smith</string><br></p>
+<p><property></property></p>
+<p><key>shopperEmail</key></p>
+<p><string><a href="mailto:johnsmith@example.com" target="_blank" rel="noopener">johnsmith@example.com</a></string><br></p>
+<p><property></property></p>
+<p><key>contents</key></p>
+<p><array></array></p>
+<p><object></object></p>
+<p><property></property></p>
+<p><key>productID</key></p>
+<p><number>34</number><br></p>
+<p><property></property></p>
+<p><key>productName</key></p>
+<p><string>SuperWidget</string><br></p>
+<p><property></property></p>
+<p><key>quantity</key></p>
+<p><number>1</number><br><br></p>
+<p><object></object></p>
+<p><property></property></p>
+<p><key>productID</key></p>
+<p><number>56</number><br></p>
+<p><property></property></p>
+<p><key>productName</key></p>
+<p><string>WonderWidget</string><br></p>
+<p><property></property></p>
+<p><key>quantity</key></p>
+<p><number>3</number><br><br><br><br></p>
+<p><property></property></p>
+<p><key>orderCompleted</key></p>
+<p><boolean>true</boolean><br><br><br>大家有沒有發現 XML 的資料量遠大於 JSON 資料量，這也是 JSON 優於 XML 的原因之一</p>
+<p>如何利用 JavaScript 來處理 JSON 資料<br>直接看例子比較快:</p>
+<p>01<br>02<br>03<br>04<br>05<br>06<br>07<br>08<br>09<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24</p>
+<script type="text/javascript">
+
+<p>var cart = {<br>“orderID”: 12345,<br>“shopperName”: “John Smith”,<br>“shopperEmail”: “<a href="mailto:johnsmith@example.com">johnsmith@example.com</a>“,<br>“contents”: [<br>{<br>“productID”: 34,<br>“productName”: “SuperWidget”,<br>“quantity”: 1<br>},<br>{<br>“productID”: 56,<br>“productName”: “WonderWidget”,<br>“quantity”: 3<br>}<br>],<br>“orderCompleted”: true<br>};</p>
+<p>alert ( JSON.stringify( cart ) );</p>
+<p></script><br>透過 JSON.stringify 來轉換資料，產生結果如下<p></p>
+<p>01<br>02<br>03<br>04<br>{“orderID”:12345,”shopperName”:”John Smith”,”shopperEmail”:”<a href="mailto:johnsmith@example.com" target="_blank" rel="noopener">johnsmith@example.com</a>“,<br>“contents”:[{“productID”:34,”productName”:”SuperWidget”,”quantity”:1},<br>{“productID”:56,”productName”:”WonderWidget”,”quantity”:3}],<br>“orderCompleted”:true}<br>如何將 JSON 字串傳入 JavaScript 變數</p>
+<p>01<br>02<br>03<br>04<br>05<br>06<br>07<br>08<br>09<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29</p>
+<script type="text/javascript">
+
+<p>var jsonString = ‘                          \<br>{                                           \<br>“orderID”: 12345,                         \<br>“shopperName”: “John Smith”,              \<br>“shopperEmail”: “<a href="mailto:johnsmith@example.com">johnsmith@example.com</a>“,  \<br>“contents”: [                             \<br>{                                       \<br>“productID”: 34,                      \<br>“productName”: “SuperWidget”,         \<br>“quantity”: 1                         \<br>},                                      \<br>{                                       \<br>“productID”: 56,                      \<br>“productName”: “WonderWidget”,        \<br>“quantity”: 3                         \<br>}                                       \<br>],                                        \<br>“orderCompleted”: true                    \<br>}                                           \<br>‘;</p>
+<p>var cart = JSON.parse ( jsonString );</p>
+<p>alert ( cart.shopperEmail );<br>alert ( cart.contents[1].productName );</p>
+<p></script><br>結果如下<p></p>
+<p>cart.shopperEmail 輸出 <a href="mailto:johnsmith@example.com" target="_blank" rel="noopener">johnsmith@example.com</a> cart.contents[1].productName 輸出 WonderWidget</p>
+<p>利用 PHP 建立或讀取 JSON 資料<br>PHP 直接有寫好函式庫可以處理 JSON 字串，就是利用 json_encode 跟 json_decode</p>
+<p>範例:</p>
+<p>01<br>02<br>03<br>04<br>05<br>06<br>07<br>08<br>09<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>&lt;?php<br>$cart = array(<br>“orderID” =&gt; 12345,<br>“shopperName” =&gt; “John Smith”,<br>“shopperEmail” =&gt; “<a href="mailto:johnsmith@example.com" target="_blank" rel="noopener">johnsmith@example.com</a>“,<br>“contents” =&gt; array(<br>array(<br>“productID” =&gt; 34,<br>“productName” =&gt; “SuperWidget”,<br>“quantity” =&gt; 1<br>),<br>array(<br>“productID” =&gt; 56,<br>“productName” =&gt; “WonderWidget”,<br>“quantity” =&gt; 3<br>)<br>),<br>“orderCompleted” =&gt; true<br>);</p>
+<p>echo json_encode( $cart );<br>?&gt;<br>輸出</p>
+<p>01<br>{“orderID”:12345,”shopperName”:”John Smith”,”shopperEmail”:”<a href="mailto:johnsmith@example.com" target="_blank" rel="noopener">johnsmith@example.com</a>“,”contents”:[{“productID”:34,”productName”:”SuperWidget”,”quantity”:1},{“productID”:56,”productName”:”WonderWidget”,”quantity”:3}],”orderCompleted”:true}<br>大家可以發現，我們只要用 array 方式將資料輸出，再透過 json_encode 就可以了，接下來看看底下 PHP 如何讀取 JSON 字串</p>
+<p>01<br>02<br>03<br>04<br>05<br>06<br>07<br>08<br>09<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>&lt;?php<br>$jsonString = ‘<br>{<br>“orderID”: 12345,<br>“shopperName”: “John Smith”,<br>“shopperEmail”: “<a href="mailto:johnsmith@example.com" target="_blank" rel="noopener">johnsmith@example.com</a>“,<br>“contents”: [<br>{<br>“productID”: 34,<br>“productName”: “SuperWidget”,<br>“quantity”: 1<br>},<br>{<br>“productID”: 56,<br>“productName”: “WonderWidget”,<br>“quantity”: 3<br>}<br>],<br>“orderCompleted”: true<br>}<br>‘;</p>
+<p>$cart = json_decode( $jsonString );<br>echo $cart-&gt;shopperEmail . “<br>“;<br>echo $cart-&gt;contents[1]-&gt;productName . “<br>“;<br>?&gt;<br>很簡單吧，PHP 利用了 json_decode 方式將 json 轉成變數資料以便讀取內容。</p>
+<p>結論<br>這篇介紹主要是讓大家對 JSON 有基本得瞭解，以及如何用 JavaScript 跟 PHP 處理 JSON 資料，其實就不難，希望對大家有幫助。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/14/HashMap/" rel="next" title="JAVA類別-HashMap">
+                <i class="fa fa-chevron-left"></i> JAVA類別-HashMap
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/19/comparable/" rel="prev" title="JAVA- Comparable接口">
+                JAVA- Comparable接口 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yuju(Lucy) Kuo</p>
+              <p class="site-description motion-element" itemprop="description">Don’t be afraid to give up the good to go for the great. John D. Rockefeller</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:yujuko@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/yujuko" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON"><span class="nav-number">1.</span> <span class="nav-text">JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON-的優點如下"><span class="nav-number">1.1.</span> <span class="nav-text">JSON 的優點如下:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON-應用在哪些地方"><span class="nav-number">1.2.</span> <span class="nav-text">JSON 應用在哪些地方</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuju(Lucy) Kuo</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
