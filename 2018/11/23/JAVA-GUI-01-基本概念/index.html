@@ -117,12 +117,12 @@
 <meta property="og:site_name" content="LUCY&#39;s TechGarden">
 <meta property="og:description" content="AWT 與 SwingJava API 中有兩個套件，分別是 AWT 與 Swing ，兩者都可以製作圖形介面的程式。 AWT 為 Abstract Window Toolkit 的縮寫詞，這是 Java 1.1 版之前官方程式庫 (libiary) 提供的套件 (package) ，後來 1.2 版以後又採納 Swing 當第二個官方 GUI 的程式庫。 兩者的差別在於， AWT 採用作業系統">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/11/23/JAVA-GUI-01-基本概念/GUI1">
-<meta property="og:updated_time" content="2018-11-24T00:50:05.875Z">
+<meta property="og:image" content="http://yoursite.com/uploads/GUI1.png">
+<meta property="og:updated_time" content="2018-11-24T02:35:51.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA -GUI 01.基本概念">
 <meta name="twitter:description" content="AWT 與 SwingJava API 中有兩個套件，分別是 AWT 與 Swing ，兩者都可以製作圖形介面的程式。 AWT 為 Abstract Window Toolkit 的縮寫詞，這是 Java 1.1 版之前官方程式庫 (libiary) 提供的套件 (package) ，後來 1.2 版以後又採納 Swing 當第二個官方 GUI 的程式庫。 兩者的差別在於， AWT 採用作業系統">
-<meta name="twitter:image" content="http://yoursite.com/2018/11/23/JAVA-GUI-01-基本概念/GUI1">
+<meta name="twitter:image" content="http://yoursite.com/uploads/GUI1.png">
 
 
 
@@ -350,7 +350,7 @@
                 
               
 
-              <time title="Created: 2018-11-23 19:39:13 / Modified: 19:50:05" itemprop="dateCreated datePublished" datetime="2018-11-23T19:39:13-05:00">2018-11-23</time>
+              <time title="Created: 2018-11-23 19:39:13 / Modified: 21:35:51" itemprop="dateCreated datePublished" datetime="2018-11-23T19:39:13-05:00">2018-11-23</time>
             
 
             
@@ -391,10 +391,116 @@
         <h2 id="AWT-與-Swing"><a href="#AWT-與-Swing" class="headerlink" title="AWT 與 Swing"></a>AWT 與 Swing</h2><p>Java API 中有兩個套件，分別是 AWT 與 Swing ，兩者都可以製作圖形介面的程式。</p>
 <p>AWT 為 Abstract Window Toolkit 的縮寫詞，這是 Java 1.1 版之前官方程式庫 (libiary) 提供的套件 (package) ，後來 1.2 版以後又採納 Swing 當第二個官方 GUI 的程式庫。</p>
 <p>兩者的差別在於， AWT 採用作業系統 (operating system) 提供的視窗元件，所以利用 AWT 所設計的視窗圖形程式會跟作業系統原本的視窗風格一致， Swing 則是利用 Java 原生程式碼重新繪出視窗元件，因此利用 Swing 設計的程式在各平台間並無外觀上的差異。兩者的差異還涉及佔用系統資源的多寡。</p>
-<p>AWT 在 java.awt 套件中， Swing 在 javax.swing 套件裡，我們以介紹 Swing 為主，以下列出常用的視窗元件<br>元件名稱  |  類別名稱<br>—–|————-<br>視窗   | JFrame<br>面板 |   JPanel<br>標籤  |  JLabel<br>按鈕  |  JButton<br>核取方塊  |  JCheckBox<br>選取方塊  |  JRadioButton<br>下拉式列表   |     JComboBox<br>列表    |    JList<br>捲動軸    |    JScrollBar<br>滑動軸    |    JSlider<br>文字方塊    |    JTextField<br>密碼文字方塊    |    JPasswordField<br>文字區域   |     JTextArea<br>彈出式選單     |   JPopupMenu<br>下拉式選單列    |      JMenuBar<br>下拉式選單     |   JMenu<br>下拉式選單項目    |    JMenuItem<br>下拉式選單核取方塊     |   JCheckBoxMenuItem<br>下拉式選單選取按鈕    |    JRadioButtonMenuItem<br>工具列    |    JToolBar<br>檔案選擇    |    JFileChooser<br>色彩選擇     |   JColorChooser<br>多重視窗    |    JDesktopPane JInternalFrame<br>對話視窗    |    JDialog</p>
+<p>AWT 在 java.awt 套件中， Swing 在 javax.swing 套件裡，我們以介紹 Swing 為主，以下列出常用的視窗元件</p>
+<table>
+<thead>
+<tr>
+<th>元件名稱</th>
+<th>類別名稱</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>視窗</td>
+<td>JFrame</td>
+</tr>
+<tr>
+<td>面板</td>
+<td>JPanel</td>
+</tr>
+<tr>
+<td>標籤</td>
+<td>JLabel</td>
+</tr>
+<tr>
+<td>按鈕</td>
+<td>JButton</td>
+</tr>
+<tr>
+<td>核取方塊</td>
+<td>JCheckBox</td>
+</tr>
+<tr>
+<td>選取方塊</td>
+<td>JRadioButton</td>
+</tr>
+<tr>
+<td>下拉式列表</td>
+<td>JComboBox</td>
+</tr>
+<tr>
+<td>列表</td>
+<td>JList</td>
+</tr>
+<tr>
+<td>捲動軸</td>
+<td>JScrollBar</td>
+</tr>
+<tr>
+<td>滑動軸</td>
+<td>JSlider</td>
+</tr>
+<tr>
+<td>文字方塊</td>
+<td>JTextField</td>
+</tr>
+<tr>
+<td>密碼文字方塊</td>
+<td>JPasswordField</td>
+</tr>
+<tr>
+<td>文字區域</td>
+<td>JTextArea</td>
+</tr>
+<tr>
+<td>彈出式選單</td>
+<td>JPopupMenu</td>
+</tr>
+<tr>
+<td>下拉式選單列</td>
+<td>JMenuBar</td>
+</tr>
+<tr>
+<td>下拉式選單</td>
+<td>JMenu</td>
+</tr>
+<tr>
+<td>下拉式選單項目</td>
+<td>JMenuItem</td>
+</tr>
+<tr>
+<td>下拉式選單核取方塊</td>
+<td>JCheckBoxMenuItem</td>
+</tr>
+<tr>
+<td>下拉式選單選取按鈕</td>
+<td>JRadioButtonMenuItem</td>
+</tr>
+<tr>
+<td>工具列</td>
+<td>JToolBar</td>
+</tr>
+<tr>
+<td>檔案選擇</td>
+<td>JFileChooser</td>
+</tr>
+<tr>
+<td>色彩選擇</td>
+<td>JColorChooser</td>
+</tr>
+<tr>
+<td>多重視窗</td>
+<td>JDesktopPane JInternalFrame</td>
+</tr>
+<tr>
+<td>對話視窗</td>
+<td>JDialog</td>
+</tr>
+</tbody>
+</table>
 <h2 id="Swing-基本概念"><a href="#Swing-基本概念" class="headerlink" title="Swing 基本概念"></a>Swing 基本概念</h2><p>我們現在來看看怎麼樣用 Swing 設計圖形介面的視窗程式吧！首先，建立一個視窗物件 (object) ，也就是 JFrame 類別 (class) 的物件，然後才在視窗物件裡設置其他需要用到的元件，這是說，視窗物件屬於一種容器，任何視窗元件，例如顯示訊息的標籤或是觸發動作的按鈕，這些 JLabel 或 JButton 類別的物件都得放進視窗物件的容器裡囉！</p>
 <p>示範 Swing 程式的基本概念<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GUIDemo1</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">JFrame demo = <span class="keyword">new</span> JFrame();</span><br><span class="line">demo.setSize(<span class="number">400</span>, <span class="number">300</span>);</span><br><span class="line">demo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line"></span><br><span class="line">JCheckBox checkbox = <span class="keyword">new</span> JCheckBox(<span class="string">"JCheckBox"</span>);</span><br><span class="line">JRadioButton radiobutton = <span class="keyword">new</span> JRadioButton(<span class="string">"JRadiobutton"</span>);</span><br><span class="line">JButton button = <span class="keyword">new</span> JButton(<span class="string">"JButton"</span>);</span><br><span class="line">JLabel label = <span class="keyword">new</span> JLabel(<span class="string">"JLabel"</span>);</span><br><span class="line">JTextArea textarea = <span class="keyword">new</span> JTextArea(<span class="string">"JTextArea"</span>);</span><br><span class="line"></span><br><span class="line">demo.getContentPane().add(BorderLayout.EAST, checkbox);</span><br><span class="line">demo.getContentPane().add(BorderLayout.WEST, radiobutton);</span><br><span class="line">demo.getContentPane().add(BorderLayout.SOUTH, button);</span><br><span class="line">demo.getContentPane().add(BorderLayout.NORTH , label);</span><br><span class="line">demo.getContentPane().add(BorderLayout.CENTER, textarea);</span><br><span class="line"></span><br><span class="line">demo.setVisible(<span class="keyword">true</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>結果如下<br><img src="GUI1" alt="Lucy&#39;s favicon"></p>
+<p>結果如下<br><img src="/uploads/GUI1.png" alt="GUI1"></p>
 <p>GUIDemo 類別只有一個 main() 函數，我們直接在 main() 裡完成全部的 GUI 建置工作。<br>第一件事是宣告 JFrame 類別的物件</p>
 <p><code>JFrame demo = new JFrame();</code></p>
 <p>demo 是 JFrame 類別的物件，我們總共在 demo 上頭做了四件不同的工作，首先，設定視窗的大小，這是呼叫 setSize() 方法<br><code>demo.setSize(400, 300);</code></p>
@@ -409,7 +515,77 @@
 <p>JFrame 的 contentPane 預設的編排方式為東、西、南、北、中等五個區域，我們各自在一個區域中放入一個視窗元件。</p>
 <p>最後就是呼叫 demo 的 setVisible() 方法，並設置成 true ，這樣才會顯示在螢幕上頭<br><code>demo.setVisible(true);</code></p>
 <p>所以利用 Swing 設置 GUI 的步驟是先建立 JFrame 型態的物件，然後視窗元件再逐一放到 JFrame 物件裡</p>
-<p>中英文術語對照<br>—-|——<br>標籤  |  label<br>按鈕  |  button<br>選單  |  menu<br>文字方塊  |  textfield<br>程式庫 |   libiary<br>套件  |  package<br>作業系統  |  operating system<br>物件  |  object<br>類別 |   class<br>方法  |  method<br>屬性   | field<br>參數   | parameter<br>建構子  |  constructor<br>字串 |   string<br>面板   | panel<br>繼承 |  inherit</p>
+<p>中英文術語對照</p>
+<table>
+<thead>
+<tr>
+<th>標籤</th>
+<th>label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>按鈕</td>
+<td>button</td>
+</tr>
+<tr>
+<td>選單</td>
+<td>menu</td>
+</tr>
+<tr>
+<td>文字方塊</td>
+<td>textfield</td>
+</tr>
+<tr>
+<td>程式庫</td>
+<td>libiary</td>
+</tr>
+<tr>
+<td>套件</td>
+<td>package</td>
+</tr>
+<tr>
+<td>作業系統</td>
+<td>operating system</td>
+</tr>
+<tr>
+<td>物件</td>
+<td>object</td>
+</tr>
+<tr>
+<td>類別</td>
+<td>class</td>
+</tr>
+<tr>
+<td>方法</td>
+<td>method</td>
+</tr>
+<tr>
+<td>屬性</td>
+<td>field</td>
+</tr>
+<tr>
+<td>參數</td>
+<td>parameter</td>
+</tr>
+<tr>
+<td>建構子</td>
+<td>constructor</td>
+</tr>
+<tr>
+<td>字串</td>
+<td>string</td>
+</tr>
+<tr>
+<td>面板</td>
+<td>panel</td>
+</tr>
+<tr>
+<td>繼承</td>
+<td>inherit</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
