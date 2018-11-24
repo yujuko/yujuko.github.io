@@ -110,24 +110,26 @@
 
 
 
-  <meta name="description" content="歡迎光臨這是露西第一篇部落格 露西將在這裡記錄她學習Java的歷程筆記 請多多指教 :)">
+  <meta name="description" content="AWT 與 SwingJava API 中有兩個套件，分別是 AWT 與 Swing ，兩者都可以製作圖形介面的程式。 AWT 為 Abstract Window Toolkit 的縮寫詞，這是 Java 1.1 版之前官方程式庫 (libiary) 提供的套件 (package) ，後來 1.2 版以後又採納 Swing 當第二個官方 GUI 的程式庫。 兩者的差別在於， AWT 採用作業系統">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Grand Opening - Lucy&#39;s TechGarden!">
-<meta property="og:url" content="http://yoursite.com/2018/07/11/Hi-Lucy/index.html">
+<meta property="og:title" content="JAVA -GUI 01.基本概念">
+<meta property="og:url" content="http://yoursite.com/2018/11/23/JAVA-GUI-01-基本概念/index.html">
 <meta property="og:site_name" content="LUCY&#39;s TechGarden">
-<meta property="og:description" content="歡迎光臨這是露西第一篇部落格 露西將在這裡記錄她學習Java的歷程筆記 請多多指教 :)">
+<meta property="og:description" content="AWT 與 SwingJava API 中有兩個套件，分別是 AWT 與 Swing ，兩者都可以製作圖形介面的程式。 AWT 為 Abstract Window Toolkit 的縮寫詞，這是 Java 1.1 版之前官方程式庫 (libiary) 提供的套件 (package) ，後來 1.2 版以後又採納 Swing 當第二個官方 GUI 的程式庫。 兩者的差別在於， AWT 採用作業系統">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-13T03:06:01.106Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/23/JAVA-GUI-01-基本概念/GUI1">
+<meta property="og:updated_time" content="2018-11-24T00:50:05.875Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Grand Opening - Lucy&#39;s TechGarden!">
-<meta name="twitter:description" content="歡迎光臨這是露西第一篇部落格 露西將在這裡記錄她學習Java的歷程筆記 請多多指教 :)">
+<meta name="twitter:title" content="JAVA -GUI 01.基本概念">
+<meta name="twitter:description" content="AWT 與 SwingJava API 中有兩個套件，分別是 AWT 與 Swing ，兩者都可以製作圖形介面的程式。 AWT 為 Abstract Window Toolkit 的縮寫詞，這是 Java 1.1 版之前官方程式庫 (libiary) 提供的套件 (package) ，後來 1.2 版以後又採納 Swing 當第二個官方 GUI 的程式庫。 兩者的差別在於， AWT 採用作業系統">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/23/JAVA-GUI-01-基本概念/GUI1">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/11/Hi-Lucy/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/23/JAVA-GUI-01-基本概念/"/>
 
 
 
@@ -137,7 +139,7 @@
   };
 </script>
 
-  <title>Grand Opening - Lucy's TechGarden! | LUCY's TechGarden</title>
+  <title>JAVA -GUI 01.基本概念 | LUCY's TechGarden</title>
   
 
 
@@ -306,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/Hi-Lucy/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/23/JAVA-GUI-01-基本概念/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yuju(Lucy) Kuo">
@@ -323,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Grand Opening - Lucy's TechGarden!
+          <h1 class="post-title" itemprop="name headline">JAVA -GUI 01.基本概念
               
             
           </h1>
@@ -348,24 +350,12 @@
                 
               
 
-              <time title="Created: 2018-07-11 13:06:44" itemprop="dateCreated datePublished" datetime="2018-07-11T13:06:44-04:00">2018-07-11</time>
+              <time title="Created: 2018-11-23 19:39:13 / Modified: 19:50:05" itemprop="dateCreated datePublished" datetime="2018-11-23T19:39:13-05:00">2018-11-23</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-07-12 23:06:01" itemprop="dateModified" datetime="2018-07-12T23:06:01-04:00">2018-07-12</time>
               
             
           </span>
@@ -398,7 +388,28 @@
       
 
       
-        <h2 id="歡迎光臨"><a href="#歡迎光臨" class="headerlink" title="歡迎光臨"></a>歡迎光臨</h2><h3 id="這是露西第一篇部落格"><a href="#這是露西第一篇部落格" class="headerlink" title="這是露西第一篇部落格"></a>這是露西第一篇部落格</h3><p> 露西將在這裡記錄她學習Java的歷程筆記<br> 請多多指教 :)</p>
+        <h2 id="AWT-與-Swing"><a href="#AWT-與-Swing" class="headerlink" title="AWT 與 Swing"></a>AWT 與 Swing</h2><p>Java API 中有兩個套件，分別是 AWT 與 Swing ，兩者都可以製作圖形介面的程式。</p>
+<p>AWT 為 Abstract Window Toolkit 的縮寫詞，這是 Java 1.1 版之前官方程式庫 (libiary) 提供的套件 (package) ，後來 1.2 版以後又採納 Swing 當第二個官方 GUI 的程式庫。</p>
+<p>兩者的差別在於， AWT 採用作業系統 (operating system) 提供的視窗元件，所以利用 AWT 所設計的視窗圖形程式會跟作業系統原本的視窗風格一致， Swing 則是利用 Java 原生程式碼重新繪出視窗元件，因此利用 Swing 設計的程式在各平台間並無外觀上的差異。兩者的差異還涉及佔用系統資源的多寡。</p>
+<p>AWT 在 java.awt 套件中， Swing 在 javax.swing 套件裡，我們以介紹 Swing 為主，以下列出常用的視窗元件<br>元件名稱  |  類別名稱<br>—–|————-<br>視窗   | JFrame<br>面板 |   JPanel<br>標籤  |  JLabel<br>按鈕  |  JButton<br>核取方塊  |  JCheckBox<br>選取方塊  |  JRadioButton<br>下拉式列表   |     JComboBox<br>列表    |    JList<br>捲動軸    |    JScrollBar<br>滑動軸    |    JSlider<br>文字方塊    |    JTextField<br>密碼文字方塊    |    JPasswordField<br>文字區域   |     JTextArea<br>彈出式選單     |   JPopupMenu<br>下拉式選單列    |      JMenuBar<br>下拉式選單     |   JMenu<br>下拉式選單項目    |    JMenuItem<br>下拉式選單核取方塊     |   JCheckBoxMenuItem<br>下拉式選單選取按鈕    |    JRadioButtonMenuItem<br>工具列    |    JToolBar<br>檔案選擇    |    JFileChooser<br>色彩選擇     |   JColorChooser<br>多重視窗    |    JDesktopPane JInternalFrame<br>對話視窗    |    JDialog</p>
+<h2 id="Swing-基本概念"><a href="#Swing-基本概念" class="headerlink" title="Swing 基本概念"></a>Swing 基本概念</h2><p>我們現在來看看怎麼樣用 Swing 設計圖形介面的視窗程式吧！首先，建立一個視窗物件 (object) ，也就是 JFrame 類別 (class) 的物件，然後才在視窗物件裡設置其他需要用到的元件，這是說，視窗物件屬於一種容器，任何視窗元件，例如顯示訊息的標籤或是觸發動作的按鈕，這些 JLabel 或 JButton 類別的物件都得放進視窗物件的容器裡囉！</p>
+<p>示範 Swing 程式的基本概念<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GUIDemo1</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">JFrame demo = <span class="keyword">new</span> JFrame();</span><br><span class="line">demo.setSize(<span class="number">400</span>, <span class="number">300</span>);</span><br><span class="line">demo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line"></span><br><span class="line">JCheckBox checkbox = <span class="keyword">new</span> JCheckBox(<span class="string">"JCheckBox"</span>);</span><br><span class="line">JRadioButton radiobutton = <span class="keyword">new</span> JRadioButton(<span class="string">"JRadiobutton"</span>);</span><br><span class="line">JButton button = <span class="keyword">new</span> JButton(<span class="string">"JButton"</span>);</span><br><span class="line">JLabel label = <span class="keyword">new</span> JLabel(<span class="string">"JLabel"</span>);</span><br><span class="line">JTextArea textarea = <span class="keyword">new</span> JTextArea(<span class="string">"JTextArea"</span>);</span><br><span class="line"></span><br><span class="line">demo.getContentPane().add(BorderLayout.EAST, checkbox);</span><br><span class="line">demo.getContentPane().add(BorderLayout.WEST, radiobutton);</span><br><span class="line">demo.getContentPane().add(BorderLayout.SOUTH, button);</span><br><span class="line">demo.getContentPane().add(BorderLayout.NORTH , label);</span><br><span class="line">demo.getContentPane().add(BorderLayout.CENTER, textarea);</span><br><span class="line"></span><br><span class="line">demo.setVisible(<span class="keyword">true</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>結果如下<br><img src="GUI1" alt="Lucy&#39;s favicon"></p>
+<p>GUIDemo 類別只有一個 main() 函數，我們直接在 main() 裡完成全部的 GUI 建置工作。<br>第一件事是宣告 JFrame 類別的物件</p>
+<p><code>JFrame demo = new JFrame();</code></p>
+<p>demo 是 JFrame 類別的物件，我們總共在 demo 上頭做了四件不同的工作，首先，設定視窗的大小，這是呼叫 setSize() 方法<br><code>demo.setSize(400, 300);</code></p>
+<p>接著呼叫了 setDefaultCloseOperation 方法，這個方法是設定視窗標題列的關閉按鈕結束程式執行，提供 JFrame 類別的 staic 屬性 (field) EXIT_ON_CLOSE 當參數 (parameter)</p>
+<p><code>demo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</code></p>
+<p>然後，我們另外宣告建立 5 個不同的視窗元件，從上而下分別是核取方塊、選取方塊、按鈕、標籤與文字區域<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JCheckBox checkbox = <span class="keyword">new</span> JCheckBox(<span class="string">"JCheckBox"</span>);</span><br><span class="line">JRadioButton radiobutton = <span class="keyword">new</span> JRadioButton(<span class="string">"JRadiobutton"</span>);</span><br><span class="line">JButton button = <span class="keyword">new</span> JButton(<span class="string">"JButton"</span>);</span><br><span class="line">JLabel label = <span class="keyword">new</span> JLabel(<span class="string">"JLabel"</span>);</span><br><span class="line">JTextArea textarea = <span class="keyword">new</span> JTextArea(<span class="string">"JTextArea"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>我們在建構子 (constructor) 中提供的字串 (string) 會是該視窗元件預設顯示的訊息。</p>
+<p>第三件工作便是將視窗元件放到 demo 中了，這裡， demo 呼叫 getContentPane() 方法取得 JFrame 的 contentPane 物件，然後由 contentPane 物件呼叫 add() 方法將視窗元件放進去<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">demo.getContentPane().add(BorderLayout.EAST, checkbox);</span><br><span class="line">demo.getContentPane().add(BorderLayout.WEST, radiobutton);</span><br><span class="line">demo.getContentPane().add(BorderLayout.SOUTH, button);</span><br><span class="line">demo.getContentPane().add(BorderLayout.NORTH , label);</span><br><span class="line">demo.getContentPane().add(BorderLayout.CENTER, textarea);</span><br></pre></td></tr></table></figure></p>
+<p>視窗元件要放到面板 (panel) 中才可以顯示在視窗上，實際上， contentPane 屬於 Container 型態的面板物件， Container 是在 java.awt 中所定義的類別，因此， add() 方法用的參數 BorderLayout.EAST 等，這些都在 java.awt 中。</p>
+<p>所以在程式檔案的一開始，除了 import java.swing 之外，也 import java.awt 。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import java.awt.*;</span><br><span class="line">import javax.swing.*;</span><br></pre></td></tr></table></figure></p>
+<p>其實 java.swing 的類別多半繼承 (inherit) 自 java.awt ，這是說 Swing 是由 AWT 延伸出的套件，因此兩者之間有很多地方可以互通， Swing 有些地方也需要用到 AWT 的東西，例如此例中的 <code>BorderLayout.EAST</code>等。</p>
+<p>JFrame 的 contentPane 預設的編排方式為東、西、南、北、中等五個區域，我們各自在一個區域中放入一個視窗元件。</p>
+<p>最後就是呼叫 demo 的 setVisible() 方法，並設置成 true ，這樣才會顯示在螢幕上頭<br><code>demo.setVisible(true);</code></p>
+<p>所以利用 Swing 設置 GUI 的步驟是先建立 JFrame 型態的物件，然後視窗元件再逐一放到 JFrame 物件裡</p>
+<p>中英文術語對照<br>—-|——<br>標籤  |  label<br>按鈕  |  button<br>選單  |  menu<br>文字方塊  |  textfield<br>程式庫 |   libiary<br>套件  |  package<br>作業系統  |  operating system<br>物件  |  object<br>類別 |   class<br>方法  |  method<br>屬性   | field<br>參數   | parameter<br>建構子  |  constructor<br>字串 |   string<br>面板   | panel<br>繼承 |  inherit</p>
 
       
     </div>
@@ -426,15 +437,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/11/19/comparable/" rel="next" title="JAVA- Comparable接口">
+                <i class="fa fa-chevron-left"></i> JAVA- Comparable接口
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/11/KMP/" rel="prev" title="演算法 - KMP">
-                演算法 - KMP <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -606,7 +617,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#歡迎光臨"><span class="nav-number">1.</span> <span class="nav-text">歡迎光臨</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#這是露西第一篇部落格"><span class="nav-number">1.1.</span> <span class="nav-text">這是露西第一篇部落格</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AWT-與-Swing"><span class="nav-number">1.</span> <span class="nav-text">AWT 與 Swing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Swing-基本概念"><span class="nav-number">2.</span> <span class="nav-text">Swing 基本概念</span></a></li></ol></div>
             
 
           </div>
