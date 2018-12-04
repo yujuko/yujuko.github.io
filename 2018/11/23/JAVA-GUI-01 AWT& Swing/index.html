@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/l.png?v=6.3.0" color="#222">
+
+
+  <link rel="manifest" href="/images/l.png">
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="AWT 與 SwingJava API 中有兩個套件，分別是 AWT 與 Swing ，兩者都可以製作圖形介面的程式。 AWT 為 Abstract Window Toolkit 的縮寫詞，這是 Java 1.1 版之前官方程式庫 (libiary) 提供的套件 (package) ，後來 1.2 版以後又採納 Swing 當第二個官方 GUI 的程式庫。 兩者的差別在於， AWT 採用作業系統">
+<meta name="keywords" content="Java,Learning,GUI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA -GUI 01.基本概念">
+<meta property="og:url" content="http://yoursite.com/2018/11/23/JAVA-GUI-01 AWT& Swing/index.html">
+<meta property="og:site_name" content="LUCY&#39;s TechGarden">
+<meta property="og:description" content="AWT 與 SwingJava API 中有兩個套件，分別是 AWT 與 Swing ，兩者都可以製作圖形介面的程式。 AWT 為 Abstract Window Toolkit 的縮寫詞，這是 Java 1.1 版之前官方程式庫 (libiary) 提供的套件 (package) ，後來 1.2 版以後又採納 Swing 當第二個官方 GUI 的程式庫。 兩者的差別在於， AWT 採用作業系統">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/uploads/GUI1.png">
+<meta property="og:updated_time" content="2018-12-04T17:50:59.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA -GUI 01.基本概念">
+<meta name="twitter:description" content="AWT 與 SwingJava API 中有兩個套件，分別是 AWT 與 Swing ，兩者都可以製作圖形介面的程式。 AWT 為 Abstract Window Toolkit 的縮寫詞，這是 Java 1.1 版之前官方程式庫 (libiary) 提供的套件 (package) ，後來 1.2 版以後又採納 Swing 當第二個官方 GUI 的程式庫。 兩者的差別在於， AWT 採用作業系統">
+<meta name="twitter:image" content="http://yoursite.com/uploads/GUI1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/23/JAVA-GUI-01 AWT& Swing/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JAVA -GUI 01.基本概念 | LUCY's TechGarden</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LUCY's TechGarden</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">11</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">3</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">19</span></a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/23/JAVA-GUI-01 AWT& Swing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuju(Lucy) Kuo">
+      <meta itemprop="description" content="Don’t be afraid to give up the good to go for the great. John D. Rockefeller">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LUCY's TechGarden">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JAVA -GUI 01.基本概念
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-11-23 19:39:13" itemprop="dateCreated datePublished" datetime="2018-11-23T19:39:13-05:00">2018-11-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-04 12:50:59" itemprop="dateModified" datetime="2018-12-04T12:50:59-05:00">2018-12-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java學習筆記/" itemprop="url" rel="index"><span itemprop="name">Java學習筆記</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="AWT-與-Swing"><a href="#AWT-與-Swing" class="headerlink" title="AWT 與 Swing"></a>AWT 與 Swing</h2><p>Java API 中有兩個套件，分別是 AWT 與 Swing ，兩者都可以製作圖形介面的程式。</p>
+<p>AWT 為 Abstract Window Toolkit 的縮寫詞，這是 Java 1.1 版之前官方程式庫 (libiary) 提供的套件 (package) ，後來 1.2 版以後又採納 Swing 當第二個官方 GUI 的程式庫。</p>
+<p>兩者的差別在於， AWT 採用作業系統 (operating system) 提供的視窗元件，所以利用 AWT 所設計的視窗圖形程式會跟作業系統原本的視窗風格一致， Swing 則是利用 Java 原生程式碼重新繪出視窗元件，因此利用 Swing 設計的程式在各平台間並無外觀上的差異。兩者的差異還涉及佔用系統資源的多寡。</p>
+<p>AWT 在 java.awt 套件中， Swing 在 javax.swing 套件裡，我們以介紹 Swing 為主，以下列出常用的視窗元件</p>
+<table>
+<thead>
+<tr>
+<th>元件名稱</th>
+<th>類別名稱</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>視窗</td>
+<td>JFrame</td>
+</tr>
+<tr>
+<td>面板</td>
+<td>JPanel</td>
+</tr>
+<tr>
+<td>標籤</td>
+<td>JLabel</td>
+</tr>
+<tr>
+<td>按鈕</td>
+<td>JButton</td>
+</tr>
+<tr>
+<td>核取方塊</td>
+<td>JCheckBox</td>
+</tr>
+<tr>
+<td>選取方塊</td>
+<td>JRadioButton</td>
+</tr>
+<tr>
+<td>下拉式列表</td>
+<td>JComboBox</td>
+</tr>
+<tr>
+<td>列表</td>
+<td>JList</td>
+</tr>
+<tr>
+<td>捲動軸</td>
+<td>JScrollBar</td>
+</tr>
+<tr>
+<td>滑動軸</td>
+<td>JSlider</td>
+</tr>
+<tr>
+<td>文字方塊</td>
+<td>JTextField</td>
+</tr>
+<tr>
+<td>密碼文字方塊</td>
+<td>JPasswordField</td>
+</tr>
+<tr>
+<td>文字區域</td>
+<td>JTextArea</td>
+</tr>
+<tr>
+<td>彈出式選單</td>
+<td>JPopupMenu</td>
+</tr>
+<tr>
+<td>下拉式選單列</td>
+<td>JMenuBar</td>
+</tr>
+<tr>
+<td>下拉式選單</td>
+<td>JMenu</td>
+</tr>
+<tr>
+<td>下拉式選單項目</td>
+<td>JMenuItem</td>
+</tr>
+<tr>
+<td>下拉式選單核取方塊</td>
+<td>JCheckBoxMenuItem</td>
+</tr>
+<tr>
+<td>下拉式選單選取按鈕</td>
+<td>JRadioButtonMenuItem</td>
+</tr>
+<tr>
+<td>工具列</td>
+<td>JToolBar</td>
+</tr>
+<tr>
+<td>檔案選擇</td>
+<td>JFileChooser</td>
+</tr>
+<tr>
+<td>色彩選擇</td>
+<td>JColorChooser</td>
+</tr>
+<tr>
+<td>多重視窗</td>
+<td>JDesktopPane JInternalFrame</td>
+</tr>
+<tr>
+<td>對話視窗</td>
+<td>JDialog</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Swing-基本概念"><a href="#Swing-基本概念" class="headerlink" title="Swing 基本概念"></a>Swing 基本概念</h2><p>我們現在來看看怎麼樣用 Swing 設計圖形介面的視窗程式吧！首先，建立一個視窗物件 (object) ，也就是 JFrame 類別 (class) 的物件，然後才在視窗物件裡設置其他需要用到的元件，這是說，視窗物件屬於一種容器，任何視窗元件，例如顯示訊息的標籤或是觸發動作的按鈕，這些 JLabel 或 JButton 類別的物件都得放進視窗物件的容器裡囉！</p>
+<p>示範 Swing 程式的基本概念<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GUIDemo1</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">JFrame demo = <span class="keyword">new</span> JFrame();</span><br><span class="line">demo.setSize(<span class="number">400</span>, <span class="number">300</span>);</span><br><span class="line">demo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line"></span><br><span class="line">JCheckBox checkbox = <span class="keyword">new</span> JCheckBox(<span class="string">"JCheckBox"</span>);</span><br><span class="line">JRadioButton radiobutton = <span class="keyword">new</span> JRadioButton(<span class="string">"JRadiobutton"</span>);</span><br><span class="line">JButton button = <span class="keyword">new</span> JButton(<span class="string">"JButton"</span>);</span><br><span class="line">JLabel label = <span class="keyword">new</span> JLabel(<span class="string">"JLabel"</span>);</span><br><span class="line">JTextArea textarea = <span class="keyword">new</span> JTextArea(<span class="string">"JTextArea"</span>);</span><br><span class="line"></span><br><span class="line">demo.getContentPane().add(BorderLayout.EAST, checkbox);</span><br><span class="line">demo.getContentPane().add(BorderLayout.WEST, radiobutton);</span><br><span class="line">demo.getContentPane().add(BorderLayout.SOUTH, button);</span><br><span class="line">demo.getContentPane().add(BorderLayout.NORTH , label);</span><br><span class="line">demo.getContentPane().add(BorderLayout.CENTER, textarea);</span><br><span class="line"></span><br><span class="line">demo.setVisible(<span class="keyword">true</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>結果如下<br><img src="/uploads/GUI1.png" alt="GUI1"></p>
+<p>GUIDemo 類別只有一個 main() 函數，我們直接在 main() 裡完成全部的 GUI 建置工作。<br>第一件事是宣告 JFrame 類別的物件</p>
+<p><code>JFrame demo = new JFrame();</code></p>
+<p>demo 是 JFrame 類別的物件，我們總共在 demo 上頭做了四件不同的工作，首先，設定視窗的大小，這是呼叫 setSize() 方法<br><code>demo.setSize(400, 300);</code></p>
+<p>接著呼叫了 setDefaultCloseOperation 方法，這個方法是設定視窗標題列的關閉按鈕結束程式執行，提供 JFrame 類別的 staic 屬性 (field) EXIT_ON_CLOSE 當參數 (parameter)</p>
+<p><code>demo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</code></p>
+<p>然後，我們另外宣告建立 5 個不同的視窗元件，從上而下分別是核取方塊、選取方塊、按鈕、標籤與文字區域<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JCheckBox checkbox = <span class="keyword">new</span> JCheckBox(<span class="string">"JCheckBox"</span>);</span><br><span class="line">JRadioButton radiobutton = <span class="keyword">new</span> JRadioButton(<span class="string">"JRadiobutton"</span>);</span><br><span class="line">JButton button = <span class="keyword">new</span> JButton(<span class="string">"JButton"</span>);</span><br><span class="line">JLabel label = <span class="keyword">new</span> JLabel(<span class="string">"JLabel"</span>);</span><br><span class="line">JTextArea textarea = <span class="keyword">new</span> JTextArea(<span class="string">"JTextArea"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>我們在建構子 (constructor) 中提供的字串 (string) 會是該視窗元件預設顯示的訊息。</p>
+<p>第三件工作便是將視窗元件放到 demo 中了，這裡， demo 呼叫 getContentPane() 方法取得 JFrame 的 contentPane 物件，然後由 contentPane 物件呼叫 add() 方法將視窗元件放進去<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">demo.getContentPane().add(BorderLayout.EAST, checkbox);</span><br><span class="line">demo.getContentPane().add(BorderLayout.WEST, radiobutton);</span><br><span class="line">demo.getContentPane().add(BorderLayout.SOUTH, button);</span><br><span class="line">demo.getContentPane().add(BorderLayout.NORTH , label);</span><br><span class="line">demo.getContentPane().add(BorderLayout.CENTER, textarea);</span><br></pre></td></tr></table></figure></p>
+<p>視窗元件要放到面板 (panel) 中才可以顯示在視窗上，實際上， contentPane 屬於 Container 型態的面板物件， Container 是在 java.awt 中所定義的類別，因此， add() 方法用的參數 BorderLayout.EAST 等，這些都在 java.awt 中。</p>
+<p>所以在程式檔案的一開始，除了 import java.swing 之外，也 import java.awt 。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import java.awt.*;</span><br><span class="line">import javax.swing.*;</span><br></pre></td></tr></table></figure></p>
+<p>其實 java.swing 的類別多半繼承 (inherit) 自 java.awt ，這是說 Swing 是由 AWT 延伸出的套件，因此兩者之間有很多地方可以互通， Swing 有些地方也需要用到 AWT 的東西，例如此例中的 <code>BorderLayout.EAST</code>等。</p>
+<p>JFrame 的 contentPane 預設的編排方式為東、西、南、北、中等五個區域，我們各自在一個區域中放入一個視窗元件。</p>
+<p>最後就是呼叫 demo 的 setVisible() 方法，並設置成 true ，這樣才會顯示在螢幕上頭<br><code>demo.setVisible(true);</code></p>
+<p>所以利用 Swing 設置 GUI 的步驟是先建立 JFrame 型態的物件，然後視窗元件再逐一放到 JFrame 物件裡</p>
+<h3 id="中英文術語對照"><a href="#中英文術語對照" class="headerlink" title="中英文術語對照"></a>中英文術語對照</h3><table>
+<thead>
+<tr>
+<th>標籤</th>
+<th>label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>按鈕</td>
+<td>button</td>
+</tr>
+<tr>
+<td>選單</td>
+<td>menu</td>
+</tr>
+<tr>
+<td>文字方塊</td>
+<td>textfield</td>
+</tr>
+<tr>
+<td>程式庫</td>
+<td>libiary</td>
+</tr>
+<tr>
+<td>套件</td>
+<td>package</td>
+</tr>
+<tr>
+<td>作業系統</td>
+<td>operating system</td>
+</tr>
+<tr>
+<td>物件</td>
+<td>object</td>
+</tr>
+<tr>
+<td>類別</td>
+<td>class</td>
+</tr>
+<tr>
+<td>方法</td>
+<td>method</td>
+</tr>
+<tr>
+<td>屬性</td>
+<td>field</td>
+</tr>
+<tr>
+<td>參數</td>
+<td>parameter</td>
+</tr>
+<tr>
+<td>建構子</td>
+<td>constructor</td>
+</tr>
+<tr>
+<td>字串</td>
+<td>string</td>
+</tr>
+<tr>
+<td>面板</td>
+<td>panel</td>
+</tr>
+<tr>
+<td>繼承</td>
+<td>inherit</td>
+</tr>
+</tbody>
+</table>
+<h3 id="概念解析"><a href="#概念解析" class="headerlink" title="概念解析"></a>概念解析</h3><p>JFrame – java的GUI程序的基本思路是以JFrame為基礎，它是屏幕上window的對象，能夠最大化、最小化、關閉。</p>
+<p>JPanel – Java圖形用戶界面(GUI)工具包swing中的面板容器類，包含在javax.swing包中，可以進行嵌套，功能是對窗體中具有相同邏輯功能的組件進行組合，是一種輕量級容器，可以加入到JFrame窗體中。。</p>
+<p>JLabel – JLabel對象可以顯示文本、圖像或同時顯示二者。可以通過設置垂直和水平對齊方式，指定標籤顯示區中標籤內容在何處對齊。默認情況下，標籤在其顯示區內垂直居中對齊。默認情況下，只顯示文本的標籤是開始邊對齊；而只顯示圖像的標籤則水平居中對齊。</p>
+<p>JTextField –一個輕量級組件，它允許編輯單行文本。</p>
+<p>JPasswordField –允許我們輸入了一行字像輸入框，但隱藏星號(*)或點創建密碼(密碼)</p>
+<p>JButton – JButton類的實例。用於創建按鈕類似實例中的”Login”</p>
+<p>Reference:<br><a href="http://www.runoob.com/w3cnote/java-swing-demo-intro.html" target="_blank" rel="noopener">http://www.runoob.com/w3cnote/java-swing-demo-intro.html</a><br><a href="https://pydoing.blogspot.com/2011/05/java-basic-concept-of-gui.html" target="_blank" rel="noopener">https://pydoing.blogspot.com/2011/05/java-basic-concept-of-gui.html</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/Learning/" rel="tag"># Learning</a>
+          
+            <a href="/tags/GUI/" rel="tag"># GUI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/19/comparable/" rel="next" title="JAVA- Comparable接口">
+                <i class="fa fa-chevron-left"></i> JAVA- Comparable接口
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/23/hexo-commend/" rel="prev" title="Hexo commend">
+                Hexo commend <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yuju(Lucy) Kuo</p>
+              <p class="site-description motion-element" itemprop="description">Don’t be afraid to give up the good to go for the great. John D. Rockefeller</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:yujuko@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/yujuko" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AWT-與-Swing"><span class="nav-number">1.</span> <span class="nav-text">AWT 與 Swing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Swing-基本概念"><span class="nav-number">2.</span> <span class="nav-text">Swing 基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中英文術語對照"><span class="nav-number">2.1.</span> <span class="nav-text">中英文術語對照</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#概念解析"><span class="nav-number">2.2.</span> <span class="nav-text">概念解析</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuju(Lucy) Kuo</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/l.png?v=6.3.0" color="#222">
+
+
+  <link rel="manifest" href="/images/l.png">
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="排版管理的類別GUI 程式有數個部份需要顧及，分別是視窗用的小工具 (widget) 、排版 (layout) 與事件 (event)小工具就是各種視窗元件，這些都是物件 (object) 。實際上， Java 的 GUI 排版與事件也是由物件來處理，計有以下的排版管理員    英文 中文     BorderLayout 區域式版面配置   FlowLayout 流動式版面配置   CardLa">
+<meta name="keywords" content="Java,Learning,GUI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA -GUI 02. 排版管理員">
+<meta property="og:url" content="http://yoursite.com/2018/11/27/JAVA-GUI-02 Layout/index.html">
+<meta property="og:site_name" content="LUCY&#39;s TechGarden">
+<meta property="og:description" content="排版管理的類別GUI 程式有數個部份需要顧及，分別是視窗用的小工具 (widget) 、排版 (layout) 與事件 (event)小工具就是各種視窗元件，這些都是物件 (object) 。實際上， Java 的 GUI 排版與事件也是由物件來處理，計有以下的排版管理員    英文 中文     BorderLayout 區域式版面配置   FlowLayout 流動式版面配置   CardLa">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-29T06:06:12.731Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA -GUI 02. 排版管理員">
+<meta name="twitter:description" content="排版管理的類別GUI 程式有數個部份需要顧及，分別是視窗用的小工具 (widget) 、排版 (layout) 與事件 (event)小工具就是各種視窗元件，這些都是物件 (object) 。實際上， Java 的 GUI 排版與事件也是由物件來處理，計有以下的排版管理員    英文 中文     BorderLayout 區域式版面配置   FlowLayout 流動式版面配置   CardLa">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/27/JAVA-GUI-02 Layout/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JAVA -GUI 02. 排版管理員 | LUCY's TechGarden</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LUCY's TechGarden</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">11</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">3</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">19</span></a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/JAVA-GUI-02 Layout/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuju(Lucy) Kuo">
+      <meta itemprop="description" content="Don’t be afraid to give up the good to go for the great. John D. Rockefeller">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LUCY's TechGarden">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JAVA -GUI 02. 排版管理員
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-11-27 19:39:13" itemprop="dateCreated datePublished" datetime="2018-11-27T19:39:13-05:00">2018-11-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-11-29 01:06:12" itemprop="dateModified" datetime="2018-11-29T01:06:12-05:00">2018-11-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java學習筆記/" itemprop="url" rel="index"><span itemprop="name">Java學習筆記</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="排版管理的類別"><a href="#排版管理的類別" class="headerlink" title="排版管理的類別"></a>排版管理的類別</h2><p>GUI 程式有數個部份需要顧及，分別是視窗用的小工具 (widget) 、排版 (layout) 與事件 (event)<br>小工具就是各種視窗元件，這些都是物件 (object) 。實際上， Java 的 GUI 排版與事件也是由物件來處理，計有以下的排版管理員</p>
+<table>
+<thead>
+<tr>
+<th>英文</th>
+<th>中文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BorderLayout</td>
+<td>區域式版面配置</td>
+</tr>
+<tr>
+<td>FlowLayout</td>
+<td>流動式版面配置</td>
+</tr>
+<tr>
+<td>CardLayout</td>
+<td>卡片式版面配置</td>
+</tr>
+<tr>
+<td>GridLayout</td>
+<td>格子式版面配置</td>
+</tr>
+<tr>
+<td>GridBagLayout</td>
+<td>帶狀式版面配置</td>
+</tr>
+<tr>
+<td>BoxLayout</td>
+<td>盒子式版面配置</td>
+</tr>
+</tbody>
+</table>
+<h3 id="BorderLayout"><a href="#BorderLayout" class="headerlink" title="BorderLayout"></a>BorderLayout</h3><p>BorderLayout 把視窗分為東、南、西、北、中心五個方位。北和南的組件可以在水平方向上拉伸；而東和西的組件可以在垂直方向上拉伸；中心的組件可同時在水平和垂直方向上同時拉伸，從而填充所有剩餘空間。在使用BorderLayout的時候，如果容器的大小發生變化，其變化規律為:組件的相對位置不變，大小發生變化。例如容器變高了，則North、South 區域不變，West、Center、East區域變高；如果容器變寬了，West、East區域不變，North、Center、South區域變寬。不一定所有的區域都有組件，如果四周區域（West、East、North、South區域）沒有組件，則由Center區域去補充，但是如果Center區域沒有組件，則保持空白。BorderLayout是RootPaneContainer(JInternalFrame、JDialog、JFrame、JWindow)的默認佈局管理器。</p>
+<p>示例:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>  <span class="keyword">import</span> java.awt.* ;</span><br><span class="line"><span class="number">2</span>  　　　　<span class="keyword">public</span>  <span class="class"><span class="keyword">class</span> <span class="title">buttonDir</span></span>&#123;</span><br><span class="line"><span class="number">3</span>  　　　　　<span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line"><span class="number">4</span>  　　　　　　Frame f = <span class="keyword">new</span> Frame(<span class="string">"BorderLayout"</span> );</span><br><span class="line"><span class="number">5</span>  　　　　　　f.setLayout( <span class="keyword">new</span> BorderLayout());</span><br><span class="line"><span class="number">6</span>  　　　　　　f .add(<span class="string">"North"</span>, <span class="keyword">new</span> Button(<span class="string">"North"</span> );</span><br><span class="line"><span class="number">7</span>  　　　　　　<span class="comment">// 第一個參數表示把按鈕添加到容器的North區域</span></span><br><span class="line"><span class="number">8</span>  　　　　　　f.add(<span class="string">"South"</span>, <span class="keyword">new</span> Button(<span class="string">"South"</span> );</span><br><span class="line"><span class="number">9</span>  　　　　　　/ / 第一個參數表示把按鈕添加到容器的South區域</span><br><span class="line"><span class="number">10</span> 　　　　　　f.add(<span class="string">"East"</span>, <span class="keyword">new</span> Button(<span class="string">"East"</span> );</span><br><span class="line"><span class="number">11</span>  　　　　　　<span class="comment">// 第一個參數表示把按鈕添加到容器的East區域</span></span><br><span class="line"><span class="number">12</span>  　　　　　　f.add(<span class="string">"West"</span>, <span class="keyword">new</span> Button(<span class="string">"West"</span> );</span><br><span class="line"><span class="number">13</span>  　　　　　　<span class="comment">// 第一個參數表示把按鈕添加到容器的West區域</span></span><br><span class="line"><span class="number">14</span>  　　　　　　f.add(<span class="string">"Center"</span>, <span class="keyword">new</span> Button(<span class="string">"Center"</span> );</span><br><span class="line"><span class="number">15</span>  　　　　　　<span class="comment">// 第一個參數表示把按鈕添加到容器的Center區域</span></span><br><span class="line"><span class="number">16</span>  　　　　　　f .setSize(<span class="number">200</span>,<span class="number">200</span> );</span><br><span class="line"><span class="number">17</span>  　　　　　　f.setVisible( <span class="keyword">true</span> );</span><br><span class="line"><span class="number">18</span>  　　　　　&#125;</span><br><span class="line"><span class="number">19</span>  　　　　&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="FlowLayout"><a href="#FlowLayout" class="headerlink" title="FlowLayout"></a>FlowLayout</h3><p>該佈局稱為流式佈局管理器，是從左到右，中間放置，一行放不下就換到另外一行。一行能放置多少組件取決於窗口的寬度。默認組件是居中對齊，可以通過FlowLayout(intalign)函數來指定對齊方式，默認情況下是居中（FlowLayout.CENTER）。FlowLayout 為小應用程序(Applet)和麵板(Panel)的默認佈局管理器。其構造函數示例為:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FlowLayout() <span class="comment">//生成一個默認的流式佈局，組件在容器里居中，每個組件之間留下5個像素的距離。</span></span><br><span class="line">FlowLayout(<span class="keyword">int</span> alinment) <span class="comment">//可以設定每行組件的對齊方式。</span></span><br><span class="line">FlowLayout(<span class="keyword">int</span> alignment , <span class="keyword">int</span> horz , <span class="keyword">int</span> vert) <span class="comment">//設定對齊方式並設定組件水平和垂直的距離。</span></span><br></pre></td></tr></table></figure>
+<p>當容器的大小發生變化時，用FlowLayout管理的組件會發生變化。其變化規律是:組件的大小不變，但是相對位置會發生變化。</p>
+<h3 id="CardLayout"><a href="#CardLayout" class="headerlink" title="CardLayout"></a>CardLayout</h3><p>這種佈局管理器能夠幫助用戶處理兩個以至更多的成員共享同一顯示空間，它把容器分成許多層，每層的顯示空間佔據整個容器大小，但是每層只允許放置一個組件，當然每層都可以利用Panel來實現複雜的用戶界面。CardLayout就像一副疊得整整齊齊的撲克牌一樣，有54張牌，但是你只能看見最上面的一張牌，一張牌就相當於佈局管理器中的一層。所有的組件像卡片一樣疊在一起，每時每刻都只能顯示其中一張卡片。CardLayout常用到切換界面。例如，點擊App的Menu之後或者某個Button之後，主界面會切換到另外一個界面，這個時候就需要CardLayout。其實現過程如下:<br>首先，定義面板，為個個面板設置不同的佈局，並根據需要在每個面板中放置組件:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">panelOne.setLayout(<span class="keyword">new</span> FlowLayout);</span><br><span class="line">panelTwo.setLayout(<span class="keyword">new</span> GridLayout(<span class="number">2</span>,<span class="number">1</span>));</span><br></pre></td></tr></table></figure></p>
+<p>再設置主面板:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CardLayout card = <span class="keyword">new</span> CardLayout();</span><br><span class="line">panelMain.setLayout(card);</span><br></pre></td></tr></table></figure></p>
+<p>下一步將開始準備好的面板添加到主面板:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">panelMain.add(<span class="string">"red panel"</span>,panelOne);</span><br><span class="line">panelMain.add(<span class="string">"blue panel"</span>,panelOne);</span><br></pre></td></tr></table></figure></p>
+<p>add()方法帶有兩個參數，第一個為String類型用來表示面板標題，第二個為Panel對象名稱。<br>完成以上步驟以後，必須給用戶提供在卡片之間進行選擇的方法。一個常用的方法是每張卡片都包含一個按鈕。通常用來控制顯示哪張面板。<br>actionListener被添加到按鈕。actionPerformed()方法可定義顯示哪張卡片:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">card.next(panelMain); <span class="comment">//下一個</span></span><br><span class="line">card.previous(panelMain); <span class="comment">//前一個</span></span><br><span class="line">card.first(panelMain); <span class="comment">//第一個</span></span><br><span class="line">card.last(panelMain); <span class="comment">//最後一個</span></span><br><span class="line">card.show(panelMain,<span class="string">"red panel"</span>); <span class="comment">//特定面板</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="GridLayout"><a href="#GridLayout" class="headerlink" title="GridLayout"></a>GridLayout</h3><p>這種佈局是網格式的佈局，窗口改變的時候，組件的大小也會隨之改變。每個單元格的大小一樣，而且放置組件時，只能從左到右、由上到下的順序填充，用戶不能任意放置組件。如果改變大小， GridLayout將相應地改變每個網格的大小，以使各個網格盡可能地大，佔據Container容器全部的空間。<br>用構造函數劃分出網格的行數和列數，<br>new GridLayout(行數，列數)；<br>構造函數里的行數和列數能夠有一個為零，但是不能都為零。當容器裡增加控件時候，容器內將向0的那個方向增長。例如，如果是如下語句：<br>GridLayout layout= new GridLayout（0，1）;<br>//在增加控件時，會保持一個列的情況下，不斷把行數增長.<br>java.awt.GridBagConstraints 中的insets(0,0,0,0)的參數具體指的是：規定一個控件顯示區的空白區。<br>如果控件顯示的inset為(10,5,20,0)，那麼控件到顯示區北邊距離為10，西邊為5，南邊為20，東邊為0控件會比顯示區小。<br>如果inset為負，控件會超出顯示區，使容器中各個組件呈網格狀佈局，平均佔據容器的空間。當所有組件大小相同時用此佈局。其構造函數為:<br>GridLayout()<br>GridLayout(int row,int col)<br>GridLayout(int row,int col,int horz,int vert)<br>5.5、BoxLayout<br>BoxLayout佈局能夠允許將控件按照X軸（從左到右）或者Y軸（從上到下）方向來擺放，而且沿著主軸能夠設置不同尺寸。構造BoxLayout對象時，有兩個參數，例如：<br>Public BoxLayout（Container target，int axis）；<br>Targe參數是表示當前管理的容器，axis是指哪個軸，有兩個值：BoxLayout.X_AXIS和BoxLayout.Y_AXIS。<br>示例代碼如下：<br>複製代碼<br>1 JPanel jpanel= new JPanel();<br>2<br>3     Jpanel.setLayout( new BoxLayout(jpanel,BoxLayout.Y_AXIS);<br>4<br>5     TextArea testArea= new TextArea(4,20 );<br>6<br>7     JButton button= new JButton(“ this is a button”);<br>8<br>9     jpanel.add(testArea);<br>10<br>11     jpanel.add(button);<br>複製代碼<br>//容納testArea和button的容器，對他們沿Y軸（從上往下）放置，並且文本域和按鈕左對齊，也就是兩個控件的最左端在同一條線上。</p>
+<p>1  testArea.setAlignmentX(Component.LEFT_ALIGNMENT);<br>2<br>3 button. setAlignmentX(Component.LEFT_ALIGNMENT);<br>// 容納testArea 和button的容器，對他們採用沿Y軸（從上往下）放置，並且文本域最左端和按鈕的最右端在同一條線上。</p>
+<p>1  testArea.setAlignmentX(Component.LEFT_ALIGNMENT);<br>2<br>3 button. setAlignmentX(Component.RIGHT_ALIGNMENT);<br>setAlignmentX（left，right）只有在佈局是BoxLayout.Y_AXIS才效，而setAlignmentY（top，button）在佈局為BoxLayout.X_AXIS才效果。</p>
+<p>組件對齊一般來說：<br>所有top-to-bottom BoxLayout object應該有相同的X alignment。<br>所有left-to-right Boxlayout應該有相同的Y alignment<br>setAlignmentX和setAlignmentY可以實現對齊。</p>
+<h3 id="FlowLayout-1"><a href="#FlowLayout-1" class="headerlink" title="FlowLayout"></a>FlowLayout</h3><p>FlowLayout 是採流動式的編排，視窗中逐列安排視窗元素，每一列排完小工具後，就會移到下一列繼續。</p>
+<p>例如以下程式:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GUIDemo2</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">JFrame demo = <span class="keyword">new</span> JFrame();</span><br><span class="line">demo.setSize(<span class="number">400</span>, <span class="number">300</span>);</span><br><span class="line">demo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">demo.getContentPane().setLayout(<span class="keyword">new</span> FlowLayout());</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">27</span>; i++) &#123;</span><br><span class="line">JButton b = <span class="keyword">new</span> JButton(<span class="string">""</span> + i);</span><br><span class="line">demo.add(b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">demo.setVisible(<span class="keyword">true</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>首先， demo 的 contentPane 物件需要呼叫 setLayout() 方法，設定所要採用的版面編排方式，如果沒有做這項設定， demo 就會採預設的 BorderLayout<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">demo.getContentPane().setLayout(<span class="keyword">new</span> FlowLayout());</span><br></pre></td></tr></table></figure></p>
+<p>這裡，我們直接在 setLayout() 中新建 FlowLayout 物件作為參數 (parameter) 。</p>
+<p>然後，總共在 demo 中放入 27 個按鈕 (button)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">27</span>; i++) &#123;</span><br><span class="line">JButton b = <span class="keyword">new</span> JButton(<span class="string">""</span> + i);</span><br><span class="line">demo.add(b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>編譯執行</p>
+<blockquote>
+<p>由於這個例子只是單純的示範 FlowLayout ，因此所有小工具（視窗元件）都是直接加到視窗中，沒有保留對小工具的參考變數 (reference variable)</p>
+</blockquote>
+<p>前面 25 個按鈕依序填滿前五列，我們可以看到最後兩個按鈕是置中對齊的，這也是 FlowLayout 預設的對齊方式。 FlowLayout 總共有三種對齊方式，分別是</p>
+<table>
+<thead>
+<tr>
+<th>英文</th>
+<th>中文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FlowLayout.CENTER</td>
+<td>置中對齊</td>
+</tr>
+<tr>
+<td>FlowLayout.LEFT</td>
+<td>向左對齊</td>
+</tr>
+<tr>
+<td>FlowLayout.RIGHT</td>
+<td>向右對齊</td>
+</tr>
+</tbody>
+</table>
+<p>若要採向左或向右的對齊方式，在 FlowLayout 的建構子 (constructor) 中就得提供相對應的參數。</p>
+<p>其他的 CardLayout 、 GridLayout 、 BoxLayout 的編排類別 (class) ，我們就不詳細介紹了。</p>
+<p>至於我們 EncryptorGUI 會採用 GridBagLayout 排版，這是所有編排類別中最複雜的一種，同時也能夠進行最精巧的排版控制。</p>
+<p>嗯，好的，接下來我們就來看看如使用</p>
+<p>Reference: <a href="https://pydoing.blogspot.com/2011/05/java-basic-concept-of-gui.html" target="_blank" rel="noopener">https://pydoing.blogspot.com/2011/05/java-basic-concept-of-gui.html</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/Learning/" rel="tag"># Learning</a>
+          
+            <a href="/tags/GUI/" rel="tag"># GUI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/23/hexo-commend/" rel="next" title="Hexo commend">
+                <i class="fa fa-chevron-left"></i> Hexo commend
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/03/JAVA-GUI-03 ArrayList Container/" rel="prev" title="JAVA -GUI 03. Arrayist">
+                JAVA -GUI 03. Arrayist <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yuju(Lucy) Kuo</p>
+              <p class="site-description motion-element" itemprop="description">Don’t be afraid to give up the good to go for the great. John D. Rockefeller</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:yujuko@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/yujuko" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#排版管理的類別"><span class="nav-number">1.</span> <span class="nav-text">排版管理的類別</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BorderLayout"><span class="nav-number">1.1.</span> <span class="nav-text">BorderLayout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FlowLayout"><span class="nav-number">1.2.</span> <span class="nav-text">FlowLayout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CardLayout"><span class="nav-number">1.3.</span> <span class="nav-text">CardLayout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GridLayout"><span class="nav-number">1.4.</span> <span class="nav-text">GridLayout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FlowLayout-1"><span class="nav-number">1.5.</span> <span class="nav-text">FlowLayout</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuju(Lucy) Kuo</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
