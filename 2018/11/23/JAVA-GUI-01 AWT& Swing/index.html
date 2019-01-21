@@ -119,7 +119,7 @@
 <meta property="og:description" content="AWT 與 SwingJava API 中有兩個套件，分別是 AWT 與 Swing ，兩者都可以製作圖形介面的程式。 AWT 為 Abstract Window Toolkit 的縮寫詞，這是 Java 1.1 版之前官方程式庫 (libiary) 提供的套件 (package) ，後來 1.2 版以後又採納 Swing 當第二個官方 GUI 的程式庫。 兩者的差別在於， AWT 採用作業系統">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/uploads/GUI1.png">
-<meta property="og:updated_time" content="2018-12-04T17:50:59.286Z">
+<meta property="og:updated_time" content="2018-12-04T17:52:36.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA -GUI 01.基本概念">
 <meta name="twitter:description" content="AWT 與 SwingJava API 中有兩個套件，分別是 AWT 與 Swing ，兩者都可以製作圖形介面的程式。 AWT 為 Abstract Window Toolkit 的縮寫詞，這是 Java 1.1 版之前官方程式庫 (libiary) 提供的套件 (package) ，後來 1.2 版以後又採納 Swing 當第二個官方 GUI 的程式庫。 兩者的差別在於， AWT 採用作業系統">
@@ -242,7 +242,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">11</span></a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">12</span></a>
   </li>
         
         
@@ -258,7 +258,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">19</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">20</span></a>
   </li>
 
       
@@ -368,7 +368,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-04 12:50:59" itemprop="dateModified" datetime="2018-12-04T12:50:59-05:00">2018-12-04</time>
+                <time title="Modified: 2018-12-04 12:52:36" itemprop="dateModified" datetime="2018-12-04T12:52:36-05:00">2018-12-04</time>
               
             
           </span>
@@ -529,7 +529,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="Swing-基本概念"><a href="#Swing-基本概念" class="headerlink" title="Swing 基本概念"></a>Swing 基本概念</h2><p>我們現在來看看怎麼樣用 Swing 設計圖形介面的視窗程式吧！首先，建立一個視窗物件 (object) ，也就是 JFrame 類別 (class) 的物件，然後才在視窗物件裡設置其他需要用到的元件，這是說，視窗物件屬於一種容器，任何視窗元件，例如顯示訊息的標籤或是觸發動作的按鈕，這些 JLabel 或 JButton 類別的物件都得放進視窗物件的容器裡囉！</p>
+<h2 id="Swing-基本概念"><a href="#Swing-基本概念" class="headerlink" title="Swing 基本概念"></a>Swing 基本概念</h2><p>Swing 是一個為Java設計的GUI工具包。<br>Swing是JAVA基礎類的一部份，包括了圖形用戶界面（GUI）器件如：文本框，按鈕，分隔窗格和表。</p>
+<p>Swing提供許多比AWT更好的屏幕顯示元素。它們用純Java寫成，所以同Java本身一樣可以跨平台運行，這一點不像AWT。它們是JFC的一部分。它們支持可更換的面板和主題（各種操作系統默認的特有主題），然而不是真的使用原生平台提供的設備，而是僅僅在表面上模仿它們。這意味著你可以在任意平台上使用JAVA支持的任意麵板。輕量級組件的缺點則是執行速度較慢，優點就是可以在所有平台上採用統一的行為。</p>
 <p>示範 Swing 程式的基本概念<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GUIDemo1</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">JFrame demo = <span class="keyword">new</span> JFrame();</span><br><span class="line">demo.setSize(<span class="number">400</span>, <span class="number">300</span>);</span><br><span class="line">demo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line"></span><br><span class="line">JCheckBox checkbox = <span class="keyword">new</span> JCheckBox(<span class="string">"JCheckBox"</span>);</span><br><span class="line">JRadioButton radiobutton = <span class="keyword">new</span> JRadioButton(<span class="string">"JRadiobutton"</span>);</span><br><span class="line">JButton button = <span class="keyword">new</span> JButton(<span class="string">"JButton"</span>);</span><br><span class="line">JLabel label = <span class="keyword">new</span> JLabel(<span class="string">"JLabel"</span>);</span><br><span class="line">JTextArea textarea = <span class="keyword">new</span> JTextArea(<span class="string">"JTextArea"</span>);</span><br><span class="line"></span><br><span class="line">demo.getContentPane().add(BorderLayout.EAST, checkbox);</span><br><span class="line">demo.getContentPane().add(BorderLayout.WEST, radiobutton);</span><br><span class="line">demo.getContentPane().add(BorderLayout.SOUTH, button);</span><br><span class="line">demo.getContentPane().add(BorderLayout.NORTH , label);</span><br><span class="line">demo.getContentPane().add(BorderLayout.CENTER, textarea);</span><br><span class="line"></span><br><span class="line">demo.setVisible(<span class="keyword">true</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>結果如下<br><img src="/uploads/GUI1.png" alt="GUI1"></p>
 <p>GUIDemo 類別只有一個 main() 函數，我們直接在 main() 裡完成全部的 GUI 建置工作。<br>第一件事是宣告 JFrame 類別的物件</p>
@@ -746,7 +747,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -800,7 +801,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -870,7 +873,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/l.png?v=6.3.0" color="#222">
+
+
+  <link rel="manifest" href="/images/l.png">
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="HashMap:資料結構簡介:（特點：key 無序散列存放，key 唯一）在資料處理時我們常常需要 (key, value) 的對應先前在將List做排序的方法也是為了類似的目的當初利用List是因為我們不需要由key去取得value的功能只需要把所有資料依某個欄位排序全部印出即可在這種情況底下自己建立所需資料型態的物件List會比較方便 然而有時候我們需要的是針對某個鍵值提出對應的資料以成績單舉">
+<meta name="keywords" content="Java,Learning,Java Data Structure">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA Data Structure - Map (HashMap,Hashtable,TreeMap)">
+<meta property="og:url" content="http://yoursite.com/2019/01/20/DataStructureMap/index.html">
+<meta property="og:site_name" content="LUCY&#39;s TechGarden">
+<meta property="og:description" content="HashMap:資料結構簡介:（特點：key 無序散列存放，key 唯一）在資料處理時我們常常需要 (key, value) 的對應先前在將List做排序的方法也是為了類似的目的當初利用List是因為我們不需要由key去取得value的功能只需要把所有資料依某個欄位排序全部印出即可在這種情況底下自己建立所需資料型態的物件List會比較方便 然而有時候我們需要的是針對某個鍵值提出對應的資料以成績單舉">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-20T17:58:14.311Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA Data Structure - Map (HashMap,Hashtable,TreeMap)">
+<meta name="twitter:description" content="HashMap:資料結構簡介:（特點：key 無序散列存放，key 唯一）在資料處理時我們常常需要 (key, value) 的對應先前在將List做排序的方法也是為了類似的目的當初利用List是因為我們不需要由key去取得value的功能只需要把所有資料依某個欄位排序全部印出即可在這種情況底下自己建立所需資料型態的物件List會比較方便 然而有時候我們需要的是針對某個鍵值提出對應的資料以成績單舉">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/20/DataStructureMap/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JAVA Data Structure - Map (HashMap,Hashtable,TreeMap) | LUCY's TechGarden</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LUCY's TechGarden</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">12</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">3</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">20</span></a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/20/DataStructureMap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuju(Lucy) Kuo">
+      <meta itemprop="description" content="Don’t be afraid to give up the good to go for the great. John D. Rockefeller">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LUCY's TechGarden">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JAVA Data Structure - Map (HashMap,Hashtable,TreeMap)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-01-20 08:13:35 / Modified: 12:58:14" itemprop="dateCreated datePublished" datetime="2019-01-20T08:13:35-05:00">2019-01-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java學習筆記/" itemprop="url" rel="index"><span itemprop="name">Java學習筆記</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap:"></a>HashMap:</h2><h3 id="資料結構簡介"><a href="#資料結構簡介" class="headerlink" title="資料結構簡介:"></a>資料結構簡介:</h3><p>（特點：key 無序散列存放，key 唯一）<br>在資料處理時我們常常需要 (key, value) 的對應<br>先前在將List做排序的方法也是為了類似的目的<br>當初利用List是因為我們不需要由key去取得value的功能<br>只需要把所有資料依某個欄位排序全部印出即可<br>在這種情況底下自己建立所需資料型態的物件List會比較方便</p>
+<p>然而有時候我們需要的是針對某個鍵值提出對應的資料<br>以成績單舉例好了 當我們的目的只是要列印成績單<br>那麼用List去做會是一個不錯的選擇<br>可是在List的結構底下若是我們只想得到某一學生的成績<br>那我們就得在List裡頭搜尋這個學生的名字然後才能得到成績<br>面對這種狀況另一個方法就是利用HashMap</p>
+<p>把資料的 (key, value) 放入HashMap以後要針對特定的key取得value是非常簡單的<br>可以參考最下面程式碼裡面單純取得成績那段<br>如果HashMap裡頭有儲存資料則會傳回對應該key的value<br>HashMap裡沒有資料的話則會傳回 null</p>
+<p>在HashMap裡資料的排列與key、value、加入順序都無關<br>HashMap有自己獨特的排列方式，像程式碼第二段的輸出結果<br>若是想讓資料以key值排序可以選擇用TreeMap 但效能是HashMap較佳</p>
+<p>利用HashMap我們已經達到可以利用key值迅速取得value<br>但是如果我們想要印出所有資料卻又不知道姓名怎麼辦呢？<br>這時候只好利用HashMap的entrySet()方法取得所有資料<br>然後把這些資料匯入List中做處理<br>只要資料匯入List後就可以依照key或value排序印出了<br>如程式碼第三四段</p>
+<p>在看程式碼和結果前先下個簡短的結論<br>如果是單純的想列印全部資料或者欄位不只兩個<br>那麼就建立一個自訂class的List來處理會比較方便<br>如同將List做排序的方法所介紹的<br>但如果資料只是兩欄 (key, value) 的配對<br>則用HashMap可以迅速取得單一key對應的資料</p>
+<p>特性:<br>資料(K, V)原則上是一對一<br>key不能重複，若重複宣告，後者會取代前者<br>資料不會排序，預設是先宣告的在前面(呼叫整個 HashMap 的話)</p>
+<p>用途:<br>建立對應表(轉換表)，一 key 對一 value<br>像是學生成績表，以名字做為 key，查詢 key 可以得對應的成績 value</p>
+<p>資料格式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;K,V&gt;</span><br><span class="line">K: key</span><br><span class="line">V: value</span><br></pre></td></tr></table></figure></p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><ol>
+<li><p>宣告: 型別是 reference，不能存基本型別，像整數要寫 Integer 而非 int</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String, String&gt; hashmap = <span class="keyword">new</span> HashMap&lt;String, String&gt;();</span><br><span class="line">HashMap&lt;String, String&gt; hashmap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">HashMap&lt;String, Integer&gt; hashmap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新增資料: 同時給Key-Value參數，新增這筆資料到該hashMap，覆蓋之前key 對應的value 值;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hashmap.put(<span class="string">"Item 1"</span>, <span class="string">"Value 1"</span>);</span><br><span class="line">hashmap.put(<span class="string">"Item 1"</span>, <span class="number">25</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>刪除資料: 根據參數Key刪掉對應的Key-Value資料</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hashmap.remove(<span class="string">"Item 1"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>取特定key對應的值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hashmap.get(<span class="string">"Item 1"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>顯示整個HashMap內容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"內容："</span> + hashmap);</span><br><span class="line"><span class="keyword">for</span>(String Key: map.keySet())&#123;</span><br><span class="line">System.out.println(Key + <span class="string">" "</span> + hashmap.get(Key));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清空HashMap: 刪除整個HashMap內容，物件還在，但沒有東西</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hashmap.clean();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>補充:<br>如果想要此 map 可以1對多的話(1 key 對應多個 value)<br>value 的型別可以用 ArrayList<br>好處在value可以使用所有 ArrayList 的功能<br>宣告:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;&gt; hashmap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>每個key對應都是一個ArrayList，放數值前要先初始化:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hashmapmap.put(<span class="string">"Item 1"</span>, <span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line">hashmapmap.put(<span class="string">"Item 2"</span>, <span class="keyword">new</span> ArrayList&lt;&gt;());</span><br></pre></td></tr></table></figure></p>
+<p>新增數值:用get得到ArrayList物件，再用他的add方法新增<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hashmap.get(<span class="string">"Item 2"</span>).add(<span class="string">"d"</span>);</span><br><span class="line">hashmap.get(<span class="string">"Item 2"</span>).add(<span class="string">"e"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>刪除某個key的所有value: 下次要用此key時要再次初始化<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hashmap.remove(<span class="string">"Item 2"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>刪除某個key的特定value<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hashmap.get(<span class="string">"Item 2"</span>).remove(<span class="string">"d"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>提取輸出：也是用迭代器<code>Iterator</code>，但是Map中沒有迭代器，那麼我們可也<em>使用Collection中</em>的，具體 方法有三種，詳見下列代碼：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> map.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Collection;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashMapTest</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">Map&lt;String,String&gt; map=<span class="keyword">new</span> HashMap&lt;String,String&gt;();</span><br><span class="line"><span class="comment">//增加操作 鍵和值</span></span><br><span class="line">map.put(<span class="string">"姓名"</span>, <span class="string">"張三"</span>);</span><br><span class="line">map.put(<span class="string">"密碼"</span>, <span class="string">"123"</span>);</span><br><span class="line">map.put(<span class="string">"郵箱"</span>, <span class="string">"333@gmail.com"</span>);</span><br><span class="line">map.put(<span class="string">"姓名"</span>, <span class="string">"李四"</span>);</span><br><span class="line">System.out.println(map);<span class="comment">//重寫了toString()方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//修改操作，根據指定的鍵以新值换舊值</span></span><br><span class="line">map.put(<span class="string">"姓名"</span>,<span class="string">"王五"</span>);</span><br><span class="line">System.out.println(map);</span><br><span class="line"><span class="comment">//查找操作</span></span><br><span class="line">System.out.println(map.containsKey(<span class="string">"姓名"</span>));<span class="comment">//false</span></span><br><span class="line">System.out.println(map.containsValue(<span class="string">"張三"</span>));<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"--------------------------"</span>);</span><br><span class="line"><span class="comment">//第一種輸出方式：迭代所有的Key值，再通過get(key)方法得到value</span></span><br><span class="line">Set&lt;String&gt; set=map.keySet();</span><br><span class="line">Iterator&lt;String&gt; it=set.iterator();</span><br><span class="line"><span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">String key=it.next();</span><br><span class="line">String value=map.get(key);</span><br><span class="line">System.out.println(key+<span class="string">":"</span>+value);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">"------------------------"</span>);</span><br><span class="line"><span class="comment">//第二中輸出方式：通過Map.Entry和getKey(),getValue()方法</span></span><br><span class="line">Set&lt;Map.Entry&lt;String, String&gt;&gt; entry=map.entrySet();</span><br><span class="line">Iterator&lt;Map.Entry&lt;String, String&gt;&gt; entryIt=entry.iterator();</span><br><span class="line"><span class="keyword">while</span>(entryIt.hasNext())&#123;</span><br><span class="line">Map.Entry&lt;String, String&gt; me=entryIt.next();</span><br><span class="line">String key=me.getKey();</span><br><span class="line">String value=me.getValue();</span><br><span class="line">System.out.println(key+<span class="string">":"</span>+value);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">"----------------------------"</span>);</span><br><span class="line"><span class="comment">//第三種輸出方式：只得到value的方法</span></span><br><span class="line">Collection&lt;String&gt; col=map.values();</span><br><span class="line">Iterator&lt;String&gt; colIt=col.iterator();</span><br><span class="line"><span class="keyword">while</span>(colIt.hasNext())&#123;</span><br><span class="line">String value=colIt.next();</span><br><span class="line">System.out.println(value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>運行結果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;姓名=李四, 密碼=123, 郵箱=333@gmail.com&#125;</span><br><span class="line">&#123;姓名=王五, 密碼=123, 郵箱=333@gmail.com&#125;</span><br><span class="line">true</span><br><span class="line">false</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">姓名:王五</span><br><span class="line">密碼:123</span><br><span class="line">郵箱:333@gmail.com</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">姓名:王五</span><br><span class="line">密碼:123</span><br><span class="line">郵箱:333@gmail.com</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">王五</span><br><span class="line">123</span><br><span class="line">333@gmail.com</span><br></pre></td></tr></table></figure></p>
+<h2 id="Hashtable"><a href="#Hashtable" class="headerlink" title="Hashtable"></a>Hashtable</h2><h3 id="資料結構簡介-1"><a href="#資料結構簡介-1" class="headerlink" title="資料結構簡介:"></a>資料結構簡介:</h3><p>Hashtable和HashMap的用法基本一樣，正如我們從前學過的ArrayList和Vector，還有stringBuilder和stringBuffer的區別一樣，下面只強調一點Hashtable與HashMap的另外一點不同：<br>HashMap中的key值和value值都可以為null，而Hashtable不可以，會出現<code>NullPointerException</code>空指針異常</p>
+<h3 id="用法例子："><a href="#用法例子：" class="headerlink" title="用法例子："></a>用法例子：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashtableTest</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">Map&lt;String,String&gt; map=<span class="keyword">new</span> Hashtable&lt;String,String&gt;();</span><br><span class="line">map.put(<span class="string">"姓名"</span>, <span class="string">"張三"</span>);</span><br><span class="line">map.put(<span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">System.out.println(map);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>運行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread &quot;main&quot; java.lang.NullPointerException</span><br><span class="line">at java.util.Hashtable.put(Hashtable.java:394)</span><br><span class="line">at map.Map.HashtableTest.main(HashtableTest.java:15)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashtableTest</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">Map&lt;String,String&gt; map=<span class="keyword">new</span> HashMap&lt;String,String&gt;();</span><br><span class="line">map.put(<span class="string">"姓名"</span>, <span class="string">"张非"</span>);</span><br><span class="line">map.put(<span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">System.out.println(map);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>運行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;null=null, 姓名=張三&#125;</span><br></pre></td></tr></table></figure></p>
+<p>（注意一點：</p>
+<p>HashMap中containsKey 按照hashcode和equals查找， containsValue 根據equals查找，很好理解，因為key值具有唯一性，類似於HashSet，而value值是不唯一的，這樣就很容易理解了）</p>
+<h2 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h2><h3 id="資料結構簡介-2"><a href="#資料結構簡介-2" class="headerlink" title="資料結構簡介:"></a>資料結構簡介:</h3><p>TreeMap就是一種可排序的Map，按照key值進行排序，也就要求TreeMap的key值是具有可比較性的 （關於這一點，可以根據TreeSet來輔助理解）</p>
+<p>當然，當key值不具有比較性時，會出現異常</p>
+<h3 id="用法例子：-1"><a href="#用法例子：-1" class="headerlink" title="用法例子："></a>用法例子：</h3><p>下面分別給出key值是否有比較性的情況為例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> map.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> java.util.TreeMap;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* TreeMap的自動按key值排序功能</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeMapTest</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">Map&lt;String,User&gt; map=<span class="keyword">new</span> TreeMap&lt;String,User&gt;();</span><br><span class="line"><span class="comment">//創建三個用户</span></span><br><span class="line">User user1=<span class="keyword">new</span> User(<span class="string">"張三"</span>);</span><br><span class="line">User user2=<span class="keyword">new</span> User(<span class="string">"李四"</span>);</span><br><span class="line">User user3=<span class="keyword">new</span> User(<span class="string">"王五"</span>);</span><br><span class="line"><span class="comment">//添加key和value的值</span></span><br><span class="line">map.put(<span class="string">"b"</span>, user1);</span><br><span class="line">map.put(<span class="string">"c"</span>, user2);</span><br><span class="line">map.put(<span class="string">"a"</span>, user3);</span><br><span class="line"><span class="comment">//提取輸出顯示</span></span><br><span class="line">Set&lt;String&gt; set=map.keySet();</span><br><span class="line">Iterator&lt;String&gt; it=set.iterator();</span><br><span class="line"><span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">String key=it.next();</span><br><span class="line">User value=map.get(key);</span><br><span class="line">System.out.println(key+<span class="string">":"</span>+value);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">運行结果：</span><br><span class="line">a:User王三</span><br><span class="line">b:User王五</span><br><span class="line">c:User李四</span><br></pre></td></tr></table></figure>
+<p>從結果我們可以看出：作為key值得”a”,”b”,”c”是按照String的compareTo方法排序之後的結果</p>
+<p>上面的例子是以String類型作為key值得，下面我們用User類型作為key值測試一下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeMapTest</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">Map&lt;User,String&gt; map=<span class="keyword">new</span> TreeMap&lt;User,String&gt;();</span><br><span class="line"><span class="comment">//创建三个用户</span></span><br><span class="line">User user1=<span class="keyword">new</span> User(<span class="string">"张菲"</span>);</span><br><span class="line">User user2=<span class="keyword">new</span> User(<span class="string">"赵敏"</span>);</span><br><span class="line">User user3=<span class="keyword">new</span> User(<span class="string">"王剑"</span>);</span><br><span class="line"><span class="comment">//添加key和value的值</span></span><br><span class="line">map.put(user1,<span class="string">"b"</span>);</span><br><span class="line">map.put(user2,<span class="string">"c"</span>);</span><br><span class="line">map.put(user3,<span class="string">"a"</span>);</span><br><span class="line">System.out.println(map);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>運行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread &quot;main&quot; java.lang.ClassCastException: map.Map.User cannot be cast to java.lang.Comparable</span><br><span class="line">at java.util.TreeMap.put(TreeMap.java:542)</span><br><span class="line">at map.Map.TreeMapTest.main(TreeMapTest.java:19)</span><br></pre></td></tr></table></figure></p>
+<p>可以看出：出現了ClassCastException類型轉換異常，則一般情況下用應該使用八種封裝類或String作key值，這一點是值得注意的地方。</p>
+<p>Reference:</p>
+<ul>
+<li><a href="https://blog.csdn.net/u013398759/article/details/77679632" target="_blank" rel="noopener">https://blog.csdn.net/u013398759/article/details/77679632</a></li>
+<li><a href="http://hellowalk.blogspot.com/2017/10/java-hashmap.html" target="_blank" rel="noopener">http://hellowalk.blogspot.com/2017/10/java-hashmap.html</a></li>
+<li><a href="http://blog.51cto.com/wangzhaoli/1258494" target="_blank" rel="noopener">http://blog.51cto.com/wangzhaoli/1258494</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/Learning/" rel="tag"># Learning</a>
+          
+            <a href="/tags/Java-Data-Structure/" rel="tag"># Java Data Structure</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/03/JAVA-GUI-03 ArrayList Container/" rel="next" title="JAVA -GUI 03. Arrayist">
+                <i class="fa fa-chevron-left"></i> JAVA -GUI 03. Arrayist
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yuju(Lucy) Kuo</p>
+              <p class="site-description motion-element" itemprop="description">Don’t be afraid to give up the good to go for the great. John D. Rockefeller</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:yujuko@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/yujuko" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">1.</span> <span class="nav-text">HashMap:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#資料結構簡介"><span class="nav-number">1.1.</span> <span class="nav-text">資料結構簡介:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法"><span class="nav-number">1.2.</span> <span class="nav-text">用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hashtable"><span class="nav-number">2.</span> <span class="nav-text">Hashtable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#資料結構簡介-1"><span class="nav-number">2.1.</span> <span class="nav-text">資料結構簡介:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法例子："><span class="nav-number">2.2.</span> <span class="nav-text">用法例子：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeMap"><span class="nav-number">3.</span> <span class="nav-text">TreeMap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#資料結構簡介-2"><span class="nav-number">3.1.</span> <span class="nav-text">資料結構簡介:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法例子：-1"><span class="nav-number">3.2.</span> <span class="nav-text">用法例子：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuju(Lucy) Kuo</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
