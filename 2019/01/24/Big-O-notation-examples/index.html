@@ -110,25 +110,25 @@
 
 
 
-  <meta name="description" content="API 的全名為 Application Programming Interface ，中文可稱之為應用程式介面，簡單來說 API 就是一個程式庫 (library) ，以 Java 而言就是個類別庫，具有各方面應用的類別 (class) Java API 為隨編譯器下載的官方類別庫，裡頭常見的應用包括  圖形介面 網頁 輸入及輸出 資料結構 時間處理 資料庫 數學計算 網路 伺服器  有些是在">
-<meta name="keywords" content="Java,Learning,Java basic">
+  <meta name="description" content="recursive functions1234567int recursiveFun1(int n)&amp;#123;if (n &amp;lt;= 0)return 1;elsereturn 1 + recursiveFun1(n-1);&amp;#125; The first function is being called recursively n times before reaching base case">
+<meta name="keywords" content="Java,Learning,Complexity">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA基礎 - API">
-<meta property="og:url" content="http://yoursite.com/2018/08/30/API/index.html">
+<meta property="og:title" content="Big O notation examples">
+<meta property="og:url" content="http://yoursite.com/2019/01/24/Big-O-notation-examples/index.html">
 <meta property="og:site_name" content="LUCY&#39;s TechGarden">
-<meta property="og:description" content="API 的全名為 Application Programming Interface ，中文可稱之為應用程式介面，簡單來說 API 就是一個程式庫 (library) ，以 Java 而言就是個類別庫，具有各方面應用的類別 (class) Java API 為隨編譯器下載的官方類別庫，裡頭常見的應用包括  圖形介面 網頁 輸入及輸出 資料結構 時間處理 資料庫 數學計算 網路 伺服器  有些是在">
+<meta property="og:description" content="recursive functions1234567int recursiveFun1(int n)&amp;#123;if (n &amp;lt;= 0)return 1;elsereturn 1 + recursiveFun1(n-1);&amp;#125; The first function is being called recursively n times before reaching base case">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-30T16:49:45.634Z">
+<meta property="og:updated_time" content="2019-01-24T14:07:06.444Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA基礎 - API">
-<meta name="twitter:description" content="API 的全名為 Application Programming Interface ，中文可稱之為應用程式介面，簡單來說 API 就是一個程式庫 (library) ，以 Java 而言就是個類別庫，具有各方面應用的類別 (class) Java API 為隨編譯器下載的官方類別庫，裡頭常見的應用包括  圖形介面 網頁 輸入及輸出 資料結構 時間處理 資料庫 數學計算 網路 伺服器  有些是在">
+<meta name="twitter:title" content="Big O notation examples">
+<meta name="twitter:description" content="recursive functions1234567int recursiveFun1(int n)&amp;#123;if (n &amp;lt;= 0)return 1;elsereturn 1 + recursiveFun1(n-1);&amp;#125; The first function is being called recursively n times before reaching base case">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/30/API/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/01/24/Big-O-notation-examples/"/>
 
 
 
@@ -138,7 +138,7 @@
   };
 </script>
 
-  <title>JAVA基礎 - API | LUCY's TechGarden</title>
+  <title>Big O notation examples | LUCY's TechGarden</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/30/API/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/24/Big-O-notation-examples/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yuju(Lucy) Kuo">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JAVA基礎 - API
+          <h1 class="post-title" itemprop="name headline">Big O notation examples
               
             
           </h1>
@@ -349,7 +349,7 @@
                 
               
 
-              <time title="Created: 2018-08-30 10:54:07 / Modified: 12:49:45" itemprop="dateCreated datePublished" datetime="2018-08-30T10:54:07-04:00">2018-08-30</time>
+              <time title="Created: 2019-01-24 09:01:57 / Modified: 09:07:06" itemprop="dateCreated datePublished" datetime="2019-01-24T09:01:57-05:00">2019-01-24</time>
             
 
             
@@ -405,68 +405,16 @@
       
 
       
-        <p>API 的全名為 Application Programming Interface ，中文可稱之為應用程式介面，簡單來說 API 就是一個程式庫 (library) ，以 Java 而言就是個類別庫，具有各方面應用的類別 (class)</p>
-<p>Java API 為隨編譯器下載的官方類別庫，裡頭常見的應用包括</p>
-<ul>
-<li>圖形介面</li>
-<li>網頁</li>
-<li>輸入及輸出</li>
-<li>資料結構</li>
-<li>時間處理</li>
-<li>資料庫</li>
-<li>數學計算</li>
-<li>網路</li>
-<li>伺服器</li>
-</ul>
-<p>有些是在 java.lang 的套件 (package) 中，因此使用不需要引入類別名稱，例如數學計算的 Math 類別或是在命令列印出訊息的 System.out 物件 (object) ，其他就需要引入類別名稱，或是使用全名。例如猜數字遊戲</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GuessGame</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"><span class="keyword">int</span> answer = (<span class="keyword">int</span>) (Math.random() * <span class="number">10</span>);</span><br><span class="line">java.io.InputStreamReader reader = <span class="keyword">new</span> java.io.InputStreamReader(System.in);</span><br><span class="line">java.io.BufferedReader input = <span class="keyword">new</span> java.io.BufferedReader(reader);</span><br><span class="line"><span class="keyword">int</span> guess = -<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">String s;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (answer != guess) &#123;</span><br><span class="line">System.out.println();</span><br><span class="line">System.out.println(<span class="string">"請輸入 0 - 9 的數字： "</span>);</span><br><span class="line">s = input.readLine();</span><br><span class="line"><span class="keyword">char</span>[] c = s.toCharArray();</span><br><span class="line">guess = (<span class="keyword">int</span>) (c[<span class="number">0</span>] - <span class="number">48</span>);</span><br><span class="line">i++;</span><br><span class="line">&#125;</span><br><span class="line">System.out.printf(<span class="string">"\n一共回答了 %d 次....\n\n"</span>, i);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我們拿掉原本放在第 1 行的<br><code>import java.io.*;</code></p>
-<p>java.io 就是專門用來處理輸入及輸出工作的，現在第 4 行及第 5 行都需要使用類別名稱的全名<br><code>java.io.InputStreamReader reader = new java.io.InputStreamReader(System.in);</code><br><code>java.io.BufferedReader input = new java.io.BufferedReader(reader);</code><br>這樣就顯得過長，所以還是先<code>import java.io.*</code> ，這樣在此程式中就能少打四個<code>java.io.</code> 。<br>如果我們用到 API 的東西越多，先 import 就可以減少越多需要鍵入的字串。</p>
-<p>完整、詳細的 API 文件，可見 <a href="http://download.oracle.com/javase/6/docs/api/" target="_blank" rel="noopener">Java API Specification</a></p>
-<p>下面是幾個常用的 API 套件與類別：</p>
-<table>
-<thead>
-<tr>
-<th>Packages</th>
-<th>Descriptions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>java.lang</td>
-<td>提供許多寫程式經常使用的類別，包括物件之母 Object 類別，基本資料型態的包裹類別 (wrapper class) ，如 Boolean 、 Byte 、 Character 、 Double 、 Float 、 Integer 、 Long 、 Short 類別，具有許多常用數學計算方法的 Math 類別，系統相關功能的 System 類別，同步功能的 Thread 類別，例外處理的 Exception 類別，以及程式經常需要大量處理的字串 String 類別等。</td>
-</tr>
-<tr>
-<td>java.awt</td>
-<td>提供使用者介面 (user interface) 與點陣圖（包括圖檔）的類別，包括所有常見的 GUI 元件、事件處理、版面規劃等。</td>
-</tr>
-<tr>
-<td>javax.swing</td>
-<td>則是另一個專門用來設計 GUI 的套件，提供比 java.awt 更精巧的 GUI 功能。 這裡要留意 javax.swing 並非以 java 開頭，而是以 javax 開頭，這是因為 swing 原本是第三方 (third party) 開發出的類別庫，後於 Java 1.2 版以後才收進官方提供的類別庫之中，所以 API 中以 javax 開頭的，原本都屬於第三方開發的類別庫。</td>
-</tr>
-<tr>
-<td>java.applet</td>
-<td>提供 Applet 類別，使 Java 程式可在有安裝 Java Plug-in 的瀏覽器 (browser) 中執行。</td>
-</tr>
-<tr>
-<td>java.util</td>
-<td>提供資料結構，如 ArrayList 、 Dictionary 類別，或 List 、 Set 、 Map 等介面 (interface) ，時間處理，如 Calendar 、 Date 、 Timer 等類別。這裡提到的介面跟使用者介面用的是同一個「介面」，然此介面為程式與程式間的介面，而非使用者與程式間的介面。程式與程式間的介面類似類別，但介面只需要宣告要有哪些屬性 (field) 與方法 (method) ，屬性為常數值，無須實作方法的詳細內容。這意思是說，介面屬於類別共通的規格，例如汽車都可以加油，加滿油，也就是油槽的儲存量會是一個常數，可能每一款車子都不同，每款汽車同樣需要方向盤，實際方向盤的設計彼此之間可能會有極大的差異。油槽的儲存量就像是介面的屬性，方向盤像是介面的方法。有些程式語言允許多重繼承，多重繼承使類別可以繼承不同父類別的特性，可是 Java 是不允許多重繼承的程式語言，繼承在 Java 中是單方向的， Java 允許繼承單一父類別，卻可實作多個不同介面，讓類別可以得到不同來源的特性。</td>
-</tr>
-<tr>
-<td>java.sql</td>
-<td>提供資料庫處理的類別與介面</td>
-</tr>
-<tr>
-<td>java.net</td>
-<td>提供網路方面</td>
-</tr>
-<tr>
-<td>java.servlet</td>
-<td>提供架設伺服器應用方面</td>
-</tr>
-</tbody>
-</table>
-<p>中英文術語對照<br>應用程式介面    Application Programming Interface, API<br>程式庫    library<br>套件    package<br>類別    class<br>物件    object<br>包裹類別    wrapper class<br>使用者介面    user interface<br>第三方    third party<br>瀏覽器    browser<br>介面    interface<br>屬性    field<br>方法    method</p>
+        <h2 id="recursive-functions"><a href="#recursive-functions" class="headerlink" title="recursive functions"></a>recursive functions</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">recursiveFun1</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (n &lt;= <span class="number">0</span>)</span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span> + recursiveFun1(n-<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The first function is being called recursively n times before reaching base case so its O(n), often called linear.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">recursiveFun2</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (n &lt;= <span class="number">0</span>)</span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span> + recursiveFun2(n-<span class="number">5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The second function is called n-5 for each time, so we deduct five from n before calling the function, but n-5 is also O(n). (Actually called order of n/5 times. And, O(n/5) = O(n) ).</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">recursiveFun3</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (n &lt;= <span class="number">0</span>)</span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span> + recursiveFun3(n/<span class="number">5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This function is log(n) base 5, for every time we divide by 5 before calling the function so its O(log(n))(base 5), often called logarithmic and most often Big O notation and complexity analysis uses base 2.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">recursiveFun4</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m, <span class="keyword">int</span> o)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (n &lt;= <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">printf(<span class="string">"%d, %d\n"</span>,m, o);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">recursiveFun4(n-<span class="number">1</span>, m+<span class="number">1</span>, o);</span><br><span class="line">recursiveFun4(n-<span class="number">1</span>, m, o+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In the fourth, it’s O(2^n), or exponential, since each function call calls itself twice unless it has been recursed n times.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">recursiveFun5</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i += <span class="number">2</span>) &#123;</span><br><span class="line"><span class="comment">// do something</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (n &lt;= <span class="number">0</span>)</span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span> + recursiveFun5(n-<span class="number">5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In the fifth, the for loop takes n/2 since we’re increasing by 2, and the recursion take n-5 and since the for loop is called recursively therefore the time complexity is in (n-5) <em>(n/2) = (2n-10) </em> n = 2n^2- 10n, due to Asymptotic behavior and worst case scenario considerations or the upper bound that big O is striving for, we are only interested in the largest term so O(n^2).</p>
 
       
     </div>
@@ -491,7 +439,7 @@
           
             <a href="/tags/Learning/" rel="tag"># Learning</a>
           
-            <a href="/tags/Java-basic/" rel="tag"># Java basic</a>
+            <a href="/tags/Complexity/" rel="tag"># Complexity</a>
           
         </div>
       
@@ -504,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/22/array/" rel="next" title="JAVA類別 - Array陣列">
-                <i class="fa fa-chevron-left"></i> JAVA類別 - Array陣列
+              <a href="/2019/01/23/Big-O-notation/" rel="next" title="Big O notation">
+                <i class="fa fa-chevron-left"></i> Big O notation
               </a>
             
           </div>
@@ -513,10 +461,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/09/Latex/" rel="prev" title="Latex語法筆記">
-                Latex語法筆記 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -565,8 +509,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -681,6 +634,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#recursive-functions"><span class="nav-number">1.</span> <span class="nav-text">recursive functions</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
