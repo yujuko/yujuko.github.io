@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/l.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/l.png?v=6.3.0" color="#222">
+
+
+  <link rel="manifest" href="/images/l.png">
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Big O notation入門簡介計算機的計算過程中，基本上都是一些複雜的計算，數以千計，數以萬計或是數以億計的計算，那麼如何計算和總結為讓我們更加簡單易懂的語言呢，與成績分層是一個道理，A是好的，B次好等等等等，就引入了big O notation這個概念。 程序員如果要進行編程，我們不希望計算機花費大量的時間去進行一個運算，要盡全力將big O 弄到最小。 1，2，3，4，5，6，7的是O(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Big O notation">
+<meta property="og:url" content="http://yoursite.com/2019/01/23/Big-O-notation/index.html">
+<meta property="og:site_name" content="LUCY&#39;s TechGarden">
+<meta property="og:description" content="Big O notation入門簡介計算機的計算過程中，基本上都是一些複雜的計算，數以千計，數以萬計或是數以億計的計算，那麼如何計算和總結為讓我們更加簡單易懂的語言呢，與成績分層是一個道理，A是好的，B次好等等等等，就引入了big O notation這個概念。 程序員如果要進行編程，我們不希望計算機花費大量的時間去進行一個運算，要盡全力將big O 弄到最小。 1，2，3，4，5，6，7的是O(">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-24T13:54:27.765Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Big O notation">
+<meta name="twitter:description" content="Big O notation入門簡介計算機的計算過程中，基本上都是一些複雜的計算，數以千計，數以萬計或是數以億計的計算，那麼如何計算和總結為讓我們更加簡單易懂的語言呢，與成績分層是一個道理，A是好的，B次好等等等等，就引入了big O notation這個概念。 程序員如果要進行編程，我們不希望計算機花費大量的時間去進行一個運算，要盡全力將big O 弄到最小。 1，2，3，4，5，6，7的是O(">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/23/Big-O-notation/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Big O notation | LUCY's TechGarden</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LUCY's TechGarden</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">13</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">3</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">22</span></a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/23/Big-O-notation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuju(Lucy) Kuo">
+      <meta itemprop="description" content="Don’t be afraid to give up the good to go for the great. John D. Rockefeller">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LUCY's TechGarden">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Big O notation
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-01-23 21:24:25" itemprop="dateCreated datePublished" datetime="2019-01-23T21:24:25-05:00">2019-01-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-24 08:54:27" itemprop="dateModified" datetime="2019-01-24T08:54:27-05:00">2019-01-24</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Big-O-notation入門"><a href="#Big-O-notation入門" class="headerlink" title="Big O notation入門"></a>Big O notation入門</h1><h2 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h2><p>計算機的計算過程中，基本上都是一些複雜的計算，數以千計，數以萬計或是數以億計的計算，<br>那麼如何計算和總結為讓我們更加簡單易懂的語言呢，與成績分層是一個道理，A是好的，B次好等等等等，就引入了big O notation這個概念。</p>
+<p>程序員如果要進行編程，我們不希望計算機花費大量的時間去進行一個運算，要盡全力將big O 弄到最小。</p>
+<p>1，2，3，4，5，6，7的是O(1)，是屬於常數的<br>n，2n，2n+1，4m+4的是O(n)，是屬於線性函數<br>n^2 4 n^2+3等等的話就是O(n^2)，二次的線性函數<br>等等</p>
+<p>如果一個函數它是以多項式來表示：</p>
+<p>當我們要看一個多項式的時候，General rule，pick the term that grows the fastest and remove<br>the constants from it:<br>5n + 2log(n) ＝ O(n).<br>3n^3 +2^n/6 ＝ O(2^n ).<br>8log(n) + 7n  ＝ O(n).</p>
+<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><p>O(1)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">def <span class="title">isFirstElementNull</span><span class="params">(elements, value)</span>:</span></span><br><span class="line"><span class="function">return elements[0] </span>== value</span><br><span class="line">#print isFirstElementNull(["1","2"],"1")</span><br></pre></td></tr></table></figure>
+<p>無論輸入參數是什麼，這個函數就只執行一次，所以它的複雜度為O(1)。</p>
+<p>O(N)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">def <span class="title">containsValue</span><span class="params">(elements, value)</span>:</span></span><br><span class="line"><span class="function"><span class="keyword">for</span> e in elements:</span></span><br><span class="line"><span class="function"><span class="keyword">if</span> e </span>== value:</span><br><span class="line"><span class="keyword">return</span> True</span><br><span class="line"><span class="keyword">return</span> False</span><br><span class="line">#print isFirstElementNull(["1","2"],"1")</span><br></pre></td></tr></table></figure>
+<p>這裡有一個for循環，如果運氣好就執行一次（elements裡第一個值就跟value一樣），運氣不好就要執行N次（N等於elements的長度，碰巧elements裡最後一個值跟value一樣） ，因為Big O是表示最壞時情形，所以這個函數的複雜度為O(N)。</p>
+<p>O( N2)<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">def <span class="title">containsDuplicates</span><span class="params">(elements)</span>:</span></span><br><span class="line"><span class="function"><span class="keyword">for</span> m in <span class="title">range</span><span class="params">(len(elements)</span>):</span></span><br><span class="line"><span class="function"><span class="keyword">for</span> n in <span class="title">range</span><span class="params">(len(elements)</span>):</span></span><br><span class="line"><span class="function"><span class="title">if</span> <span class="params">(m != n)</span> and elements[m] </span>== elements[n]:</span><br><span class="line"><span class="keyword">return</span> True</span><br><span class="line"><span class="keyword">return</span> False</span><br><span class="line">#print containsDuplicates(["1","2","3","2"])</span><br></pre></td></tr></table></figure></p>
+<p>這裡有兩個嵌套的for循環，所以執行最多的次數肯定為兩個for循環次數相乘，即N*N（N等於elements長度），所以這個函數的複雜度為O(N2)。</p>
+<p>O( 2N)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">def <span class="title">fibonacci</span><span class="params">(num)</span>:</span></span><br><span class="line"><span class="function"><span class="keyword">if</span> num &lt; 2:</span></span><br><span class="line"><span class="function">return num</span></span><br><span class="line"><span class="function">return <span class="title">fibonacci</span><span class="params">(num - <span class="number">2</span>)</span> + <span class="title">fibonacci</span><span class="params">(num - <span class="number">1</span>)</span></span></span><br><span class="line"><span class="function">#print <span class="title">fibonacci</span><span class="params">(<span class="number">5</span>)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>這是計算斐波那契數的函數，用遞歸方式實現，執行2的N次方，所以這個函數的複雜度為O(2N)。</p>
+<p>O(logN)<br>log複習<br>1.底數為10時，寫為lg；<br>2.底數為e時，稱為自然對數寫為ln,這個在高等數學中用的很多；<br>3.底數為2時，主要用在計算機中，寫為log，也就是不寫底數；</p>
+<p>所以logN其實就是log2n<br>以Binary Search（也叫拆半查詢和二分查詢）為例，感覺查詢過程就跟切西瓜一樣，先中間切一刀，然後選一塊，再在選定的半個西瓜上再來一刀，再決定選哪塊，再切再選，最後找到滿意的，即1/2,1/4,1/8,1/16…這樣下去。以下是算法腳本<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span> array[],<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> begin = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> end = array.length - <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (begin &lt;= end) &#123;</span><br><span class="line"><span class="keyword">int</span> mid = begin + (end - begin) / <span class="number">2</span>;</span><br><span class="line"><span class="keyword">if</span> (array[mid] &gt; key)&#123;</span><br><span class="line">end = mid - <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (array[mid] &lt; key)&#123;</span><br><span class="line">begin = mid + <span class="number">1</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="keyword">return</span> mid;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以下是測試程序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int[] a1 = &#123;1,2,3,4,5,6,7,8,9,11,22,33,44,55,66,77,88,99,100&#125;;</span><br><span class="line">int result = binarySearch(a1, 4);</span><br><span class="line">System.out.println(result);</span><br><span class="line">//output: 3</span><br></pre></td></tr></table></figure></p>
+<p>其實這樣一刀一刀的找就是2的倍數關係，比如切了3刀找到，那就有8塊了（其實是4塊，因為你只切選中的那一塊，但為了計算方便，我們就當把西瓜都切了），即2的3次方，如果切5刀找打，那就有32塊，即2的5次方，所以這個算法的時間複雜度就是O(log2N)，即O(logN)。</p>
+<blockquote>
+<p>注意，時間複雜度是個近似值，比如O(2N)就是O(N)，O(3N+5)就是O(N)，這個值要表達的是個複雜度趨勢，記住這點很重要。</p>
+</blockquote>
+<h2 id="複雜度比較"><a href="#複雜度比較" class="headerlink" title="複雜度比較"></a>複雜度比較</h2><p>由快到慢<br>log log n<br>log n (logarithmic)<br>sqrt n<br>n (linear)<br>n log（n）<br>n^2 (quadratic)<br>n^3 (cubic)<br>…<br>n^k (polynomial hierarchy)<br>a^n (exponential hierarchy)<br>n!</p>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>原文網頁地址：<a href="https://www.interviewcake.com/article/python/big-o-notation-time-and-space-complexity?section=algorithmic-thinking&amp;course=fc1" target="_blank" rel="noopener">https://www.interviewcake.com/article/python/big-o-notation-time-and-space-complexity?section=algorithmic-thinking&amp;course=fc1</a></p>
+<h3 id="基礎知識"><a href="#基礎知識" class="headerlink" title="基礎知識"></a>基礎知識</h3><p>目的:<br>The Big O notation is the language we use for talking about how long an algorithm takes to run.<br>O表達式是一種我們用描述一個算法運行中耗時多少的語言表達方式。</p>
+<p>詳細描述:<br>with big o notation we express the runtime in terms of - brace youself - how quickly it grows relative to the input.<br>我們使用O表達式，相對輸入的增長速度來描述運行時。</p>
+<p>從如下幾個方面闡述：</p>
+<ol>
+<li>how quickly the runtime grows(運行時的增長速度)<br>我們很難求出一個算法的真正的運行時間，因為這個跟處理器的處理效率，計算機如何運行等等因素相關，相對於直接使用運行時間表示算法優劣，O表達式是描述運行時的增長速度。</li>
+<li>relative to the input(相對於輸入)<br>如果我們直接計算運行時間，那麼我們可以使用秒來描述速度；當我們計算運行時的增長速度，我們需要基於其他的東西來描述我們的速度，對於O表達式，我們使用輸入的大小，通常稱為n。</li>
+<li>as the input gets arbitrarily large(輸入變得任意大)<br>當n比較小的時候，我們的算法中一些步驟顯的比較重要（耗時佔比大），但當n很大時，這些步驟就不值得一提了。我們最關心的時隨著輸入增大而增長最快的東西，當n非常大的時候，其他東西就很不值得一提了。（漸進線）</li>
+<li>其他注意點<br>n could be the actual input, or the size of input(n可能是輸入的值，也可能是輸入的大小)<br>Drop the constants(刪除常量)<br>Drop the less significant terms(刪除一些不重要的條款)<br>We usually talking about the “worse case”(我們經常討論最壞情況)<blockquote>
+<p>有時最壞情況比最好情況要壞的多，面試的時候，也可以通過明確的表述最壞情況，來打動面試官。<br>Space complexity(空間複雜性)：the final frontier(最後的邊界)<br>有時候，對於花費更短時間，我們更希望使用更少的存儲空間。討論空間複雜和上面討論時間複雜很相似，都是相對於輸入而言。<br>當我們討論空間複雜性時，一般討論的是額外增加的空間；對於輸入佔用不考慮。<br>時間複雜性和空間複雜性，在設計算法時，應進行權衡利弊。</p>
+</blockquote>
+</li>
+</ol>
+<p>Big O analysis is awesome expect it is not(Big O分析很棒，除了它不是)<br>使用Big O分析時，也要注意如下幾點，並不是嚴格的按照上面的注意點而行，需進行甄別。</p>
+<p>Big O強調忽略常量，但常量有時也很重要(可以達到很好的優化效果)；<br>注意避免過早優化<br>有時優化時間或空間對可讀性或編碼時間有負面影響，對於一些初創或代碼開發初期，編寫易於快速發布和易讀的代碼更為重要，儘管運行時間不及預期。</p>
+<p>reference：</p>
+<ul>
+<li><a href="https://blog.csdn.net/uestcyms/article/details/83048225" target="_blank" rel="noopener">https://blog.csdn.net/uestcyms/article/details/83048225</a></li>
+<li><a href="https://blog.csdn.net/u013152895/article/details/44115663" target="_blank" rel="noopener">https://blog.csdn.net/u013152895/article/details/44115663</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/22/DataStructureTimeEfficiency/" rel="next" title="DataStructureTimeEfficiency">
+                <i class="fa fa-chevron-left"></i> DataStructureTimeEfficiency
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yuju(Lucy) Kuo</p>
+              <p class="site-description motion-element" itemprop="description">Don’t be afraid to give up the good to go for the great. John D. Rockefeller</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:yujuko@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/yujuko" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Big-O-notation入門"><span class="nav-number">1.</span> <span class="nav-text">Big O notation入門</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#簡介"><span class="nav-number">1.1.</span> <span class="nav-text">簡介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#範例"><span class="nav-number">1.2.</span> <span class="nav-text">範例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#複雜度比較"><span class="nav-number">1.3.</span> <span class="nav-text">複雜度比較</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#總結"><span class="nav-number">1.4.</span> <span class="nav-text">總結</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基礎知識"><span class="nav-number">1.4.1.</span> <span class="nav-text">基礎知識</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuju(Lucy) Kuo</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
